@@ -1,0 +1,121 @@
+\title{The Dimension of a Susbpsace}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle  
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+    \item dimension of a subspace
+    % \item the rank of a matrix 
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    \item characterize a subspace using the concept of dimension (or cardinality)
+    % \item characterize a matrix using the concepts of rank, column space, null space
+    % \item apply the rank, basis, and matrix invertibility theorems to describe matrices and subspaces
+\end{itemize}
+ 
+}
+
+
+
+
+
+\frame{\frametitle{Dimension of a Subspace}
+
+    \vspace{-12pt}
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth} \vspace{2pt}
+    
+    The \Emph{dimension} (or cardinality) of a non-zero subspace $H$, $ \operatorname {dim} H $, is the number of vectors in a basis of $H$.
+    We define $ \operatorname {dim} \{\vec 0\}$ = 0.  
+
+     \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Definition}; \end{tikzpicture}\end{center}
+     
+    
+    Note that the zero vector cannot be a basis vector. The dimension of the set that only contains the zero vector is zero. 
+    
+    \pause 
+    
+    \vspace{6pt}
+    \Emph{Example}\\
+    The dimensions of the column space for each matrix below is 2.
+    $$A=\spalignmat{1 0 0;0 0 1}, \quad B=\spalignmat{1 0;0 1;0 0}, \quad C = \spalignmat{1 0 1; 0 1 1;0 0 0}$$
+    
+
+
+}
+
+
+\frame{\frametitle{Examples: Dimension of a Subspace}
+
+    \Emph{Fill in the blanks.}
+
+    \begin{enumerate}
+    \item  $ \operatorname {dim} \mathbb R ^{n} =$ \framebox{\strut\hspace{1cm}}.
+    
+    \vspace{6pt} 
+    
+    \item  $A = \spalignmat{0 0 0;0 0 0}$, $\operatorname {dim} \left( \operatorname{Col}A\right) =$ \framebox{\strut\hspace{1cm}}.
+    
+    \vspace{6pt} 
+    
+    \item  $ \operatorname {dim(Null} A)$ is the number of \framebox{\strut\hspace{3cm}}.
+    
+    \vspace{6pt} 
+    
+    \item  $ \operatorname {dim(Col} A)$ is the number of \framebox{\strut\hspace{3cm}}.
+    
+    \vspace{6pt} 
+    
+    \item  $ H = \{ \vec x \in \mathbb R^3 \;|\; x_1 + x_2 + x_3 =0\}$  has dimension \framebox{\strut\hspace{1cm}}.
+    
+    \end{enumerate}
+
+
+}
+
+
+\frame{\frametitle{Dimension of a Subspace}
+     
+    \vspace{-12pt}
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth} \vspace{2pt}
+    
+    Suppose $H$ is a $p$-dimensional subspace of $\mathbb R^n$. Any set of $p$ independent vectors that are in $H$ are automatically a basis for $H$. 
+
+     \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Theorem}; \end{tikzpicture}\end{center}
+
+    \pause 
+    
+    \vspace{6pt}
+    \Emph{Example} $$A=\spalignmat{1 0 0;0 1 0;0 0 0}$$ 
+    Two bases for the column space of $A$ are:
+    $$\left\{\spalignmat{1;0;0}, \spalignmat{0;1;0}\right\} \quad \text{and} \quad \left\{\spalignmat{1;0;0}, \spalignmat{1;1;0}\right\}$$
+}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item the dimension of a subspace
+        \item characterizing a subspace using the concept of dimension 
+    \end{itemize}
+    
+
+}
+
+
+
+
+

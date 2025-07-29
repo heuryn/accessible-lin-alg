@@ -1,0 +1,135 @@
+\title{Consistent Systems} 
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+
+
+\frame{\frametitle{Topics and Learning Objectives}
+\Emph{Topics} \\
+\TopicStatement
+
+\begin{itemize}
+    % \item Systems of Linear Equations 
+    % \item Matrix Notation 
+    % \item Elementary Row Operations 
+    \item augmented matrices
+    \item fundamental questions of existence and uniqueness of solutions 
+    \item row equivalence
+\end{itemize}
+
+\vspace{0.5cm}
+
+\LO\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    \item express a set of linear equations as an augmented matrix
+    \item characterize a linear system in terms of the number of solutions, and whether the system is consistent or inconsistent
+    % \item Apply elementary row operations to solve linear systems of equations.
+\end{itemize}
+
+}
+
+
+
+\frame{\frametitle{Augmented Matrices} 
+
+It is redundant to write $x_1,x_2, \ldots$ again and again. So we rewrite systems using matrices. \pause For example,
+\begin{equation*}
+\begin{array}{cccc}
+    x_1 & - 2x_2 &+ x_3 &=0  \\
+ & 2x_2 &-8x_3 &= 7 
+%  5x_1 &  & -5x_3 & =10
+\end{array}
+\end{equation*}
+\pause
+can be written as the \Emph{augmented matrix},
+
+\begin{equation*}
+\begin{amatrix}{3}
+ 1 & -2 & 1 & 0 \\
+ 0 & 2 & -8 & 7 
+%  5 & 0 & -5 & 10
+\end{amatrix}
+\end{equation*}
+\pause
+
+The vertical line reminds us that the first three columns are the coefficients to our variables $x_1$, $x_2$, and $x_3$. \pause Row operations can be applied to rows of augmented matrices as though they were coefficients in a system. 
+
+
+}
+
+
+
+
+\frame{\frametitle{Consistent Systems and Row Equivalence} 
+
+    \vspace{-6pt}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.95\textwidth}\vspace{4pt}
+    
+        A linear system is \Emph{consistent} if it has at least one solution. 
+        
+    \end{minipage}};\node[fancytitle, right=10pt] at (box.north west) {\textbf{Definition: Consistent}};\end{tikzpicture}\end{center}
+    
+    \vspace{-6pt}
+    \pause
+    
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.95\textwidth}\vspace{4pt}
+    
+        Two matrices are \Emph{row equivalent} if a sequence of row operations transforms one matrix into the other.  
+        
+    \end{minipage}};\node[fancytitle, right=10pt] at (box.north west) {\textbf{Definition: Row Equivalence}};\end{tikzpicture}\end{center}
+    
+    \vspace{6pt}
+    \pause 
+    Note: if the augmented matrices of two linear systems are row equivalent, then the systems have the same solution set.
+
+}
+
+
+
+
+\frame{\frametitle{Example for Consistent Systems and Row Equivalence} 
+
+
+    Suppose $$A=\spalignmat{1 1;0 1}, \quad B=\spalignmat{1 0;0 1}, \quad C=\spalignmat{1 1;0 0}$$
+    \pause
+    \begin{enumerate}
+        \item Are $A$ and $B$ row equivalent? Are $A$ and $C$ row equivalent? 
+    \end{enumerate}
+} 
+
+\frame{\frametitle{Example for Consistent Systems and Row Equivalence} 
+
+
+    Suppose $$A=\spalignmat{1 1;0 1}, \quad B=\spalignmat{1 0;0 1}, \quad C=\spalignmat{1 1;0 0}$$
+    \pause
+    \begin{enumerate}
+        \item[2.] Do the augmented matrices $\spalignaugmat{1 1 1;0 1 1}$ and $\spalignaugmat{1 1 1;0 0 1}$ correspond to consistent systems? 
+    \end{enumerate}
+} 
+
+
+
+\frame{\frametitle{Summary: Fundamental Questions}
+
+In this video we explored the following concepts. \vspace{4pt}
+\begin{itemize}\setlength{\itemsep}{8pt}
+    \item Augmented matrices, row equivalence, and consistent systems. 
+    \item Fundamental questions that we revisit many times throughout our course:\vspace{4pt}
+    \begin{enumerate}\setlength{\itemsep}{8pt}
+    \item  Does a given linear system have a solution? In other words, is it consistent? 
+    \item  If it is consistent, is the solution unique? 
+    \end{enumerate}
+\end{itemize}
+
+}
+
+\frame{}
+    

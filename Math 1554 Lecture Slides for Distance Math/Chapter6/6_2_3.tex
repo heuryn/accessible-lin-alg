@@ -1,0 +1,173 @@
+\title{Matrices with Orthonormal Columns}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+  
+
+ 
+\begin{frame}\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item matrices with orthonormal columns and their properties
+    
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    \item apply the properties of matrices with orthonormal columns to determine whether mathematical statements that involve them are accurate
+    
+    % \item express a vector as a linear combination of orthogonal vectors
+    % \item characterize bases for subspaces of $\mathbb R^n$, and
+
+\end{itemize}
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{Orthonormal Columns}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.95\textwidth}\vspace{4pt}
+        An $ m \times n$ matrix $ U$ has orthonormal columns if and only if $ U ^{T} U = I_n $. 
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+
+    \pause
+    Can $U$ have orthonormal columns if $n > m$? 
+
+\end{frame}
+
+
+
+
+
+\begin{frame}{Properties of Matrices with Orthonormal Columns }
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}\vspace{4pt}
+    Suppose  $ m \times n$ matrix $U$ has orthonormal columns and $\vec x$ and $\vec y$ are vectors in $\mathbb R^n$. 
+
+    \begin{enumerate}
+        \item<2-> $ \lVert U \vec x\rVert = \lVert \vec x \rVert$
+        \item<3-> $ (U \vec x  ) \cdot (U \vec y) = \vec x \cdot \vec y$
+        \item<4-> $ (U \vec x  ) \cdot (U \vec y) = 0$ if and only if $\vec x \cdot \vec y = 0$
+    \end{enumerate}
+
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+    
+    \pause
+    \onslide<5->{These properties tell us that the mapping $\vec x \to U\vec x$ preserves lengths and orthogonality.} 
+    \onslide<6->{Proofs of the above statements are similar. Let's prove the first statement.}
+
+\end{frame}
+
+
+\begin{frame}{Proof That $ \lVert U \vec x\rVert = \lVert \vec x \rVert$}
+    
+    First consider $\lVert U \vec x\rVert^2$. 
+    \begin{align*}
+        \onslide<2->{ \lVert U \vec x\rVert^2 &= (U \vec x ) \cdot (U \vec x)} 
+        \onslide<4->{  =  \vec x^T U^T U \vec x } 
+    \end{align*}
+    \onslide<5->{But $U^TU = I$.}
+    \begin{align*}
+        \onslide<5->{ \lVert U \vec x\rVert^2 &= \vec x^T I \vec x } 
+        \onslide<6->{  =  \lVert \vec x\rVert^2 } 
+    \end{align*}
+    \onslide<7->{Taking the square root of both sides yields $$\lVert U \vec x\rVert = \lVert \vec x \rVert$$}
+    
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{Orthogonal Matrices}
+
+    \begin{itemize}
+        \item<2-> An \Emph{orthogonal matrix} is a square matrix whose columns are orthonormal.
+        \item<3-> A better name might be \textit{orthonormal matrix}, but \textit{orthogonal matrix} is a standard term in linear algebra. 
+        \item<4-> Also, matrices with columns that are orthogonal, but do not have unit length, are not often used. 
+        \item<5-> Note that if $U$ is an orthogonal matrix, then $U^{-1} = U^T$. 
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{Determinant of an Orthogonal Matrix}
+
+    If $A$ is a square matrix with orthonormal columns, then $\det A$ is equal to $1$ or to $-1$. 
+
+    \vspace{12pt}
+    
+    \onslide<2->{\Emph{Proof}}
+    \begin{align*}
+        \onslide<3->{1 = \det I = } 
+        \onslide<4->{\det(A^TA) =} 
+        \onslide<5->{\det(A^T)\det(A) =}
+        \onslide<6->{(\det A)^2}
+    \end{align*}
+    
+\end{frame}
+
+
+\begin{frame}{Examples: Orthogonal Matrices}  
+
+    Indicate whether the statements are true or false.
+    \begin{enumerate}
+
+    \item If $U$ is orthogonal, then its columns are also linearly independent. 
+
+    \item If the determinant of a square matrix is 1, then the matrix must be orthogonal.  
+    
+    \end{enumerate}
+\end{frame}
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+    \item matrices with orthonormal columns and their properties
+    
+    \end{itemize}
+    
+    \vspace{8pt}
+    
+    \onslide<2->{Properties:}
+    \begin{enumerate}
+        \item<2-> $ \lVert U \vec x\rVert = \lVert \vec x \rVert$
+        \item<2-> $ (U \vec x  ) \cdot (U \vec y) = \vec x \cdot \vec y$
+        \item<2-> $ (U \vec x  ) \cdot (U \vec y) = 0$ if and only if $\vec x \cdot \vec y = 0$
+    \end{enumerate}
+    
+    \vspace{8pt}
+    
+    \onslide<3->{If $U$ is square and has orthonormal columns, then
+    \begin{itemize}
+        \item $U$ is orthogonal
+        \item $\det U$ is equal to 1 or -1
+    \end{itemize}
+    }
+    \pause
+    
+}
+
+\frame{\frametitle{Blank}
+}
+
+

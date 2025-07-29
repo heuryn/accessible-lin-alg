@@ -1,0 +1,76 @@
+\title{Properties of Determinants}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+
+    \item the relationships between matrix transpose, matrix products, the invertibility of a matrix, and determinants
+    
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item apply properties of determinants (related to row reductions, transpose, and matrix products) to compute determinants
+    \item use determinants to determine whether a square matrix is invertible
+
+\end{itemize}
+
+\vspace{0.25cm} 
+
+}
+
+
+\begin{frame}\frametitle{Properties of the Determinant}
+
+    For any square matrices $A$ and $B$, we can show the following. 
+
+    \begin{enumerate} 
+        \item $ \operatorname {det} A = \operatorname {det} A ^{T}$
+        \item $A$ is invertible if and only if $ \operatorname {det} A\neq 0$
+        \item $\operatorname {det} (AB) = \operatorname {det} A \cdot \operatorname {det} B$
+        \item if $A$ is invertible, then $\det (A^{-1}) = \frac{1}{\det A}$
+    \end{enumerate}
+
+    %Final property of the determinant: it is \emph{linear} in each row/column separately. 
+ 
+\end{frame}
+
+\begin{frame}\frametitle{Example: Determinants and Invertibility}
+
+    Use a determinant to find all values of $\lambda$ such that matrix $C$ is not invertible. 
+
+    $$C = \spalignmat{5 0 0;0 0 1; 1 1 0} - \lambda I_3$$
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Example: Determinants and Matrix Powers}
+
+    Determine the value of $\operatorname{det} A$, where
+
+    $$ A =  \spalignmat{0 1 0;1 5 2;1 7 3} ^{100}  $$
+
+\end{frame}
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item the relationships between matrix transpose, matrix products, the invertibility of a matrix, and determinants
+    \end{itemize}
+    
+}
+
+

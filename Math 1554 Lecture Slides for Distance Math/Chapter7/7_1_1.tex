@@ -1,0 +1,160 @@
+\title{Symmetric Matrices}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+  
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item symmetric matrices
+    % \item Orthogonal diagonalization
+    % \item Spectral decomposition
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+%\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item determine whether a matrix is symmetric
+    % \item Construct an orthogonal diagonalization of a symmetric matrix, $A = PDP^T$. 
+    % \item Construct a spectral decomposition of a matrix. 
+    
+\end{itemize}
+
+\vspace{0.25cm} 
+
+%\Emph{Motivating Question}
+
+} 
+
+
+%% FRAME
+\begin{frame} \frametitle{Symmetric Matrices}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.55\textwidth} \vspace{2pt}
+        If matrix $ A = A^T$, then $A$ is \Emph{symmetric}.    
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}
+
+    \pause 
+    \Emph{Example} Which of the following matrices are symmetric? 
+    \vspace{6pt}
+    \pause 
+    \begin{center}
+    \begin{tikzpicture}
+        \draw (0,2) node {$ A = ( 2 )$}; 
+        \draw (5,2) node {$ B = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$}; 
+        \draw (0,0) node {$ C = \begin{pmatrix} 1 & 1 \\0 & 0 \end{pmatrix} $};     
+        \draw (5,0) node {$ D = \begin{pmatrix} 4 & 2\\0 & 0 \\0 & 0 \end{pmatrix} $};     
+    \end{tikzpicture}        
+    \end{center}
+
+\end{frame}
+
+\begin{frame}\frametitle{$A^TA$ is Symmetric}
+    A very common example: $A^TA$. \\[6pt] \pause For \Emph{any} rectangular matrix $ A $ with columns $ a_1 ,\dotsc, a_n$, 
+    \begin{align*}
+    A ^{T} A& = 
+    \begin{pmatrix}
+    \---  & a_1 ^{T} & \--- 
+    \\
+    \---  & a_2 ^{T} & \--- 
+    \\
+    \vdots & \vdots & \vdots  
+    \\
+    \---  & a_n ^{T} & \--- 
+    \end{pmatrix}
+    \begin{pmatrix}
+    \vert & \vert & \cdots & \vert \\ 
+    a_1 & a_2 & \cdots & a_n 
+    \\ 
+    \vert & \vert & \cdots & \vert 
+    \end{pmatrix}
+    = \underbrace{
+    \begin{pmatrix}
+    a_1 ^{T} a_1 & a_1 ^{T} a_2 & \cdots & a_1 ^{T} a_n 
+    \\
+    a_2 ^T a_1 & a_2 ^{T} a_2  &  \cdots & a_2 ^{T}a_n 
+    \\
+    \vdots   & \vdots & \ddots & \vdots 
+    \\
+    a_n ^T a_1 & a_n ^{T} a_2  &  \cdots & a_n ^{T}a_n 
+    \end{pmatrix} } _{\textup{entries are dot products of columns of $A$}} 
+\end{align*}
+\pause 
+And because $$a_i^T a_j = a_i \cdot a_j = a_j \cdot a_i$$ $A^TA$ is symmetric. 
+\end{frame}
+
+
+
+
+
+
+%% FRAME
+\begin{frame} \frametitle{Example}
+
+    Suppose $A$ and $C$ are $n \times n$ matrices, $\vec x \in \mathbb R^n$, and $C$ is symmetric. Which of the following products are equal to a symmetric matrix? 
+    
+    \begin{enumerate}
+        \item<2-> $AA^T$
+        \item<2-> $\vec x \vec x \, ^T$
+        \item<2-> $C^2$
+    \end{enumerate}
+    
+    \onslide<3->{\Emph{Solutions}}
+    
+    \begin{enumerate}
+        \item<3-> $(AA^T)^T =  (A^{T})^T A^T = AA^T \quad \Rightarrow \quad \text{symmetric} $
+        \item<4-> $(\vec x \vec x \, ^T )^T = (\vec x \, ^T)^T \vec x \, ^T = \vec x \vec x \, ^T \quad \Rightarrow \quad \text{symmetric} $
+        \item<5-> $(C^2)^T = (C\,C)^T = C^T C^T = C\,C = C^2 \quad \Rightarrow \quad \text{symmetric}$
+    \end{enumerate}
+    
+\end{frame}
+
+
+
+
+
+
+%% FRAME
+\begin{frame} \frametitle{Additional Notes on Symmetric Matrices}    
+
+\begin{itemize}
+    \item<1-> If a matrix is symmetric, the matrix must be square. 
+    \item<2-> If a matrix is square and diagonal, the matrix must be symmetric. 
+    \item<3-> Symmetric matrices have other useful properties that we will introduce and take advantage of.
+\end{itemize}
+\end{frame}
+
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item symmetric matrices
+        \item determining whether a given matrix is symmetric
+
+    \end{itemize}
+    
+    \vspace{16pt}
+    \pause 
+    
+}
+
+
+
+
+

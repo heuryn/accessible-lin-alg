@@ -1,0 +1,131 @@
+\title{Markov Chains and Steady States}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+
+    \item Markov chains and probability vectors
+    \item steady-state vectors
+    % \item convergence
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item construct stochastic matrices and probability vectors
+    
+    \item identify steady-states of Markov chains
+    
+    % \item model and solve real-world problems using Markov chains (e.g. - find a steady-state vector for a Markov chain)
+    
+    % \item determine whether a stochastic matrix is regular 
+    
+\end{itemize}
+
+\vspace{0.25cm} 
+
+}
+
+
+
+
+\begin{frame}\frametitle{A Small Town with Two Libraries}
+
+    \begin{itemize}
+        \item A small town has two libraries, $A$ and $B$.
+        \item After 1 month, among the books checked out of $A$,
+        \begin{itemize}
+            \item 80\% returned to $A$
+            \item 20\% returned to $B$ 
+        \end{itemize}
+        \item After 1 month, among the books checked out of $B$,
+        \begin{itemize}
+            \item 30\% returned to $A$
+            \item 70\% returned to $B$ 
+        \end{itemize}       
+    \end{itemize}
+    \pause 
+    If both libraries have 1000 books today, how many books does each library have after 1 month? After one year? After $n$ months? 
+    % A place to simulate this is \url{http://setosa.io/markov/index.html} 
+
+    \pause 
+\vfill 
+ 
+ \begin{center}
+ \begin{tikzpicture}
+\begin{scope}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+  thick,main node/.style={circle,fill=DarkBlue!30,draw,font=\sffamily\Large\bfseries}]
+   \node[main node] (1) {A};
+  \node[main node] (2) [right of=1] {B};
+  \path[every node/.style={font=\sffamily\small}]
+    (1) edge [bend right] node[below] {0.2} (2)
+        edge [loop left] node {0.8} (1)
+    (2) edge node [above] {0.3} (1)
+        edge [loop right] node {0.7} (2);
+\end{scope}
+ %\draw (6,0) node {$ \displaystyle P = \begin{bmatrix}.8 & .3 \\ .2 & .7 \end{bmatrix}$ }; 
+\end{tikzpicture}    
+ \end{center}
+
+    
+ 
+\end{frame}
+
+
+\begin{frame}\frametitle{Example 1 Continued}
+
+    The books are equally divided by between the two branches, denoted by $\vec x_0 = \begin{bmatrix}
+    .5 \\ .5
+    \end{bmatrix}$.  What is the distribution after 1 month, call it $\vec x_1$?  After two months? 
+
+    \vspace{2cm}
+    
+     After $k$ months, the distribution is $\vec x_k$, which is what in terms of $\vec x_0$? 
+    
+    \vspace{2cm}
+    
+\end{frame}
+
+
+\begin{frame}\frametitle{Markov Chains}
+
+    A few definitions: 
+    \begin{itemize}
+        \item<1-> A \Emph{probability vector} is a vector, $\vec x$, with non-negative elements that sum to 1.
+        \item<2-> A \Emph{stochastic matrix} is a square matrix, $P$, whose columns are probability vectors. 
+        \item<3-> A \Emph{Markov chain} is a sequence of probability vectors $\vec x_k$, and a stochastic matrix $P$, such that:$$\vec x_{k+1} = P\vec x_k, \quad k = 0, 1, 2, \ldots $$
+        \item<4-> A \Emph{steady-state vector} for $P$ is a probability vector $\vec{q}$ such that $P\vec q = \vec q$. 
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}\frametitle{Example: Identifying a Steady-State}
+
+    Determine a steady-state vector for the stochastic matrix
+    
+    $$P = \spalignmat{ .8 .3 ; .2 .7 }$$
+
+\end{frame}
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item Markov chains, stochastic matrices, probability vectors, steady-states
+        \item a process to identify steady-states of Markov chains
+    \end{itemize}
+    
+}

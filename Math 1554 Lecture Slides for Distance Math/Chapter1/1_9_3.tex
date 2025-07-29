@@ -1,0 +1,186 @@
+\title{Onto and One-to-One} 
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\frame{\frametitle{Topics and Learning Objectives}
+
+\Emph{Topics} \\
+
+\TopicStatement
+
+\begin{itemize}
+    % \item The \Emph{standard vectors} and the \Emph{standard matrix}.
+    % \item Two and three dimensional transformations in more detail.  
+    \item \Emph{onto} and \Emph{one-to-one} transformations
+\end{itemize}
+
+\vspace{0.5cm}
+    
+    \LO\\
+    
+    \LearningObjectiveStatement
+    
+    \begin{itemize}
+        % \item Identify and construct linear transformations of a matrix.  
+        \item characterize and construct linear transformations that are onto and/or one-to-one
+        % \item Solve linear systems represented as linear transforms.
+        % \item Express linear transforms in other forms, such as as matrix equations or as vector equations.
+    \end{itemize}
+
+
+
+\vspace{0.25cm} 
+
+}
+
+
+\frame{\frametitle{Onto}
+ 
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth} \vspace{2pt}
+        A linear transformation $ T \;:\; \mathbb R ^{n} \to \mathbb R ^{m} $ is \Emph{onto} if for all $ \vec b \in \mathbb R ^{m}$ there is a $ \vec x\in \mathbb R ^{n}$ so that $ T (\vec x) = A\vec x = \vec b$.  
+
+    \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Definition}; \end{tikzpicture}\end{center}
+
+    
+
+    \vspace{0.25cm} 
+
+    \Emph{Implications}
+
+    \begin{itemize}
+
+        \item Onto is an \Emph{existence property:} for any $ \vec b \in \mathbb R ^{m}$, $ A \vec x = \vec b$ has a solution. 
+
+        \item $T$ is onto if and only if its standard matrix has a pivot in every row.  
+
+    \end{itemize}
+
+
+}
+
+
+
+
+
+
+\frame{\frametitle{One-to-One}
+
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.90\textwidth} \vspace{2pt}
+ A linear transformation $ T \;:\; \mathbb R ^{n} \to \mathbb R ^{m} $ is \Emph{one-to-one}  
+ if 
+ for all $ \vec b \in \mathbb R ^{m}$ there is at most one (possibly no) $ \vec x\in \mathbb R ^{n}$ so that $ T\left( \vec x \right)= A\vec x = \vec b$.  
+
+ \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Definition}; \end{tikzpicture}\end{center}
+
+
+\vspace{0.25cm} 
+
+\Emph{Implications}
+
+%%  ENUMERATE
+\begin{itemize}
+        \item One-to-one is a uniqueness property, it does not assert existence for all $\vec b$.
+
+        \item $ T$ is one-to-one if and only if the only solution to $ T \left( \vec x \right) = \vec 0$ is the zero vector, $ \vec x = \vec 0$. 
+        
+        \item  $ T$ is one-to-one if and only if every column of $A$ is pivotal.
+\end{itemize}
+
+
+}
+
+
+\frame{\frametitle{Example: Matrix Completion, One-to-one and Onto}
+
+    Complete the matrices by entering numbers into the missing entries so that the properties are satisfied. \Emph{If it isn't possible to do so, state why}.
+    \begin{enumerate}[a)]
+            \item $A$ is a $2\times3$ standard matrix for a one-to-one transform. $$A = \spalignmat{1 , 0, ; 0, , 1}$$
+            % \item $B$ is a $3\times2$ standard matrix for an onto transform.  $B = \spalignmat{1 , ; ,; ,}$ 
+            \item $B$ is a $3\times3$ standard matrix for a transform that is one-to-one and onto.  $$B = \spalignmat{1,1,1; ;,,;,,}$$
+    \end{enumerate}
+
+}
+
+
+
+\frame{\frametitle{Theorem for Onto Transforms}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth} \vspace{2pt}
+    For a linear transformation $ T \;:\; \mathbb R ^{n} \to \mathbb R ^{m}$ with standard matrix $ A$, these are equivalent statements.  
+    %%  ENUMERATE
+    \begin{enumerate}
+    \item  $ T$ is onto. 
+    
+    \item $ A$ has  columns that span $ \mathbb R ^{m}$. 
+    
+    \item Every row of $A$ is pivotal.  
+    \end{enumerate}
+    %% ENUMERATE
+    
+    \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Theorem}; \end{tikzpicture}\end{center}
+
+
+}
+
+\frame{\frametitle{Theorem for One-to-one Transforms}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth} \vspace{2pt}
+    For a linear transformation $ T \;:\; \mathbb R ^{n} \to \mathbb R ^{m}$ with standard matrix $ A$, these are equivalent statements.  
+    
+    \begin{enumerate}
+    \item  $ T$ is one-to-one. 
+    
+    \item The unique solution to $ T \left( \vec x \right) = \vec 0$ is the trivial one. 
+    
+    \item $A$ has linearly independent columns.  
+    
+    \item Each column of $A $ is pivotal.  
+    \end{enumerate}
+    
+    
+    \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Theorem}; \end{tikzpicture}\end{center}
+
+
+}
+
+\frame{\frametitle{Example: Constructing a Standard Matrix, One-to-one \\and Onto}
+
+    Define a linear transformation by $$ T (x_1 ,x_2) = (3x_1 + x_2 , 5x_1 + 7 x_2 , x_1 + 3 x_2 )$$ Construct the standard matrix for the transformation. Is $T$ one-to-one?  Is $T$ onto?  
+
+
+}
+
+
+
+
+\frame{\frametitle{Example: Linear Transform Review}
+
+    Suppose $A$ is an $m \times n$ standard matrix for transform $T$, and there are some vectors $\vec b \in \mathbb R^m$ that are not in the range of $T(\vec x) = A\vec x$. 
+    
+    
+     
+    
+    True or false:
+    \begin{enumerate}
+        \item $A\vec x = \vec b$ could be inconsistent
+        \item there cannot be a pivot in every column of $A$
+        \item $T$ could be one-to-one
+    \end{enumerate}
+
+
+}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+            \item constructing linear transformations of a matrix that are one-to-one and/or onto 
+            \item characterizing transforms that are one-to-one/onto
+    \end{itemize}
+    
+}
+

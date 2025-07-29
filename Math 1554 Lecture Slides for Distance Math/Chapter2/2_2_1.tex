@@ -1,0 +1,124 @@
+\title{The Inverse of a $2\times 2$ Matrix}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle  
+
+
+
+
+
+
+
+
+\frame{\frametitle{Topics and Objectives}
+\TopicStatement
+\begin{itemize}
+    \item the inverse of a $2\times 2$ matrix
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+        % \item Apply the formal definition of an inverse, and its algebraic properties, to solve and analyze linear systems. 
+        \item compute the inverse of a $ 2 \times 2 $ matrix and use it to solve a linear system
+        % \item Construct elementary matrices.
+ \end{itemize}
+
+\vspace{0.25cm} 
+
+
+}
+
+
+\frame{\frametitle{An Algorithm with Limitations}
+
+\textit{"Your scientists were so preoccupied with whether or not they could, \\ they didn't stop to think if they should."  \\  - Spielberg and Crichton, Jurassic Park, 1993 film} \\ \vspace{12pt}
+ The algorithm we introduce in this section \Emph{could} be used to compute an inverse of an $n\times n$ matrix. At the end of this section of the course, we will discuss some of the problems with our algorithm and why it can be difficult to compute a matrix inverse.  
+
+    
+}
+
+
+
+
+\frame{\frametitle{The Matrix Inverse}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.75\textwidth}
+
+        $A \in \R^{n\times n}$ is \Emph{invertible} (or \Emph{non-singular}) if there is a $C \in \R^{n\times n}$ so that $$AC = CA = I_n.$$  If there is, we write $C= A ^{-1}$.  
+
+    \end{minipage}};\node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}
+    A matrix that is not invertible is \Emph{singular}.
+
+}
+
+
+
+
+
+
+
+\frame{\frametitle{The Inverse of a $2\times2$ Matrix}
+
+
+There is a formula for computing the inverse of a $2\times2$ matrix. % that you may have encountered in high school. 
+
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.90\textwidth}
+
+The  $ 2 \times 2 $ matrix  $  \begin{pmatrix*}[r]
+a & b \\ c & d 
+\end{pmatrix*}$ is non-singular if and only if $ ad - bc \neq 0$, and 
+\begin{equation*}
+ \begin{pmatrix*}[r]
+a & b \\ c & d 
+\end{pmatrix*} ^{-1} = \frac 1 {ad-bc} 
+ \begin{pmatrix*}[r]
+d & -b \\ -c & a  
+\end{pmatrix*}
+\end{equation*}
+
+\end{minipage}};
+\node[fancytitle, right=10pt] at (box.north west) {Theorem};
+\end{tikzpicture}\end{center}
+
+\Emph{Example}
+
+State the inverse of the matrix $
+\begin{pmatrix*}[r]
+2 & 5  \\ -3 & -7
+\end{pmatrix*}
+$.
+
+}
+
+
+
+\frame{\frametitle{Solving a Linear System}
+
+Use a matrix inverse to solve the linear system.
+\begin{align*}
+3 x_1  + 4 x_2 & = 7 \\ 5x_1 + 6 x_2 & = 7
+\end{align*}
+
+
+}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+            \item use of the inverse of a $ 2 \times 2 $ matrix to solve a linear system
+    \end{itemize}
+    In the next set of videos we will explore a method to compute the inverse of an $n\times n$ matrix and some of its limitations. 
+}
+
+
+

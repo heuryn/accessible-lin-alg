@@ -1,0 +1,158 @@
+\title{Eigenvalues and Eigenvectors}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\frame{\frametitle{Topics and Objectives}
+    \Emph{Topics} \\
+    \TopicStatement
+    \begin{itemize}
+
+        \item eigenvectors, eigenvalues %, eigenspaces
+        % \item Eigenvalue theorems
+
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \Emph{Objectives}\\
+
+    \LearningObjectiveStatement
+
+    \begin{itemize}
+
+        \item determine whether a given vector is an eigenvector of a given matrix
+
+        \item determine whether a given number is an eigenvalue of a given matrix
+        
+        % \item Construct an eigenspace for a matrix.
+        
+        % \item Apply theorems related to eigenvalues (for example, to characterize the invertibility of a matrix).
+
+    \end{itemize}
+}
+
+
+\begin{frame}{Motivating Problem}
+
+    Consider the linear transform 
+        $$T_A(\vec x) = A \vec x = \spalignmat{0 1;1 0} \spalignmat{x_1;x_2}.$$
+
+    \pause 
+    
+    Can you state a non-zero vector, $\vec v \in \mathbb R^2$ that satisfies the following equation? 
+    
+    $$A \vec v = \lambda \vec v, \quad \lambda \in \mathbb R$$
+    
+
+    \pause 
+    \begin{tikzpicture}[scale=1.2]
+    
+        \coordinate (O) at (0,0);  % variable for origin
+              
+        % axes
+        \draw[-, thin,black] (-1.25,0) -- (1.5,0) node[anchor=west] {$x_1$};
+        \draw[-, thin,black] (0,-0.7) -- (0.0,1.75) node[anchor=east] {$x_2$};
+        
+        % reflection line
+        \draw[-,thick,Teal](-.7,-.7)--(1.5,1.5) node[anchor=south] {$x_2=x_1$};
+        
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}{Eigenvectors and Eigenvalues}
+
+    If $A \in \R^{n\times n}$, and there is a $\vec v \neq \vec 0$ in $\R^n$, and
+        \[ A\vec v=\lambda \vec v \]
+    then \onslide<2->{ $\vec v$ is an \Emph{eigenvector} for $A$, and $\lambda \in \mathbb C$ is the corresponding \Emph{eigenvalue}.} 
+
+    \vspace{12pt}
+    
+    \onslide<2->{Note that}
+    \begin{itemize}
+        \item<3-> we will only consider the case where $A$ is square
+        \item<4-> even when all entries of $A$ and $\vec v$ are real, $\lambda$ can be complex
+        (a rotation of the plane has no \Emph{real} eigenvalues.) 
+        \item<5-> if $\lambda \in \mathbb R$, then
+        \begin{itemize}
+            \item when $\lambda > 0$, $A\vec v$ and $\vec v$ point in the same direction
+            \item when $\lambda < 0$, $A\vec v$ and $\vec v$ point in opposite directions
+        \end{itemize}    \end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Determining Whether a Vector is an Eigenvector}
+
+    Which of the following vectors are eigenvectors of $A=\spalignmat{ 1 1 ; 1 1}$? 
+
+    \begin{enumerate}[a)]
+        \item $\vec v_1 = \spalignmat{1;1}$ 
+        \item $\vec v_2 = \spalignmat{2;2}$ 
+        \item $\vec v_3 = \spalignmat{1;-1}$ 
+        \item $\vec v_4 = \spalignmat{2;1}$ 
+        \item $\vec v_5 = \spalignmat{0;0}$
+    \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}{Determining Whether a Number is an Eigenvalue}
+
+    Determine whether $\lambda =3$ is an eigenvalue of $A=\spalignmat{2 -4 ; -1 -1}$. 
+
+
+\end{frame}
+
+
+\begin{frame}{Another Interpretation of What Eigenvalues Are}
+
+    From the previous examples, we saw how an eigenvalue of a matrix is a number, $\lambda$, that
+    
+    \pause 
+    \begin{itemize}
+        \item satisfies $A\vec v = \lambda \vec v$ for eigenvector $\vec v$
+        \item makes $A - \lambda I$ singular
+    \end{itemize}
+
+    \pause 
+    Recall: a singular matrix is not invertible. 
+
+\end{frame}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item the definitions of eigenvectors and eigenvalues %, eigenspaces
+
+        \item determine whether a given vector is an eigenvector of a given matrix
+
+        \item determine whether a given number is an eigenvalue of a given matrix
+    \end{itemize}
+    \vspace{8pt}
+    Later in our course we will take explore ways to compute the eigenvalues and eigenvectors of a matrix, as well as some of their applications. 
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+\title{Existence of Solutions} 
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+
+
+
+\frame{\frametitle{Topics and Learning Objectives}
+
+    \Emph{Topics} \\
+    \TopicStatement
+    
+    \begin{itemize}
+        \item solution sets
+    \end{itemize}
+
+    \vspace{0.5cm}
+    
+    \LO\\
+    
+    \LearningObjectiveStatement
+    
+    \begin{itemize}
+        % \item compute matrix-vector products
+        \item express linear systems as vector equations and matrix equations
+        \item characterize solution sets of linear systems using the concepts of span, linear combinations
+    \end{itemize}
+
+
+}
+
+
+
+\frame{\frametitle{Equivalent Solution Sets}
+
+
+Note that if  $ A$ is a $ m \times n$ matrix with columns $ \vec a_1 ,\dotsc, \vec a_n$, and $\vec x \in \mathbb R ^{n}$ and $ \vec b \in \mathbb R ^{m}$, then the solutions to  
+\begin{equation*}
+A \vec x = \vec b 
+\end{equation*}
+has the same set of solutions as the vector equation 
+\begin{equation*}
+x_1 \vec a_1 + \cdots + x_n \vec a_n = \vec b 
+\end{equation*}
+which as the same set of solutions as the set of linear equations with the augmented matrix 
+\begin{equation*}
+\begin{bmatrix*}
+\vec a_1 & \vec a_2  & \cdots & \vec a_n & \vec b
+\end{bmatrix*}
+\end{equation*}
+
+
+}
+
+
+\frame{\frametitle{Linear Combinations and the Existence of Solutions}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth}\vspace{2pt}
+
+        The equation $ A \vec x = \vec b $ has a solution if and only if $ \vec b$ is a linear combination of the columns of $ A$. 
+        
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}    
+
+    This follows directly from our definition of $A\vec x$ being a linear combination of the columns of $A$. 
+}
+
+
+\frame{\frametitle{Using Linear Combinations to Characterize a System}
+
+\Emph{Example}\\
+For what vectors $ \vec b = \spalignmat{b_1;b_2;b_3}$ 
+does the equation have a solution? 
+\begin{equation*}
+    \spalignmat{1 3 4;2 8 4;0 1 -2}\vec x = \vec b 
+\end{equation*}
+}
+
+
+
+
+
+\frame{\frametitle{Multiple Representations of Linear Systems}
+
+    We now have four \Emph{equivalent} ways of representing a linear system.
+    
+    \begin{enumerate}\setlength{\itemsep}{12pt}
+        \item A list of equations: $ 2x_1 + 3x_2 = 7, \quad  x_1 - x_2 = 5 $
+        \item An augmented matrix:
+        $
+        \begin{amatrix}{2}
+         2 & 3 & 7 \\
+         1 & -1 & 5 
+         \end{amatrix}
+        $
+        
+        \item A vector equation:
+          $ x_1\spalignmat{2 ; 1} + x_2\spalignmat{3; -1} = \spalignmat{7; 5} $
+        
+        \item A matrix equation: $ \spalignmat{ 2 3; 1 -1}\spalignmat{x_1 ; x_2} = \spalignmat{7; 5} $
+    \end{enumerate}
+    
+    Each representation gives us a different way to think about linear systems.
+    
+}
+
+\frame{\frametitle{Summary}
+
+\SummaryLine \vspace{4pt}
+\begin{itemize}\setlength{\itemsep}{8pt}
+        \item computing matrix-vector products
+        \item expressing linear systems as vector equations and matrix equations
+        \item characterize linear systems and sets of vectors using the concepts of span, linear combinations, and pivots
+\end{itemize}
+
+}

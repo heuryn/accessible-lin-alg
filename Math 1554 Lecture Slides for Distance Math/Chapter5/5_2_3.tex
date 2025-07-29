@@ -1,0 +1,139 @@
+\title{Markov Chains and Eigenvectors}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+
+    \item the use of eigenvalues and eigenvectors to study Markov chains
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item apply eigenvalues and eigenvectors to characterize the long-term behavior of Markov chains
+
+\end{itemize}
+
+\vspace{0.25cm} 
+
+}
+
+
+\begin{frame}{The Long-Term Behavior of Markov Chains}
+
+    \begin{itemize}
+        \item recall that we often want to know what happens to a Markov chain $$\vec x_{k+1} = P\vec x_k, \quad k = 0, 1, 2, \ldots $$ as $k \rightarrow \infty$
+        \item if $P$ is a regular stochastic matrix there will be a unique steady-state
+   \end{itemize}
+
+    \vspace{6pt} 
+    
+    \pause 
+    
+    Now we can explore the following questions.
+    \begin{itemize}
+        \item if we do not know whether $P$ is regular, what else might we do to describe the long-term behavior of the system? 
+        \item What can eigenvalues tell us about the behavior of these systems?
+    \end{itemize}
+\end{frame}
+
+
+
+
+
+\begin{frame}{Example: Eigenvalues and Markov Chains}
+
+
+    Consider the Markov Chain: $$\vec x_{k+1} = P\vec x_{k} = \spalignmat{1 0.1 ;0 0.9 }\vec x_{k}, \quad k= 0, 1, 2, 3, \ldots, \quad \vec x_0 = \spalignmat{0;1}.$$
+
+    \pause 
+    
+    This system can be represented schematically with two nodes, A and B: 
+    
+    \vspace{-6pt} 
+    
+    \begin{center}
+    \begin{tikzpicture}
+    \begin{scope}[->,>=stealth',shorten >=1pt,auto,node distance=3cm, thick,main node/.style = {circle,fill=DarkBlue!30,draw,font=\sffamily\Large\bfseries}]
+    \node[main node] (1) {A};
+    \node[main node] (2) [right of=1] {B};
+    \path[every node/.style={font=\sffamily\small}]
+    (1) edge [loop left] node {1} (1)
+    (2) edge node [above] {0.1} (1)
+        edge [loop right] node {0.9} (2);
+        \end{scope}
+        \end{tikzpicture}
+    \end{center}
+    
+    \vspace{-6pt} 
+    
+    \pause
+
+    \Emph{Goal}: use eigenvalues to describe the long-term behavior of our system. 
+    
+\end{frame}
+
+
+
+
+
+\begin{frame}{Example: Eigenvalues and Markov Chains}
+
+    Consider the Markov Chain: $$\vec x_{k+1} = P\vec x_{k} = \spalignmat{1 0.1 ;0 0.9 }\vec x_{k}, \quad k= 0, 1, 2, 3, \ldots, \quad \vec x_0 = \spalignmat{1;0}.$$
+
+    Use the eigenvalues and eigenvectors of $P$ to determine what $\vec x_k$ tends to as $k\to\infty$. The eigenvalues and eigenvectors of $P$ are
+    
+    $$\lambda_1 = 1, \ \vec v_1 = \spalignmat{1;0}, \quad \lambda_2 = 0.9, \ \vec v_2 = \spalignmat{1;-1}$$
+    
+    
+ 
+    
+    
+\end{frame}
+
+
+
+\begin{frame}{A More General Example}
+
+    The eigenvalues of a $3\times 3$ stochastic matrix $A$ are 
+    $$\lambda_1 = 1 , \quad \lambda_2=\frac{1}{4}, \quad \lambda_3 = \frac 18$$
+    The respective eigenvectors corresponding to these eigenvalues are $\vec v_1$, $\vec v_2$, $\vec v_3$. 
+    
+    \vspace{12pt}
+    
+    If $\vec p$ is a probability vector in $\mathbb R^3$, what does $A^k\vec p $ tend to as $k\to \infty$? 
+
+\end{frame}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item using eigenvalues and eigenvectors to study the long-term behavior of Markov chains
+
+    \end{itemize}
+    \vspace{8pt}
+    
+}
+
+
+
+
+\begin{frame}
+\end{frame}

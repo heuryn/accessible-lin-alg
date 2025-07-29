@@ -1,0 +1,52 @@
+%% Slide 1
+"Welcome, everyone! Today, we’re going to explore how we can use linear algebra to solve traffic flow problems. By the end of this lesson, you’ll see how we can set up and solve systems of equations to model the flow of traffic through a network."
+
+%% Slide 2
+"Traffic networks can be represented mathematically. In our model, intersections are represented as nodes, and roads between intersections are represented as edges. Each road will have a flow variable representing the number of vehicles traveling along it."
+
+%% Slide 3
+"Here’s a simple example of a traffic network. We have three intersections labeled A, B, and C, connected by roads with flow variables \( x \), \( y \), and \( z \). External sources and sinks indicate where traffic enters and exits the system. For example, 50 cars enter at A, and 30 leave at B."
+
+%% Slide 4
+"Using the principle of conservation of flow—meaning the number of cars entering an intersection must equal the number leaving—we can set up the following equations:
+- At Node A: \( 50 + z = x \)
+- At Node B: \( x = y + 30 \)
+- At Node C: \( y = z \) 
+"These equations describe the traffic balance at each intersection."
+
+%% Slide 5
+"Now, we can represent this system as a matrix equation:
+\[
+\begin{bmatrix}
+1 & 0 & -1 \\
+-1 & 1 & 0 \\
+0 & -1 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+x \\ y \\ z
+\end{bmatrix}
+=
+\begin{bmatrix}
+50 \\ -30 \\ 0
+\end{bmatrix}
+\]
+"This form allows us to apply linear algebra techniques to solve for \( x \), \( y \), and \( z \)."
+
+%% Slide 6
+"To solve the system, we row reduce the augmented matrix to its reduced row echelon form (RREF):
+\[
+\begin{bmatrix}
+1 & 0 & 0 & 40 \\
+0 & 1 & 0 & 30 \\
+0 & 0 & 1 & 30 \\
+\end{bmatrix}
+\]
+"From this, we can directly read off the values:
+- \( x = 40 \)
+- \( y = 30 \)
+- \( z = 30 \)
+
+"These values represent the number of cars traveling along each road segment per unit of time."
+
+%% Conclusion
+"This method can be scaled to more complex networks. Traffic engineers use these principles to optimize traffic flow, minimize congestion, and design better transportation systems. Understanding how to translate real-world problems into mathematical equations is a valuable skill in applied mathematics and engineering."

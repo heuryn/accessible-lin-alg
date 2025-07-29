@@ -1,0 +1,36 @@
+% Slide: Solution Approach: Problem a)
+Let's work through our first example together. We're trying to find a polynomial of the form y(t) = a₀t + a₁t² that passes through two specific points. Let's start by converting this into a linear system.
+
+For our first point L(-1,0), when we plug in t = -1, we get -a₀ + a₁ = 0. Similarly, for point M(1,1), plugging in t = 1 gives us a₀ + a₁ = 1. We can represent this system using an augmented matrix, which you can see here on the slide.
+
+% Slide: Row Reduction: Problem a)
+Now, let's solve this system step by step using row reduction. First, we'll multiply the top row by -1 to get a leading 1. Then, we'll use this to eliminate the 1 in the second row. After that, we'll divide the second row by 2 to get our second leading 1, and finally back-substitute to get our solution in row echelon form.
+
+Watch how each step transforms our matrix. Notice how we maintain the augmented form throughout the process, keeping track of which numbers correspond to our coefficients and which represent the constants on the right-hand side.
+
+% Slide: Analysis of Basic and Free Variables: Problem a)
+Looking at our row echelon form, we can learn a lot about our system. First, notice that we have pivot columns in both the first and second columns. This means both a₀ and a₁ are basic variables - we don't have any free variables in this system.
+
+The absence of free variables tells us something important: our solution will be unique. Also, notice that our last column doesn't have a pivot, which confirms that our system is consistent - we will indeed find a solution.
+
+Reading off our solution, we get a₀ = ½ and a₁ = ½, giving us our polynomial y(t) = ½t + ½t².
+
+% Slide: Solution Approach: Problem b)
+Now let's look at our second problem, which is more challenging because we're trying to fit our polynomial through three points. Writing out our equations, we get three conditions: from P(2,0), we have 2a₀ + 4a₁ = 0; from Q(1,1), we have a₀ + a₁ = 1; and from R(0,2), we get something interesting - we need 0 = 2.
+
+Let's set this up in an augmented matrix as shown here.
+
+% Slide: Row Reduction: Problem b)
+When we perform row reduction on this matrix, something very interesting happens. Look at what we get in the final row: zeros in the coefficient columns but a 2 in the constant column. This is a crucial observation that tells us something fundamental about our system.
+
+% Slide: Analysis of Existence: Problem b)
+That row of zeros with a 2 tells us our system is inconsistent - there is no solution that satisfies all three conditions. We can understand this geometrically: at t = 0, any polynomial of the form a₀t + a₁t² must equal zero (because both terms become zero), but our point R(0,2) demands that y(0) = 2. This is impossible!
+
+% Slide: Connection to Theory
+Let's connect what we've seen to our broader theoretical framework. In problem a), we had a nice situation where the number of equations matched the number of variables, all variables were basic, and we found a unique solution. This is the kind of well-behaved system we often hope for.
+
+Problem b) showed us what can go wrong when we have more equations than variables. Our system was overdetermined, and in this case, it turned out to be inconsistent. This is a great example of why we need to be careful about the constraints we impose on our systems.
+
+These examples demonstrate key concepts that we'll continue to explore throughout the course: the relationship between the number of equations and variables, the role of basic and free variables, and how we can determine existence and uniqueness of solutions from the row echelon form of our augmented matrix.
+
+Would anyone like to ask any questions about either of these examples before we move on?

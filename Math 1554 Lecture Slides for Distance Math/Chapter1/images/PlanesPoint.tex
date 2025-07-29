@@ -1,0 +1,24 @@
+    \begin{center}
+    \tdplotsetmaincoords{70}{135}
+    \begin{tikzpicture}[scale=1,
+        axis/.style={->,black,-stealth}, 
+        solline/.style={DarkRed,thick},
+        tdplot_main_coords
+        ]
+
+        \coordinate (O) at (0,0,0);
+        \coordinate (X) at (1,0,0);
+        \coordinate (Y) at (0,1,0);        
+        \coordinate (Z) at (0,0,1);        
+        \coordinate (W) at (.5,-1.8,0);        
+        
+        % planes
+        \filldraw[draw=Teal!90,fill=Teal!15] (O) -- (Y) -- (0,1,1) -- (Z) -- cycle;
+        \filldraw[draw=Teal!90,fill=Teal!15] (O) -- (X) -- (1,0,1) -- (Z) -- cycle;
+        \filldraw[draw=Teal!90,fill=Teal!15] (O) -- (X) -- (1,1,0) -- (Y) -- cycle;
+        
+        % solution 
+        \node [DarkRed] at (0,0) {\textbullet};
+        
+    \end{tikzpicture}
+    \end{center}

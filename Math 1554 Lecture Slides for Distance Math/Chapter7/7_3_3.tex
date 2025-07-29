@@ -1,0 +1,88 @@
+\title{Orthogonality Constraints}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+   
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item constrained optimization as an eigenvalue problem
+    \item distance and orthogonality constraints
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+%\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item apply eigenvalues and eigenvectors to solve a class of optimization problems that are subject to a distance and orthogonality constraints
+    
+\end{itemize}
+} 
+
+
+
+
+\begin{frame}\frametitle{An Orthogonality Constraint}
+    
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.90\textwidth}\vspace{2pt}
+    
+        Suppose $Q = \vec x^{\, T} A \vec x$, where $A \in \mathbb R^{n\times n}$ is symmetric and has eigenvalues
+        $$\lambda_1 \ge \lambda_2 \ldots \ge \lambda_n$$
+        and associated eigenvectors
+        $$\vec u_1, \vec u_2, \ldots , \vec u_n$$
+        \onslide<2->{Subject to the constraints $||\vec x ||=1$ and} \onslide<3->{$\vec x \cdot \vec u_1 = 0$,}
+        \begin{itemize}
+            \item<4-> the maximum value of $Q(\vec x) = \lambda_{2}$, attained at $\vec x = \vec u_{2}$
+            \item<5-> the minimum value of $Q(\vec x) = \lambda_n$, attained at $\vec x = \vec u_n$
+        \end{itemize}
+        
+        % \vspace{6pt} 
+        
+        % Note that $\lambda_2$ is the second largest eigenvalue of $A$.  
+        
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+
+\end{frame}
+
+\begin{frame}\frametitle{Outline of the Proof}
+
+    \begin{itemize}
+        \item<2-> The proof of this theorem uses a similar approach to the theorem that gives the maximum of $Q$ subject to $\lVert \vec x \rVert = 1$. 
+        \item<3-> We would use a change of variable, and express $Q$ using a diagonal matrix and an orthonormal basis for $\mathbb R^n$. 
+        \item<4-> In fact, we could use this approach to identify maximum values with additional orthogonality constraints. This would go beyond the scope of what we need. 
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}\frametitle{Example}
+
+    Calculate the maximum value of $Q(\vec x) = \vec x^{\, T}A \vec x$, $\vec x \in \mathbb R^3$, subject to $||\vec x|| = 1$ and to $\vec x \cdot \vec u_1 = 0$, and identify a point where this maximum is obtained. 
+    
+    $$Q(\vec x) = x_1^2 + 2x_2x_3, \qquad \vec u_1 = \spalignmat{1;0;0}$$
+
+\end{frame}
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item constrained optimization problems of the form: identify the maximum/minimum values (and where they are located) of $$Q(\vec x) = \vec x^{\, T}A \vec x$$ subject to $$||\vec x|| = 1, \ \text{and} \ \vec x \cdot u_1 = 0$$
+        \item we saw that the maximum/minimum values are given by eigenvalues of $A$
+        \item we saw that the locations where these extreme values are given by unit eigenvectors of $A$
+
+    \end{itemize}
+    
+    \vspace{6pt}
+}

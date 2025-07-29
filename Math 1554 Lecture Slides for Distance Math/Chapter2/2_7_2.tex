@@ -1,0 +1,95 @@
+\title{3D Transformations}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle  
+
+
+
+\tikzstyle{E} =[rectangle, minimum width=1.5cm, minimum height=1.5cm, text centered, fill=DarkBlue!30]
+
+\tikzstyle{W} = [rectangle, minimum width=1.5cm, minimum height=1.5cm, text centered, fill=DarkBlue!30]
+
+\tikzstyle{ED} = [rectangle, minimum width=2cm, minimum height=3cm, text centered, fill=DarkBlue!30]
+
+\tikzstyle{arrowred} = [thick,->,>=stealth, dashed,DarkRed]
+\tikzstyle{arrowblue} = [thick,->,>=stealth, dashed,DarkBlue]
+
+
+\frame{\frametitle{Topics and Objectives}
+    \Emph{Topics} \\
+    \TopicStatement
+    \begin{itemize}
+    \item homogeneous coordinates in 3D
+    \item translations and composite transforms in 3D
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \Emph{Objectives}\\
+    
+    \LearningObjectiveStatement
+    
+    \begin{itemize}
+    \item construct a data matrix to represent points in $\mathbb R^3$ with homogeneous coordinates
+    \item construct and apply transformation matrices to represent composite transforms in 3D using homogeneous coordinates
+    \end{itemize}
+    
+    % In the interest of time, students are not expected to be familiar with perspective projections.
+
+}
+
+
+
+
+
+
+
+\frame{\frametitle{3D Homogeneous Coordinates}
+
+    Homogeneous coordinates in 3D are analogous to our 2D coordinates. 
+    
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.75\textwidth} \vspace{4pt}
+        $(X,Y,Z,1)$ are homogeneous coordinates for $(x,y,z)$ in $\mathbb R^3$ %, and $$x = \frac X H, \quad y = \frac Y H, \quad z = \frac Z H$$
+     \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Homogeneous Coordinates in $\mathbb R^3$}; \end{tikzpicture}\end{center}
+ 
+    \vspace{6pt}
+    
+    % For example, $(a,b,c,1)$ and $(3a,3b,3c,3)$ are both homogeneous coordinates for the point $(a,b,c)$. 
+
+}
+
+\frame{\frametitle{Homogeneous Coordinates Example}
+
+    A translation of the form $(x,y,z) \to (x+h,y+k,z+l)$ can be represented as a matrix multiplication with homogeneous coordinates: 
+    
+    $$\spalignmat{1 0 0 h;0 1 0 k;0 0 1 l; 0 0 0 1} \spalignmat{x;y;z;1} = \spalignmat{x+h;y+k;z+l;1}$$
+
+}
+
+
+
+\frame{\frametitle{3D Transformation Matrices}
+
+    Construct matrices for the following transformations. 
+    
+    \begin{enumerate}[a)]
+        \item A translation in $\mathbb R^3$ specified by the vector $\vec p = \spalignmat{-2;3;4}$.
+        \item A rotation in $\mathbb R^3$ about the $x_2$-axis by $\pi$ radians. 
+        \item A projection onto the plane $x_3=4$. 
+    \end{enumerate}    
+    \vspace{12pt}
+    \textit{For any of the above, it is ok to leave your answer as a product of matrices. }
+}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item constructing composite transforms that apply translations and rotations about arbitrary points in $\mathbb R^3$
+    \end{itemize}
+    
+
+}

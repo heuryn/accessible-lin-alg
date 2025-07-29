@@ -1,0 +1,118 @@
+\title{The $PCP^{-1}$ Decomposition}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    % \item complex numbers: addition, multiplication, complex conjugate
+
+    \item factorizing $2\times 2$ real matrices that have complex eigenvalues as $A = PCP^{-1}$
+    
+    % \item Eigenvalue theorems
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+%\LearningObjectiveStatement
+
+\begin{itemize}
+
+    % \item add and subtract complex numbers
+    % \item conjugate complex numbers
+    % \item apply properties of complex numbers to determine whether mathematical statements that involve them are true or false
+    
+    \item construct the $PCP^{-1}$ decomposition for $2\times2$ matrices that have complex eigenvalues
+    % \item Use eigenvalues to determine identify the rotation and dilation of a linear transform. 
+    % \item Apply theorems to characterize matrices with complex eigenvalues.
+
+\end{itemize}
+
+% \vspace{0.25cm} 
+
+% \Emph{Motivating Question}
+
+% %Recall the rotation matrix (for $\pi/4$):
+% %\[  A = \frac{1}{\sqrt{2}}  \spalignmat{ 1  -1 ; 1 1 }\]
+%     What are the eigenvalues of a rotation matrix? 
+
+} 
+
+
+
+
+
+
+
+\begin{frame}{The $ PCP^{-1}$ Decomposition}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.9\textwidth}\vspace{4pt}
+
+    If $A$ is a real $2 \times 2$ matrix with eigenvalue $\lambda = a - bi$ (where $b \neq 0$) and associated eigenvector $\vec v$, then we may construct the decomposition
+    
+    \[ A = PCP^{-1} \]
+    where
+    \[ P = (\textrm{Re}\, \vec v\ \ \  \textrm{Im}\, \vec v) \quad \text{and} \quad C = \spalignmat{ a -b ; b  a }. \]
+    
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+    
+    \vspace{4pt}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{The $ PCP^{-1}$ Decomposition} 
+
+    \begin{itemize} 
+        \item<2-> $C$ is referred to as a \Emph{rotation dilation} matrix, because it is the composition of a rotation by $\phi$ and dilation by $r$
+        \item<3-> the proof for why we can write $A = PCP^{-1}$ and why the columns of $P$ are linearly independent is too long for a video
+        \item<4-> the $A=PCP^{-1}$ decomposition allows us to compute large powers of $A$ efficiently
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Example} 
+
+    If possible, construct matrices $P$ and $C$ such that $AP = PC$. The eigenvalues of $A$ are given. 
+    
+    \begin{align*}  
+        A =  \spalignmat{ 1  -2 ; 1  3 } , \quad \lambda = 2 \pm i
+    \end{align*}
+
+\end{frame}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+    \item factorizing $2\times 2$ matrices that have complex eigenvalues as $A = PCP^{-1}$
+    
+    \end{itemize}
+    
+    \vspace{8pt}
+
+}
+
+\frame{\frametitle{}
+
+
+    
+}

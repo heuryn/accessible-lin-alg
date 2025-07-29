@@ -1,0 +1,120 @@
+\title{Homogeneous Coordinates}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle  
+
+
+
+% \tikzstyle{E} =[rectangle, minimum width=1.5cm, minimum height=1.5cm, text centered, fill=DarkBlue!30]
+
+% \tikzstyle{W} = [rectangle, minimum width=1.5cm, minimum height=1.5cm, text centered, fill=DarkBlue!30]
+
+% \tikzstyle{ED} = [rectangle, minimum width=2cm, minimum height=3cm, text centered, fill=DarkBlue!30]
+
+% \tikzstyle{arrowred} = [thick,->,>=stealth, dashed,DarkRed]
+% \tikzstyle{arrowblue} = [thick,->,>=stealth, dashed,DarkBlue]
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+    \item homogeneous coordinates in 2D
+    \item translations and composite transforms in 2D
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    \item construct a data matrix to represent points in $\mathbb R^2$ using homogeneous coordinates
+    \item construct and apply transformation matrices to represent composite transforms in 2D using homogeneous coordinates
+\end{itemize}
+
+% Students are not expected to be familiar with perspective projections.
+
+\vspace{0.25cm} 
+ 
+
+}
+
+
+
+
+
+\frame{\frametitle{Motivating Questions} 
+
+    How can we represent translations, and rotations about arbitrary points, using linear transforms? 
+    \begin{itemize}\setlength{\itemsep}{4pt}
+        \item transformations of the form $T(\vec x) = A\vec x$ were explored earlier in this course
+        \item we introduced rotations about the origin, but not about arbitrary points
+        \item we also did not explore the transform $(x,y) \to (x+h,y+k)$
+    \end{itemize}}
+
+
+
+
+
+\frame{\frametitle{Homogeneous Coordinates}
+
+    Translations of points in $\mathbb R^n$ does not correspond directly to a linear transform. \Emph{Homogeneous coordinates} are used to model translations using matrix multiplication.  
+    
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.95\textwidth} \vspace{2pt}
+    Each point $(x,y)$ in $\mathbb R^2$ can be identified with the point $(x,y,H)$, $H\ne 0$, on the plane in $\mathbb R^3$ that lies $H$ units above the $xy$-plane. 
+     \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Homogeneous Coordinates in $\mathbb R^2$}; \end{tikzpicture}\end{center}
+     
+    Note: we often we set $H = 1$. \\[6pt]
+
+}
+
+
+
+
+
+\frame{\frametitle{Homogeneous Coordinates Example}
+
+    A translation of the form $(x,y) \to (x+h,y+k)$ can be represented as a matrix multiplication with homogeneous coordinates: 
+    
+    $$\spalignmat{1 0 h;0 1 k;0 0 1} \spalignmat{x;y;1} = \spalignmat{x+h;y+k;1}$$
+
+}
+
+
+
+
+
+
+
+
+
+\frame{\frametitle{A Composite Transform with Homogeneous Coordinates}
+
+    Triangle $S$ is determined by three data points, $(1,1), (2,4), (3,1)$. \\[6pt]
+    
+    Transform $T$ rotates points by $\pi/2$ radians counterclockwise about the point $(0,1)$.
+    
+    \vspace{6pt}
+    
+    \begin{enumerate}[a)]
+        \item Represent the data with a matrix, $D$. Use homogeneous coordinates. 
+        \item Use matrix multiplication to determine the image of $S$ under $T$. 
+        \item Sketch $S$ and its image under $T$. 
+    \end{enumerate}
+
+}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item homogeneous coordinates
+        \item constructing composite transforms that apply translations and rotations about arbitrary points in $\mathbb R^2$
+    \end{itemize}
+    
+}

@@ -1,0 +1,120 @@
+\title{Rotation-Dilation Matrices}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item rotation-dilation matrices and their eigenvalues
+    
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+%\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item compute the eigenvalues of rotation-dilation matrices and express them in polar form
+    % \item conjugate complex numbers
+    % \item apply properties of complex numbers to determine whether mathematical statements that involve them are true or false
+    
+    % \item Diagonalize $2\times2$ matrices that have complex eigenvalues.
+    \item identify the rotation and dilation of a linear transform using eigenvalues
+    % \item Apply theorems to characterize matrices with complex eigenvalues.
+
+\end{itemize}
+
+% \vspace{0.25cm} 
+
+% \Emph{Motivating Question}
+
+% %Recall the rotation matrix (for $\pi/4$):
+% %\[  A = \frac{1}{\sqrt{2}}  \spalignmat{ 1  -1 ; 1 1 }\]
+%     What are the eigenvalues of a rotation matrix? 
+
+} 
+
+\begin{frame}{Rotations, Dilations, and Eigenvalues}
+
+    The standard matrix for the transform that \pause rotates vectors by $\phi = \pi/4$ radians about the origin, and then scales (or dilates) vectors by $r = \sqrt{2}$, is 
+    \pause 
+    \[ A =  
+    \spalignmat{r 0;0 r}\spalignmat{\cos\phi ,-\sin\phi ;\sin\phi ,\cos\phi } = 
+    \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix} \]
+    \pause 
+    What are the eigenvalues of $A$? Express them in polar form. 
+    
+\end{frame}
+
+
+\begin{frame}
+\end{frame}
+
+
+\begin{frame}{General Rotation-Dilation Case}
+
+    The matrix in the previous example is an example of a rotation-dilation matrix. 
+    
+    \pause 
+    
+    \vspace{12pt}
+    
+    A rotation-dilation matrix has the form: 
+    \[  C =  \spalignmat{ a  -b ; b  a } \]
+    
+    \pause 
+    
+    Calculate the eigenvalues of $C$ and express them in polar form.
+
+
+\end{frame}
+
+
+\begin{frame}
+\end{frame}
+
+
+\begin{frame}{Rotation-Dilation Matrices}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}\vspace{4pt}
+        A matrix of the form $C =  \spalignmat{ a  -b ; b  a }$ is a \Emph{rotation-dilation matrix} \pause because it is the composition of a rotation by $\phi$ and dilation by $r$, \pause where 
+        $$r^2 = a^2 + b^2, \quad \tan \phi = \frac ba$$
+        \pause Moreover, the eigenvalues of $C$ are $\lambda = a \pm bi$. 
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition  (Rotation-Dilation Matrix)};
+    \end{tikzpicture}\end{center}
+    
+\end{frame}
+
+
+\begin{frame}{Eigenvalues of Rotation-Dilation Matrices}
+
+    \Emph{Example}: determine the eigenvalues of $A=\spalignmat{2 -3;3 2}$. 
+    
+    \pause 
+    
+    Because this is an example of a rotation-dilation matrix, we do not need to determine the characteristic polynomial. \pause The eigenvalues of this matrix are $$\lambda = 2 \pm 3i$$
+\end{frame}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+    \item rotation-dilation matrices and their eigenvalues in polar form and Cartesian form
+
+    \end{itemize}
+    
+    \vspace{8pt}
+    
+
+    
+}

@@ -1,0 +1,73 @@
+\title{Determinants and Linear Transformations}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+
+    \item relationships between area, volume, determinants, and linear transformations
+    
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item apply determinants to compute the area of a parallelogram, or the volume of a parallelepiped, possibly under a given linear transformation
+
+\end{itemize}
+
+\vspace{0.25cm} 
+
+}
+
+
+
+\begin{frame}\frametitle{Linear Transformations}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth} \vspace{4pt}
+
+    If $T_A \ : \R^n \mapsto \R^n$, and $S$ is some parallelogram in $\R^n$, then $$\operatorname{volume}\left(T_A(S)\right) = \left|\det(A)\right| \cdot \operatorname{volume}(S)$$
+    where $T_A (\vec x) = A \vec x$.
+
+    \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Theorem}; \end{tikzpicture}\end{center}
+
+
+\end{frame}
+
+\begin{frame}\frametitle{Example: Determinants and Linear Transformations}
+
+    $R$ is the parallelogram determined by $\vec p_1 = \spalignmat{3;4}$, and $\vec p_2 = \spalignmat{2;1}$.  If $A = \spalignmat{1 -1;1 1}$, what is the area of the image of $R$ under the map $ \vec x\mapsto A\vec x$? 
+    
+\end{frame}
+
+
+\begin{frame}\frametitle{Example: Determinants and Linear Transformations}
+
+    $T_A = A\vec x$, where $A \in \mathbb R^{2\times 2}$, is a linear transformation that first reflects vectors in $\mathbb R^2$ through the line $x_1=x_2$, then projects them onto the line $x_1 = 0$. Calculate the value of the determinant of $A$. 
+    
+
+
+\end{frame}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item relationships between determinants and linear transformations
+    \end{itemize}
+
+}
+\frame{
+
+}

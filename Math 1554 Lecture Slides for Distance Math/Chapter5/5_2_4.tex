@@ -1,0 +1,171 @@
+\title{Similar Matrices}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+\frame{\frametitle{Topics and Objectives}
+
+    \Emph{Topics} \\
+    \TopicStatement
+    \begin{itemize}
+    
+        \item similar matrices
+    
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \Emph{Objectives}\\
+    
+    \LearningObjectiveStatement
+    
+    \begin{itemize}
+    
+        \item apply the definition of similar matrices to determine whether mathematical statements that involve similar matrices are accurate
+    
+    \end{itemize}
+
+}
+
+
+
+\begin{frame}{Motivation: Matrix Powers}
+    Suppose $A$ is an $n\times n$ matrix.
+    \begin{itemize}
+        \item in some applications we need to compute $A^k$ for large $k$
+        \item computing $A^k$ directly could require many computations, especially if $n$ is large and many of the elements in $A$ are non-zero
+   \end{itemize}
+    Using the concept of similar matrices, we can obtain a more efficient approach. 
+\end{frame}
+
+
+
+\begin{frame}{Similar Matrices}
+
+    \vspace{-16pt}
+    
+    % ~~ ~~ Highlight Box ~~ ~~
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.95\textwidth}\vspace{2pt}
+
+        $n \times n$ matrices $A$ and $B$ are \Emph{similar} if there is a $P$ so that $A = PBP^{-1}$.
+
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}
+    % ~~ ~~ Highlight Box ~~ ~~
+    
+    \vspace{4pt}
+    \pause
+    \Emph{Example}: if $P = \spalignmat{1 1;0 1}$ and $B=\spalignmat{2 0;0 1}$, then $P^{-1} = \spalignmat{1 -1; 0 1}$ and
+    \pause
+    \begin{align*}
+        PBP^{-1} = \spalignmat{1 1; 0 1}\spalignmat{2 0; 0 1}\spalignmat{1 -1; 0 1} = A
+    \end{align*}
+    By construction, $A$ is similar to $B$. 
+    
+    \vspace{6pt}
+    
+    Later in this course we will investigate a method for constructing $P$ and $B$ when given only a square matrix $A$. 
+
+\end{frame}
+
+
+
+
+
+
+
+
+\begin{frame}{Similar Matrices and the Characteristic Polynomial}
+
+    % \vspace{-24pt}
+    
+
+    
+    \vspace{-24pt}
+    
+    % ~~ ~~ Highlight Box ~~ ~~
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.95\textwidth}\vspace{2pt}
+
+        If $A$ and $B$ similar, then they have the same characteristic polynomial.
+
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+    % ~~ ~~ Highlight Box ~~ ~~
+
+
+\end{frame}
+
+
+
+\begin{frame}{Proof: Similar Matrices, Characteristic Polynomials}
+
+    \onslide<2->{The characteristic polynomial of $A$ is $\det(A-\lambda I)$, and if $A = PBP^{-1}$, then}
+    \begin{align*}
+        \onslide<3->{A - \lambda I &= PBP^{-1} - \lambda I\\}
+        \onslide<4->{&= PBP^{-1} - \lambda PP^{-1}\\}
+        \onslide<5->{&= (PB - \lambda P)P^{-1}\\}
+        \onslide<6->{&= P(B - \lambda I)P^{-1}\\}
+        \onslide<7->{\det(A - \lambda I) &= \det( P(B - \lambda I)P^{-1} )\\}
+        \onslide<8->{\det(A - \lambda I) &= \det(P) \det (B - \lambda I) \det (P^{-1}) \\}
+        \onslide<9->{\det(A - \lambda I) &= \det(P)\det(P^{-1})\det (B - \lambda I)\\}
+        \onslide<10->{\det(A - \lambda I) &= \det (B - \lambda I)}
+    \end{align*}\onslide<10->{The characteristic polynomials of $A$ and $B$ are the same.  }
+
+\end{frame}
+
+
+
+
+\begin{frame}{Similar Matrices and Eigenvalues}
+
+    \Emph{Note}
+    \begin{itemize}
+        \item<2-> If two matrices have the same characteristic polynomial, then they have the same eigenvalues. 
+        \item<3-> The converse is not always true: two matrices can have the same eigenvalues but not be similar. 
+    \end{itemize}
+    
+    \vspace{4pt}
+    
+    \onslide<4->{Consider $$A = \spalignmat{ 0 1 ; 0 0 }, \quad B = \spalignmat{ 0 0 ; 0 0 }, \quad \lambda = 0,0$$ Can $A$ and $B$ be similar? } \onslide<5->{If $A$ and $B$ are similar, then $A=PBP^{-1}$, but }
+    \onslide<6->{$$PBP^{-1} = P\spalignmat{0 0;0 0}P^{-1} = \spalignmat{0 0;0 0} \ne A$$}
+\end{frame}
+
+
+
+
+\begin{frame}{True or False: Similar Matrices}
+
+    Indicate whether the statements are true or false.
+    
+    \begin{enumerate}[a)]
+        \item If $A$ is similar to the identity matrix, $I$, then $A = I$.
+        % \item If $A$ is similar to the zero matrix, $0$, then $A = 0$.
+        \item If $A$ is similar to $B$, and $A=PBP^{-1}$, then $A^2 = PB^2P^{-1}$. 
+        \item If $A$ and $B$ have the same eigenvalues, then $A$ and $B$ are similar. 
+    \end{enumerate}
+
+\end{frame}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item the definition of similar matrices
+        \item using the definition of similar matrices to determine whether mathematical statements that involve them are accurate
+
+    \end{itemize}
+    \vspace{8pt}
+    Later in this course we will introduce methods for constructing matrices $P$ and $B$ so that, given square matrix $A$, we might be able to write $A=PBP^{-1}$. 
+    \pause
+}
+
+
+
+

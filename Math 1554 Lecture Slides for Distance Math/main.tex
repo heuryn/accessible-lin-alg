@@ -1,0 +1,38 @@
+\documentclass[xcolor=table,9pt,notes,t]{beamer} % WITH PAUSES
+% \documentclass[xcolor=table,9pt,handout,t]{beamer} % WITHOUT PAUSES (DEVELOPMENT AND REVIEW)
+
+\newcommand{\AspectRatio}{1}
+
+
+% CUSTOMIZED COMMANDS
+\input{Preamble.tex}
+% \input{SectionTitles.tex}
+
+% ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+\begin{document}
+
+% COLORED BOX FORMATTING
+% These boxes are used for definitions and theorems 
+% This code has to appear after begin{document}
+\tikzstyle{mybox} = [draw=black, fill=gray!2, very thick, rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{fancytitle} =[draw=black, fill=gray!10, text=Teal, rounded corners] 
+
+\newcommand{\Week}{2} 
+
+\ifnum \Week = 2
+    % \input{ObjectiveSlides/1.tex}
+    % \input{ObjectiveSlides/2.tex} 
+    % \input{ObjectiveSlides/3.tex}
+    % \input{ObjectiveSlides/4.tex}
+\fi
+
+
+\ifnum \AspectRatio=1
+\input{InputSlides}
+\fi
+\ifnum \AspectRatio=2
+\input{Chapter1/1_2_3}
+
+\fi
+
+\end{document}

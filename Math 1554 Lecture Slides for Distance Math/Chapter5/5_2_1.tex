@@ -1,0 +1,159 @@
+\title{The Characteristic Polynomial}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+
+    \item the characteristic polynomial of a matrix
+
+    % \item Algebraic and geometric multiplicity of eigenvalues
+
+    % \item Similar matrices
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item construct the characteristic polynomial of a matrix and use it to identify eigenvalues and their multiplicities
+    \item apply the trace and determinant of a $2\times2$ matrix to determine eigenvalues
+    % \item characterize the long-term behaviour of dynamical systems using eigenvalues
+
+\end{itemize}
+
+\vspace{0.25cm} 
+
+}
+
+
+
+
+\begin{frame}{The Characteristic Polynomial}
+
+    \Emph{Recall:}
+	\vspace{-2pt}
+    % ~~ ~~ Highlight Box ~~ ~~
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.7\textwidth}\vspace{2pt}
+
+        \begin{center}
+           $\lambda$ is an eigenvalue of $A \ \Leftrightarrow \ (A-\lambda I)$ is not invertible
+        \end{center}
+
+    \end{minipage}};
+    \end{tikzpicture}\end{center}
+    % ~~ ~~ Highlight Box ~~ ~~
+    
+
+Therefore, to calculate the eigenvalues of $A$, we can solve
+\[ 
+\det(A-\lambda I)= 0
+\]
+
+\pause
+
+\begin{itemize}
+    \item $\det(A-\lambda I)$ is the \Emph{characteristic polynomial} of $A$
+    \item $\det(A-\lambda I)=0$ is the  \Emph{characteristic equation} of $A$
+    \item the roots of the characteristic polynomial are the eigenvalues of $A$
+\end{itemize}
+
+
+
+\end{frame}
+
+\begin{frame}{Example: Calculating the Eigenvalues of a $2\times2$ Matrix}
+
+The characteristic polynomial of $A = \spalignmat{ 4 2 ; 2 1} $ is: 
+
+\vspace{2cm}
+
+So the eigenvalues of $A$ are:
+
+\end{frame}
+
+
+
+
+\begin{frame}{Characteristic Polynomial of $2 \times 2$ Matrices}
+
+    The \Emph{trace} of a matrix is the sum of its diagonal elements. 
+    
+    \vspace{12pt}
+    
+    \Emph{Example} \\ Express the characteristic equation of
+    \begin{align*}
+       M = \spalignmat{ a b ; c d }
+    \end{align*}
+    
+    in terms of its determinant and trace. 
+
+\end{frame}
+
+
+
+
+
+\begin{frame}{Using the Trace to Identify Eigenvalues}
+
+    Although the characteristic polynomial can always be used to determine eigenvalues, sometimes we can identify eigenvalues by inspection.
+    
+    \vspace{12pt}
+    
+    \Emph{Example} \\ By inspection, what are the eigenvalues of $A$? 
+    $$A = \spalignmat{6 18;3 9}$$
+
+    
+
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Numerical Notes}
+
+    \begin{itemize}
+        
+        \item The eigenvalues of any matrix larger than $2\times2$ should be found using a computer, unless the matrix has a special structure.
+        
+        \item Software for computing computing eigenvalues tends to avoid the characteristic polynomial.
+        
+        \item Nevertheless, the characteristic polynomial is important for theoretical purposes. 
+    
+    \end{itemize}
+\end{frame}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item the characteristic polynomial of a matrix and its use to calculate eigenvalues
+
+    \end{itemize}
+    \vspace{8pt}
+
+}
+
+
+
+
+
+
+
+
+
+

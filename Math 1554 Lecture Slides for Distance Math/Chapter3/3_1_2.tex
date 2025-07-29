@@ -1,0 +1,169 @@
+\title{Cofactors and Triangular Matrices}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+
+    % \item the definition and computation of a determinant
+    \item cofactors
+    \item the determinant of triangular matrices
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    % \item compute determinants of $n\times n$ matrices using a cofactor expansion
+    
+    \item compute determinants of matrices using cofactor expansions
+
+\end{itemize}
+
+\vspace{0.25cm} 
+
+}
+
+\frame{\frametitle{Cofactors}
+
+Cofactors give us a more convenient notation for determinants. 
+
+
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth} 
+The $ (i,j)$ cofactor of an $ n \times n $ matrix $ A$ is  \begin{equation*} C _{ij} = (-1) ^{i+j} \operatorname {det} A _{ij}    \end{equation*}
+ \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Definition: Cofactor}; \end{tikzpicture}\end{center}
+
+    % The pattern for the negative signs is
+    % $$\spalignmat{
+    % +,-,+,-,\ldots;
+    % -,+,-,+,\ldots;
+    % +,-,+,-,\ldots;
+    % -,+,-,+,\ldots;  
+    % \vdots,\vdots,\vdots,\vdots
+    % }$$
+    
+
+}
+
+
+\frame{\frametitle{Another Way to Compute Determinants}
+
+    There can be more efficient ways to calculate a determinant.
+
+    \pause 
+    
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth} \vspace{4pt}
+    The determinant of a matrix $ A$ can be computed down any row or column of the matrix. For instance, 
+    down the $j^{th}$ column, the determinant is 
+    \begin{equation*}
+    \operatorname {det} A = 
+    a _{1j} C _{1j} + a _{2j} C _{2j} + \cdots + a _{nj} C _{nj} . 
+    \end{equation*}
+     \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Theorem}; \end{tikzpicture}\end{center}
+    
+}
+
+
+\frame{\frametitle{Example: Cofactor Expansion}
+
+    Compute the determinant of $A = \spalignmat{5 4 3 2;0 1 2 0;0 -1 1 0;0 1 1 3}$.
+
+    \onslide<2->{\Emph{Solution}}
+    \begin{align*}
+        \onslide<2->{|A| &=} \onslide<2->{5C_{11} + 0 C_{21} + 0 C_{31} + 0 C_{41} } \\
+        \onslide<3->{&= 5(-1)^{1+1} \begin{vmatrix} 1 & 2 & 0 \\ -1 & 1 & 0 \\ 1 & 1 & 3 \end{vmatrix} } \\ 
+        \onslide<4->{&= 5 (0C_{13} + 0C_{23} + 3C_{33}) } \onslide<5->{ = 15 (-1)^{3+3}\begin{vmatrix} 1 & 2 \\ -1 & 1 \end{vmatrix} }
+        \onslide<6->{=45}
+    \end{align*}
+}
+
+
+
+
+\frame{\frametitle{Determinant of Triangular Matrices}
+
+
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth} 
+
+ If $ A$ is a triangular matrix then $\operatorname {det} A = a _{11} a _{22} a _{33} \cdots a _{nn}$. 
+
+ \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Theorem}; \end{tikzpicture}\end{center}
+
+\pause 
+\Emph{Why?}\\
+The determinant of the $2\times 2$ triangular matrix $\begin{pmatrix} a & b \\ 0 & c \end{pmatrix}$ is the product of the entries on the main diagonal: \pause 
+$$\left| \begin{pmatrix} a & b \\ 0 & c \end{pmatrix} \right| = ac - 0b = ac$$
+}
+
+\frame{\frametitle{Determinant of Triangular Matrices}
+
+Likewise, a $3\times3$ triangular matrix has the form
+$$A = \begin{pmatrix} a & b & c \\ 0 & d & e \\ 0 & 0 & f \end{pmatrix}$$
+\onslide<2->{Using a cofactor expansion down the first column: }
+\begin{align*}
+    \onslide<3->{\left| A \right| 
+    &= aC_{11} + 0 C_{21} + 0C_{31} = aC_{11} }\\
+    \onslide<4->{&= a(-1)^{1+1}\left| \begin{pmatrix} d & e \\ 0 & f \end{pmatrix} \right| } \\
+    \onslide<5->{&= adf}
+\end{align*}
+\onslide<6->{Likewise with larger triangular matrices, the determinant will be the product of the entries on the main diagonal.} 
+}
+
+
+
+
+\frame{\frametitle{Determinant of Triangular Matrices}
+
+\Emph{Example}\\ Compute the determinant of the $5\times5$ matrix. Empty entries are zero.
+
+$$A = \spalignmat{2,1,,,;,2,1,,;,,2,1,;,,,2,1;,,,,2}$$
+
+\vspace{12pt}
+\pause
+\Emph{Solution} \\
+The matrix is triangular, so \pause $\det A = \left| A \right| = 2^5$.
+}
+
+
+
+
+\frame{\frametitle{Computational Efficiency} 
+
+In general, the computation of a co-factor expansion for an $N\times N$ matrix requires roughly $N!$ multiplications. 
+
+\begin{itemize}
+    \item A $10 \times 10$ matrix requires roughly $10! = 3.6$ million multiplications 
+    \item A $20 \times 20$ matrix requires $20! \approx 2.4 \times 10^{18}$ multiplications
+\end{itemize}
+
+Co-factor expansions may not be practical, but determinants are still useful. 
+\begin{itemize}
+    \item We will explore other methods for computing determinants that are more efficient.
+    \item Determinants are very useful in multivariable calculus for solving certain integration problems.
+\end{itemize}
+
+}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+            \item computing determinants using cofactor expansions
+            \item determinants of triangular matrices
+    \end{itemize}
+    In the next set of videos we will explore a method to compute the determinant of an $n\times n$ matrix and some of its limitations. 
+    \pause 
+}
+
+

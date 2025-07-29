@@ -1,0 +1,140 @@
+\title{An Introduction to the Gram-Schmidt Process}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+  
+
+
+
+ 
+\begin{frame}\frametitle{Topics and Objectives}
+    \Emph{Topics} \\
+    %\TopicStatement
+    \begin{itemize}
+        \item an introduction to the Gram-Schmidt Process for constructing an orthogonal basis for a subspace
+        % \item  The $QR$ decomposition of matrices and its properties
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \Emph{Learning Objectives}\\
+    
+    %\LearningObjectiveStatement
+    
+    \begin{itemize}
+    \item  apply the Gram-Schmidt Process to construct an orthogonal basis for a subspace spanned by two vectors in $\mathbb R^n$
+    
+    % \item  Compute the $ QR $ factorization of a matrix.
+      
+    \end{itemize}
+    
+    \vspace{0.25cm} 
+ 
+\end{frame}
+
+
+
+\begin{frame}{Motivating Questions}
+
+Suppose $\vec x_1 = \spalignmat{1;1;0}$ and $\vec x_2 = \spalignmat{0;2;1}$.
+
+\begin{center}
+    \tdplotsetmaincoords{70}{110}
+    \begin{tikzpicture}[scale=1.2,
+        axis/.style={->,black,-stealth}, 
+        vectorV/.style={-stealth,DarkBlue,very thick},
+        vectorX/.style={-stealth,DarkBlue, thick},
+        perpline/.style={DarkBlue, thin},
+        tdplot_main_coords
+        ]
+        
+        \coordinate (O) at (0,0,0);
+        \coordinate (X1) at (1,1,0);        
+        \coordinate (X2) at (0,2,1);        
+
+        \draw[axis] (-2,0,0) -- (2,0,0) node[right]{$x$};
+        \draw[axis] (0,-1,0) -- (0,2.5,0) node[right]{$y$};
+        \draw[axis] (0,0,-1) -- (0,0,1.5) node[right]{$z$};
+
+        % draw x vectors
+        \draw[vectorX] (O) -- (X1) node[below]{$\vec x_1$};
+        \draw[vectorX] (O) -- (X2) node[right]{$\vec x_2$};
+
+        % % draw q vectors
+        % \draw[vectorV] (O) -- (.7,.7,0) node[below]{$\vec q_1$};
+        % \draw[vectorV] (O) -- (0,1,0) node[above]{$\vec q_2$};
+
+        % % draw some of the perpendicular symbols
+        % \draw[perpline] (0.2,0.2,0.0) -- (0.2,0.0,0.0);
+        % \draw[perpline] (0.2,0.2,0.0) -- (0.0,0.2,0.0);        
+        
+         
+    \end{tikzpicture}
+    
+    \pause $\vec x_1$ and $\vec x_2$ are linearly independent \pause $\Rightarrow$ they form a basis for $W = \Span\{\vec x_1, \vec x_2\}$
+    
+    \vspace{4pt}
+    \pause but $\vec x_1$ and $\vec x_2$ do not give an \Emph{orthogonal} basis for $W$
+    
+    \vspace{4pt}
+    \pause how might we construct an orthogonal basis for $W$? 
+    
+\end{center}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Example}  
+
+    Let $ W $ be the subspace of $ \mathbb R ^{3}$ spanned by $ \vec x_1$ and $ \vec x_2$. Construct an orthogonal basis for $ W$. 
+    $$\vec x_1 = \spalignmat{1;1;0}, \quad \vec x_2 = \spalignmat{0;2;1}$$
+
+    \pause 
+\end{frame}
+
+
+\begin{frame}\frametitle{The Gram-Schmidt Process with Two Vectors} 
+    Suppose we are given a set of vectors $ \{\vec x_1 ,\vec x_2\}$ in $ \mathbb R ^{n}$. \onslide<2->{We can construct an orthogonal basis, $\{\vec v_1, \vec v_2\}$ for the space that they span, $W$, with the following process.}
+    \begin{align*}
+        \onslide<3->{\vec v_1 & = \vec x_1}
+        \\
+        \onslide<4->{\vec v_2 & = \vec x_2 - \frac {\vec x_2 \cdot \vec v_1} {\vec v_1 \cdot \vec v_1} \vec v_1}
+    \end{align*}
+    \onslide<5->{We can show that if $ \{\vec x_1 ,\vec x_2\}$ are independent, then $ \{\vec v_1 ,\vec v_2\} $ is an orthogonal basis for $W$:}
+    \begin{itemize}
+        \item<6-> $\vec v_1$ and $\vec v_2$ are in $W$
+        \item<7-> $\vec v_1$ and $\vec v_2$ span $W$
+        \item<8-> $\vec v_1$ and $\vec v_2$ are orthogonal: $\vec v_1 \cdot \vec v_2 = 0$ 
+    \end{itemize}
+    
+\end{frame}
+
+
+\begin{frame}\frametitle{The Gram-Schmidt Process with Two Vectors} 
+    
+    What happens if $ \{\vec x_1 ,\vec x_2\}$ are non-zero vectors, but are linearly dependent? Does $\vec v_2$ have a particular value? 
+    
+\end{frame}
+
+
+
+
+ \frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+    \item an introduction to the Gram-Schmidt Process for constructing an orthogonal basis for a subspace
+
+    \end{itemize}
+    
+    \vspace{16pt}
+    \pause 
+    
+    We used this process to construct an orthogonal basis for a subspace spanned by \Emph{two} vectors in $\mathbb R^n$.
+
+}

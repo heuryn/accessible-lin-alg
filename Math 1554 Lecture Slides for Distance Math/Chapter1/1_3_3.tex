@@ -1,0 +1,145 @@
+\title{Span} 
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+
+\frame{\frametitle{Topics and Learning Objectives}
+
+\Emph{Topics} \\
+\TopicStatement
+
+\begin{itemize}
+    % \item  Vectors in $ \mathbb R ^{n}$, and their basic properties 
+    
+    % \item linear combinations of vectors
+    \item the span of a set of vectors
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\LO\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    % \item  Apply geometric and algebraic properties of vectors in $ \mathbb R ^{n}$ to compute vector additions and scalar multiplications.
+    \item  characterize a set of vectors in terms of \Emph{linear combinations} and their \Emph{span}, and how they are related to each other geometrically
+\end{itemize}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+\frame{\frametitle{Span} 
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth}\vspace{4pt}
+
+    Given vectors $ \vec v_1, \vec v_2 ,\dotsc, \vec v_p \in \mathbb R ^{n} $, and scalars $ c_1 , c_2, \dotsc, c_p$. The set of all linear combinations of $ \vec v_1, \vec v_2 ,\dotsc, \vec v_p $ is called the \Emph{span} of $ \vec v_1, \vec v_2 ,\dotsc, \vec v_p $.  
+
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}    
+}
+
+
+
+
+
+\frame{\frametitle{Span Example}
+
+Is $ \vec y$ in the span of vectors $\vec v_1$ and $\vec v_2$?  \\[6pt]
+
+$ \vec v_1 = \spalignmat{ 1 ; -2 ; -3 }$, 
+$ \vec v_2  = \spalignmat{ 2 ; 5 ; 6 }$,  and 
+$ \vec y =  \spalignmat{ 7 ; 4 ; 15 }$.  \\ 
+}
+
+
+
+
+\frame{\frametitle{The Span of Two Vectors in $ \mathbb R^{3}$}
+
+    In the previous example, did we find that $\vec y$ is in the span of $\vec v_1$ and $\vec v_2$? \vspace{12pt} 
+
+    \Emph{In general:} Any two non-parallel vectors in $\R^3$ span a plane that passes through the origin. Any vector in that plane is also in the span of the two vectors.
+    \begin{center}
+%        \begin{tikzpicture}
+            %\begin{axis}
+             %   \addplot3[mesh,draw=gray,samples=100] {x+y};
+                %coordinates { (0,0,0) (0,0.5,0) (0,1,0) (0.5,0,0.5) (0.5,0.5,0.5) (0.5,1,0.5)(1,0,1) (1,0.5,1) (1,1,1)};
+            %\end{axis}
+            %\draw[thick, -stealth,] (2.3,2) -- (4.5,3.7) node[anchor = west]{$\vec x$};
+            %\draw[thick, -stealth,] (1.1,1.9) -- (5.8,3.8) node[anchor = west]{$\vec y$};
+        %\end{tikzpicture}
+
+
+      \tdplotsetmaincoords{74}{100}
+        \begin{tikzpicture}[scale=2.4,
+            axis/.style={->,black,-stealth}, 
+            vectorC/.style={-stealth,black,very thick},
+            vectorV/.style={-stealth,Teal,very thick},
+            dsline/.style={black,dashed},
+            perpline/.style={black, thin},
+            tdplot_main_coords
+            ]
+        
+            \coordinate (O) at (0,0,0);
+            \coordinate (X) at (2,0,0);
+            \coordinate (Y) at (0,1,0);        
+            \coordinate (Z) at (0,0,1);        
+            \coordinate (X1) at (1,1,0);        
+            \coordinate (X2) at (1,0,1);        
+            \coordinate (X3) at (2,1,1);        
+        
+            % plane
+            \filldraw[draw=Teal!40,fill=Teal!08,]          
+            (0,0,0) -- (1,1,0) -- (2,1,1) -- (1,0,1)
+            -- cycle;
+            
+            % draw coordinate vectors
+            \draw[vectorC] (O) -- (X) node[above]{};
+            \draw[vectorC] (O) -- (Y) node[below]{};
+            \draw[vectorC] (O) -- (Z) node[below]{};
+            
+            % draw coordinate vectors
+            \draw[vectorV] (O) -- (X1) node[above]{};
+            \draw[vectorV] (O) -- (X2) node[below]{};
+        
+            % other labels
+            \draw (O) node[below]{$\vec 0$};
+            
+        \end{tikzpicture}
+        
+    \end{center}
+        
+}
+
+
+
+
+
+
+
+\frame{\frametitle{Summary}
+
+We explored the following concepts in this video. \vspace{4pt}
+\begin{itemize}\setlength{\itemsep}{8pt}
+    \item characterizing a set of vectors in terms of \Emph{linear combinations}, their \Emph{span}, and how they are related to each other geometrically
+\end{itemize}
+\pause
+}

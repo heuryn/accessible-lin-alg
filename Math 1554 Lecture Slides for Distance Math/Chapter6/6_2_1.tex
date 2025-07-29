@@ -1,0 +1,363 @@
+\title{Orthogonal Bases}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+  
+
+ 
+\begin{frame}\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item orthogonal sets of vectors
+
+    \item orthogonal and orthonormal bases 
+    
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    % \item compute orthogonal projections and distances
+    % \item express a vector as a linear combination of orthogonal vectors
+    % \item characterize bases for subspaces of $\mathbb R^n$, and
+    \item determine whether a basis is orthogonal or whether it is orthonormal
+    \item construct and give examples of orthogonal and orthonormal bases
+\end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}{Orthogonal Vector Sets}
+
+    % ~~ ~~ Highlight Box ~~ ~~
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}\vspace{2pt}
+
+        A set of vectors $ \{\vec u_1 ,\dotsc, \vec u_p\}$ are an \Emph{orthogonal set} of vectors if for each $ j\neq k$, $ \vec u_j \perp \vec u_k$.  
+
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}
+    % ~~ ~~ Highlight Box ~~ ~~
+        
+    \vspace{4pt} 
+    \pause 
+    
+    \Emph{Example:} Fill in the missing entries to make $ \{\vec u_1 ,\vec u_2, \vec u_3\}$ a set of non-zero orthogonal vectors.
+    \begin{equation*}
+        \vec u_1 = \begin{pmatrix} 4 \\ 0 \\ 1 \end{pmatrix}, \quad 
+        \vec u_2 = \begin{pmatrix}-2 \\ 0 \\    \phantom{-1 - 1 }\end{pmatrix}, \quad 
+        \vec u_3 = \begin{pmatrix} 0 \\  \phantom{-1 - 1 } \\ \phantom{-1 - 1 }\end{pmatrix}
+    \end{equation*}
+\end{frame}
+
+
+\begin{frame}{Orthogonal Vector Sets}
+    \Emph{Example:} Fill in the missing entries to make $ \{\vec u_1 ,\vec u_2, \vec u_3\}$ a set of non-zero orthogonal vectors.
+    \begin{equation*}
+        \vec u_1 = \begin{pmatrix} 4 \\ 0 \\ 1 \end{pmatrix}, \quad 
+        \vec u_2 = \begin{pmatrix}-2 \\ 0 \\    \phantom{-1 - 1 }\end{pmatrix}, \quad 
+        \vec u_3 = \begin{pmatrix} 0 \\  \phantom{-1 - 1 } \\ \phantom{-1 - 1 }\end{pmatrix}
+    \end{equation*}
+    
+    \Emph{Solution}\\ \pause
+    We need $\vec u_1\cdot \vec u_2 = 0$\pause, so we need $\vec u_2 = \begin{pmatrix} -2\\0 \\ 8 \end{pmatrix}$. 
+    
+    \pause 
+    
+    \vspace{12pt}
+    
+    We also need $\vec u_3\cdot \vec u_1 = \vec u_3 \cdot \vec u_2 = 0$, so we can set $\vec u_3 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}$.
+
+\end{frame}
+
+
+
+\begin{frame}{Orthogonality and Linear Independence}
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth} \vspace{4pt}
+    Let  $S = \{\vec u_1 ,\dotsc, \vec u_p\}$ be an \Emph{orthogonal set} of vectors.  %Then, for scalars $ c_1 ,\dotsc, c_p$, 
+    % \begin{equation*}
+    % \bigl\lVert c_1 \vec u_1 + \cdots + c_p \vec u_p  \bigr\rVert ^2 
+    % = c_1 ^2 \lVert \vec u_1 \rVert ^2 + \cdots + c_p ^2 \lVert \vec u_p\rVert ^2 . 
+    % \end{equation*}    In particular, 
+    If $ \vec u_i$ are non-zero, the then $S$ is a set of \Emph{linearly independent} vectors. 
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+    \vspace{6pt}
+    \pause
+    \Emph{Proof}: Suppose $ \{\vec u_1 ,\dotsc, \vec u_p\}$ are a set of non-zero orthogonal vectors, \pause and $$\sum_{i=1}^ p c_i\vec u_i = c_1 \vec u_1 + c_2 \vec u_2  + \ldots + c_p \vec u_p = \vec 0$$ for scalars $c_1, c_2, \ldots , c_p$, then $\ldots$
+
+\end{frame}
+
+
+\begin{frame}{Orthogonality and Linear Independence}
+
+    Then 
+    \begin{align*}
+        0 &= \vec u_1 \cdot \vec 0 \\
+        \onslide<2->{&= \vec u_1 \cdot \sum_{i=1}^ p c_i\vec u_i} \\
+        \onslide<3->{&= \sum_{i=1}^ p c_i \vec u_1 \cdot \vec u_i} \\
+        \onslide<4->{&= c_1 \vec u_1 \cdot \vec u_1} 
+    \end{align*}
+    \onslide<5->{But $\vec u_1$ is not the zero vector, so $c_1=0$. Likewise, $c_2, c_3 , \ldots c_p$ must also be zero, which means that $S$ is a set of linearly independent vectors.  }
+\end{frame}
+
+
+
+
+
+\begin{frame}{Orthogonal Bases}
+
+    \vspace{-12pt}
+    
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}\vspace{4pt}
+        Let  $ \{\vec u_1 ,\dotsc, \vec u_p\}$ be an orthogonal  basis for a subspace $ W$ of $ \mathbb R ^{n}$. Then, for any vector $ \vec w\in W$, 
+        \begin{equation*}
+            \vec w= c_1  \vec u_1   + \cdots + c_p   \vec u_p  . 
+        \end{equation*}
+        Above, the scalars are $ \displaystyle c_ q = \frac { \vec w \, \cdot \, \vec u_q } { \vec u _{q} \cdot \, \vec u_q }$. 
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem (Expansion in Orthogonal Basis) };
+    \end{tikzpicture}\end{center}
+    \pause
+    Obtaining the coefficients, $ \displaystyle c_ q$, with the above formula is generally more efficient than row reduction.  \pause However, we can only apply this theorem when we have an orthogonal basis for $W$. 
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+\begin{frame}{Example: Orthogonal Basis}  
+    \vspace{-6pt}
+    Suppose $W$ is the subspace of $\mathbb R ^{3}$ that is orthogonal to $\vec x$. 
+    $$\vec x = \spalignmat{1;1;1}, \quad \vec u = \spalignmat{1;-2;1}, \quad \vec v = \spalignmat{-1;0;1}, \quad \vec s = \spalignmat{3;-4;1}$$
+    \begin{enumerate}
+        \item Confirm that an orthogonal basis for $W$ is given by $\vec u$ and $\vec v$.
+        \item Assume $\vec s \in W$. Compute the expansion of $\vec s$ in the basis for $W$.
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Solution to Part 1}  
+    \vspace{-6pt}
+    Suppose $W$ is the subspace of $\mathbb R ^{3}$ that is orthogonal to $\vec x$. 
+    $$\vec x = \spalignmat{1;1;1}, \quad \vec u = \spalignmat{1;-2;1}, \quad \vec v = \spalignmat{-1;0;1}, \quad \vec s = \spalignmat{3;-4;1}$$ \vspace{-12pt}
+    \begin{enumerate}
+        \item Confirm that an orthogonal basis for $W$ is given by $\vec u$ and $\vec v$.
+        % \item Assume $\vec s \in W$. Compute the expansion of $\vec s$ in the basis for $W$.
+    \end{enumerate}
+    
+    \pause 
+    \Emph{Solution to Part 1}\\ \pause 
+    For $\vec u$ and $\vec v$ to form an orthogonal basis for $W$, (a) $\vec u$ and $\vec v$ must be in $W$, and (b) they must be orthogonal.  \pause 
+    \begin{enumerate}[a)]
+        \item $\vec x \cdot \vec u = 1 -2 +1 = 0$ and $\vec x \cdot \vec v = -1 + 0 + 1 = 0 $ so $\vec u$ and $\vec v$ are in $W$. 
+        \item $\vec u \cdot \vec v = -1 + 0 -1 = 0$, so $\vec u$ and $\vec v$ are orthogonal.
+    \end{enumerate}
+    \pause 
+    Thus, $\vec u$ and $\vec v$ form an orthogonal basis for $W$. 
+\end{frame}
+
+
+
+\begin{frame}{Solution to Part 2}  
+    \vspace{-6pt}
+    Suppose $W$ is the subspace of $\mathbb R ^{3}$ that is orthogonal to $\vec x$. \pause 
+    $$\vec x = \spalignmat{1;1;1}, \quad \vec u = \spalignmat{1;-2;1}, \quad \vec v = \spalignmat{-1;0;1}, \quad \vec s = \spalignmat{3;-4;1}$$ \vspace{-12pt} \pause 
+    \begin{enumerate}
+        % \item Confirm that an orthogonal basis for $W$ is given by $\vec u$ and $\vec v$.
+        \item[2.] Assume $\vec s \in W$. Compute the expansion of $\vec s$ in the basis for $W$.
+    \end{enumerate}
+    
+    \vspace{12pt}
+    \Emph{Solution to Part 2}\\ \pause 
+    Given that $\vec s$ is in $W$, and we have an orthogonal basis for $W$, we can use our theorem to write: \pause 
+    $$\vec s = \frac{\vec s \cdot \vec u}{\vec u \cdot \vec u}\vec u + \frac{\vec s \cdot \vec v}{\vec v \cdot \vec v}\vec v=\frac{12}{6}\vec u + \frac{-2}{2}\vec v = 2\vec u - \vec v$$ \pause 
+    Therefore, $\vec s = 2\vec u - \vec v$. 
+\end{frame}
+
+
+\begin{frame}{Definition}
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}\vspace{4pt}
+        An \Emph{orthonormal basis} for a subspace $ W$ is an orthogonal basis $ \{\vec u_1 ,\dotsc, \vec u_p\}$ 
+        in which every vector $ \vec u_q$ has unit length.  In this case, for each $ \vec w\in W$,  
+        \begin{gather*}
+        \vec w = (\vec w \cdot \vec u_1) \vec u_1 + \cdots +  (\vec w \cdot \vec u_p ) \vec u_p
+        \\
+        \lVert \vec w \rVert  =  \sqrt{(\vec w \cdot \vec u_1) ^2 + \cdots +  (\vec w \cdot \vec u_p) ^2} 
+    \end{gather*}
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition  (Orthonormal Basis)};
+    \end{tikzpicture}\end{center}
+\end{frame}
+
+
+
+
+\begin{frame}{Example: Orthonormal Basis}  
+    \vspace{-6pt}
+    $ W $ is a subspace of $ \mathbb R ^{3}$ that is perpendicular to $x$.  Calculate the missing coefficients in the orthonormal basis for $W$, which is $\{u, v\}$. 
+    \begin{equation*}
+    x = \spalignmat{1;1;1}, \qquad 
+    u = 
+    \frac{1}{\sqrt{\quad}}
+    \begin{pmatrix}
+        1 \\ 0 \\ \phantom {\int\int} 
+    \end{pmatrix} ,
+    \qquad 
+    v= 
+    \frac{1}{\sqrt{\quad}}
+    \begin{pmatrix}
+        \phantom {\int\int}  \\ \phantom {\int\int}  \\ \phantom {\int\int} 
+    \end{pmatrix} 
+    \end{equation*}
+    \Emph{Solution for $u$}\\    
+    \pause For $u$ to be in $W$ we need $x\cdot u =0$. \pause 
+    $$\text{Set } u=\frac{1}{\sqrt a}\begin{pmatrix} 1\\0\\b \end{pmatrix} \quad \Rightarrow \quad \pause x\cdot u = \frac{1}{\sqrt{a}}(1+0+b)=0 \quad \Rightarrow \quad b = -1$$
+    \pause For $u$ to have unit length, we need $a=2$. 
+\end{frame}
+
+
+
+\begin{frame}{Example: Orthonormal Basis}  
+    \vspace{-12pt}
+    % $ W $ is a subspace of $ \mathbb R ^{3}$ that is perpendicular to $x$.  Calculate the missing coefficients in the orthonormal basis for $W$, which is $\{u, v\}$. 
+    \begin{equation*}
+    x = \spalignmat{1;1;1}, \qquad 
+    u = 
+    \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+        1 \\ 0 \\ -1
+    \end{pmatrix} ,
+    \qquad 
+    v= 
+    \frac{1}{\sqrt{\quad}}
+    \begin{pmatrix}
+        \phantom {\int\int}  \\ \phantom {\int\int}  \\ \phantom {\int\int} 
+    \end{pmatrix} 
+    \end{equation*}
+    \pause 
+    \Emph{Solution for $v$}\\
+    For $u$ and $v$ to form an orthonormal basis, we need $u\cdot v=0$. \pause $$ \text{Set } v=\frac{1}{\sqrt k}\begin{pmatrix} c_1\\c_2\\c_3 \end{pmatrix} \quad \Rightarrow u\cdot v \text{ implies } c_1=c_3$$ If $v$ is in $W$ we need $x\cdot v =0$. \pause 
+    $$x\cdot v = \frac{1}{\sqrt{k}}(c_1+c_2+c_3)=0 \quad \Rightarrow \quad c_2 = -2c_1$$
+    \pause Choosing $c_1 = 1$, then $c_2 = -2$ and $c_3=1$. \pause For $\|v\| = 1$, we need $k=6$. 
+\end{frame}
+
+
+\begin{frame}{Example: Orthonormal Basis}  
+    Our vectors are:
+    \begin{equation*}
+    x = \spalignmat{1;1;1}, \qquad 
+    u = 
+    \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+        1 \\ 0 \\ -1
+    \end{pmatrix} ,
+    \qquad 
+    v= 
+    \frac{1}{\sqrt{6}}
+    \begin{pmatrix}
+        1 \\-2\\1
+    \end{pmatrix} 
+    \end{equation*}
+    \pause As required, $u$ and $v$ are orthonormal, \pause and they form a basis for $W$, which is the set of vectors orthogonal to $x$. 
+\end{frame}
+
+
+
+\begin{frame}{Orthogonal Bases}
+
+    Do not forget that bases are not unique. 
+    
+    \vspace{12pt} 
+    
+    \pause 
+    
+    For example, any vector $\vec w \in \mathbb R^3$ can be written as a linear combination of $\{\vec e_1,\vec e_2,\vec e_3\}$, or any other orthogonal basis for $\mathbb R^3$.
+
+    \pause 
+\begin{columns}
+\begin{column}{.45\textwidth}
+
+    \begin{center}
+    \tdplotsetmaincoords{70}{140}
+    \begin{tikzpicture}[scale=1.5, axis/.style={-,gray}, 
+        vector/.style={-stealth,DarkBlue,very thick},
+        tdplot_main_coords
+        ]
+        
+        \coordinate (O) at (0,0,0);
+
+        % draw axes
+        \draw[axis] (-1.5,0,0) -- (1.5,0,0) node[anchor=north east]{};
+        \draw[axis] (0,-1.5,0) -- (0,1.5,0) node[anchor=north east]{};
+        \draw[axis] (0,0,-1.0) -- (0,0,1.5) node[anchor=north west]{};       
+        
+        % draw bases
+        \draw[vector] (O) -- (1,0,0) node[anchor=north]{$\vec e_1$};
+        \draw[vector] (O) -- (0,1,0) node[anchor=north east]{$\vec e_2$};
+        \draw[vector] (O) -- (0,0,1) node[anchor=north west]{$\vec e_3$};
+
+    \draw (0,0,-1.5) node[above] {{\small an orthogonal basis for $\mathbb R^3$}};
+    \end{tikzpicture}
+    \end{center}
+
+\end{column}\begin{column}{.45\textwidth}
+    
+    \begin{center}
+    \tdplotsetmaincoords{70}{140}
+    \begin{tikzpicture}[scale=1.5, axis/.style={-,gray}, 
+        vector/.style={-stealth,DarkBlue,very thick},
+        tdplot_main_coords
+        ]
+        
+        \coordinate (O) at (0,0,0);
+
+        % draw axes
+        \draw[axis] (-1.5,0,0) -- (1.5,0,0) node[anchor=north east]{};
+        \draw[axis] (0,-1.5,0) -- (0,1.5,0) node[anchor=north east]{};
+        \draw[axis] (0,0,-1.0) -- (0,0,1.5) node[anchor=north west]{};       
+        
+        % draw bases
+        \draw[vector] (O) -- (1,0,0) node[anchor=north]{$\vec e_1$};
+        \draw[vector] (O) -- (0,-1,0) node[anchor= south]{$-\vec e_2$};
+        \draw[vector] (O) -- (0,0,1) node[anchor=north west]{$\vec e_3$};
+        \draw (0,0,-1.5) node[above] {{\small another orthogonal basis for $\mathbb R^3$}};
+    \end{tikzpicture}
+    \end{center}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+    \item orthogonal sets of vectors
+
+    \item orthogonal and orthonormal bases 
+    
+    \end{itemize}
+    
+    \vspace{8pt}
+    
+    \pause 
+}
+

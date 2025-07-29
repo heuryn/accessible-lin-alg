@@ -1,0 +1,251 @@
+\title{The Normal Equations}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+\begin{frame}\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item the Normal Equations 
+    \item using the Normal Equations to solve inconsistent linear systems 
+    % \item Different methods to solve Least-Squares Problems
+    
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+\begin{itemize}
+
+    \item construct and solve the Normal Equations to determine the least-squares solution to a linear system
+  
+\end{itemize}
+
+\vspace{0.25cm} 
+ 
+ \end{frame}
+
+\begin{frame}{A Motivating Question}
+
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item Recall that a \Emph{least-squares solution} to $ A \vec x = \vec b$ is \onslide<2->{the vector, $ \widehat x $, for which} \onslide<3->{ 
+        \begin{equation*}
+            \lVert \, \vec b - A \widehat x \, \rVert \leq \lVert \, \vec b - A  \vec x \, \rVert 
+        \end{equation*}
+        for all $\vec x\in \mathbb R ^{n}$.} 
+        \item<4->{In other words, $ A\widehat x $ is the closest vector in $\Col A$ to $\vec b$.  }
+        \item<5-> We want to identify the least-squares solution, $\widehat x $.
+    \end{itemize}
+    \onslide<6->{How can we obtain $\widehat x \,$?}
+\end{frame}
+
+
+
+
+\begin{frame}{Geometric Interpretation of Least-Squares Solution}
+    
+    \vspace{-12pt}
+    \begin{center}
+        \tdplotsetmaincoords{70}{0}
+        \begin{tikzpicture}[scale=2,
+            axis/.style={->,black,-stealth}, 
+            vectorY/.style={-stealth,DarkBlue,very thick},
+            vectorH/.style={-stealth,black,very thick},
+            vectorV/.style={-stealth,DarkRed,very thick},
+            dsline/.style={black,dashed},
+            perpline/.style={black, thin},
+            tdplot_main_coords
+            ]
+        
+            \coordinate (O) at (0,0,0);
+            \coordinate (Y) at (1.5,0,0.8);
+            \coordinate (H) at (1.5,0,0);        
+            \coordinate (V) at (0,0,1);        
+            \coordinate (R) at (-1,-2.5,0);        
+            \coordinate (C) at (-.6,-1,0);     
+            \coordinate (X) at (.1,-2,0);
+            \coordinate (HH) at (1.4,-.3,0);        
+            \coordinate (XX) at (.4,-2.6,0);        
+            \coordinate (AA) at (.8,-2.,0);        
+        
+        
+            % plane for Col A
+            \filldraw[draw=DarkBlue!40,fill=DarkBlue!05,]          
+            (-1.4,-1.4,0) -- (2,-1.4,0) -- (2,1.2,0) -- (-1.2,1.2,0)
+            -- cycle;
+            \draw (C) node[above]{Col$(A)$};
+
+            
+            % plane for domain
+            \filldraw[draw=black!30,fill=black!05,]          
+            (-1.3,-2,0) -- (0.8,-2,0) -- (0.7,-4,0) -- (-1.5,-4,0)
+            -- cycle;             
+            \draw (R) node[below]{$\mathbb R^n$};
+
+            \onslide<2->{
+                \draw (X) node[below]{$\widehat x$};
+            }
+            
+            
+            \onslide<3->{
+            \draw (XX) edge[out=3,in=190,->] (HH) ; % bendy line
+            \draw (AA) node[below]{$A$};
+            \draw[vectorH] (O) -- (H) node[below]{$A \widehat x$};
+            }
+            
+            \onslide<4->{
+            % draw vectors
+            \draw[vectorY] (O) -- (Y) node[midway,above]{$\vec b$};
+            \draw (O) node[below]{$\vec 0$};
+            \draw[vectorV] (H) -- (Y) node[midway,right]{$\vec b - A \widehat x$};
+            }            
+            
+            \onslide<5->{
+            % draw perpendicular symbols
+            \draw[perpline] (1.35,0.0,0.15) -- (1.50,0.0,0.15); % across
+            \draw[perpline] (1.35,0.0,0.15) -- (1.35,0.0,0.00); % down
+            }
+
+            
+        \end{tikzpicture}
+    
+        \onslide<2->{The least-squares solution $\widehat x$ is in $\mathbb R^n$.}
+
+    \end{center}
+
+    % \onslide<5->{ we have that}
+
+    \begin{itemize}
+        \item<6-> Recall from the \Emph{orthogonal decomposition theorem}: if $A \widehat x $ is the closest vector in $\Col A$ to $\vec b$, then {\color{DarkRed} $ \vec b - A \widehat x$} is orthogonal to $\Col A$.
+
+        \item<7-> Recall that $(\Col A)\Perp = \Null A^T$.
+        
+        \item<8-> Thus, $A^T (\vec b - A \widehat x) = \vec 0 \ \Rightarrow \ A ^{T} A \widehat x = A ^{T} \vec b$
+    \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}{The Normal Equations}
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.9\textwidth}\vspace{4pt}
+    The least-squares solutions to $ A \vec x = \vec b $ coincide with the solutions to 
+    $$
+        A ^{T} A \widehat x = A ^{T} \vec b
+    $$
+    This linear system is referred to as the \Emph{Normal Equations}. 
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem (Normal Equations for Least-Squares)};
+    \end{tikzpicture} \end{center} 
+\end{frame}
+
+
+
+
+
+\begin{frame}{Theorem}
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.9\textwidth}\vspace{4pt}
+    Let $A$ be any $ m \times n$ matrix.  These statements are equivalent.  
+    %%  itemize
+    \begin{itemize}
+    \item<2-> The columns of $ A$ are linearly independent. 
+    \item<3-> The matrix $  A ^{T} A $ is invertible.  
+    \item<4-> The equation $ A \vec x = \vec b $  has a unique least-squares solution for each $ \vec b \in \mathbb R ^{m}$. 
+    \end{itemize}
+    %% itemize
+    \vspace{4pt} 
+    \onslide<5->{If the above statements hold, the least square solution is} $$\onslide<5->{\widehat x = ( A ^{T} A ) ^{-1} A ^{T} \vec b.}$$
+    \vspace{-24pt}
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem (Unique Solutions for  Least-Squares)};
+    \end{tikzpicture} \end{center} 
+    
+    
+\end{frame}
+
+
+\begin{frame}\frametitle{Normal Equations Example} 
+    Compute the least-squares solution to $ A \vec x = \vec b$, where 
+    \begin{equation*}
+    A = \begin{pmatrix}
+    1&0\\1&1\\1&-1 
+    \end{pmatrix}, \qquad \vec b = 
+    \begin{pmatrix}
+    2 \\ 2 \\ -1
+    \end{pmatrix}
+    \end{equation*}
+    \pause
+    \Emph{Solution} 
+    \begin{flalign*}
+    A ^{T} A 
+    &= 
+    \begin{pmatrix}
+    1 & 1 & 1 \\ 0 & 1 & -1 
+    \end{pmatrix}  \begin{pmatrix}
+    1&0\\1&1\\1&-1 
+    \end{pmatrix}= \spalignmat{3 0;0 2}
+    \\
+    A ^{T} \vec b &= 
+    \begin{pmatrix}
+    1 & 1 & 1 \\ 0 & 1 & -1 
+    \end{pmatrix} \begin{pmatrix}
+    2 \\ 2 \\ -1
+    \end{pmatrix}= \spalignmat{3;3}
+    \end{flalign*}
+\end{frame}
+
+\begin{frame}\frametitle{Normal Equations Example} 
+    The normal equations $ A ^{T} A \vec x = A^T\vec b $ are
+    $$\spalignmat{3 0;0 2}\widehat x = \spalignmat{3;3}$$
+    \pause
+    Solving this system yields
+    $$\widehat x = \spalignmat{1;\frac32}$$
+\vspace{2.5in}
+\end{frame}
+
+
+
+ \frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+
+    \item the Normal Equations 
+    \item using the Normal Equations to solve inconsistent linear systems 
+    % \item Different methods to solve Least-Squares Problems
+    
+    \end{itemize}
+
+    
+    \vspace{16pt}
+    \pause 
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,166 @@
+\title{The SVD of a $3\times2$ Matrix with Rank 1}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item the Singular Value Decomposition (SVD) of a matrix and how to compute the SVD for a given matrix % and some of its applications
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+%\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item compute the SVD for a rectangular matrix
+    % \item Apply the SVD to 
+    % \begin{itemize} 
+    %     \item estimate the rank and condition number of a matrix, 
+    %     \item construct a basis for the four fundamental spaces of a matrix, and
+    %     \item construct a spectral decomposition of a matrix.
+    % \end{itemize}
+\end{itemize}
+
+} 
+
+\begin{frame}\frametitle{A Procedure for Constructing the SVD of $A$}
+    Suppose $A$ is $m \times n$ and has rank $r$. 
+    
+    \begin{enumerate}
+        \item<2-> Compute the squared singular values of $A^TA$, $\sigma_i^2$, and construct $\Sigma$. \vspace{6pt}
+        \item<3-> Compute the unit singular vectors of $A^TA$, $\vec v_i$, use them to form $V$. \vspace{6pt}
+        \item<4-> Compute an orthonormal basis for Col$A$ using $$\vec u_i = \frac{1}{\sigma_i}A\vec v_i, \quad i = 1, 2, \ldots r$$ If necessary, extend the set $\{\vec u_i\}$ to form an orthonormal basis for $\mathbb R^m$ and use the basis to form $U$. 
+    
+    \end{enumerate}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{A $3\times2$ Matrix with Rank 1}
+Construct the singular value decomposition of $ A = \begin{pmatrix}
+1 & -1 \\ -2 & 2 \\ 2 & -2 
+\end{pmatrix}$.  
+
+    
+    \Emph{Solution}\\
+    Singular values: \onslide<3->{
+    $$A^TA = \spalignmat{9 -9;-9 9} \quad \Rightarrow \quad \lambda_1 = 18, \ \lambda_2=0 \quad \Rightarrow \quad  \sigma_1 = \sqrt{18}, \ \sigma_2 = 0$$}
+    \onslide<4->{Don't forget that }
+    \begin{itemize}
+        \item<4-> Singular matrices have eigenvalue 0 and the trace of a matrix is the sum of its eigenvalues. 
+        \item<5-> The positive square roots of the eigenvalues are the singular values. 
+        \item<6-> $\sigma_1$ is the largest singular value.
+    \end{itemize}
+
+    
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Example: Construct $\Sigma$ and $V$}    
+
+    Using the singular values we can construct $\Sigma$. 
+    $$\sigma_1 = \sqrt{18} = 3\sqrt{2}, \quad \sigma_2 = 0 \qquad \Rightarrow \qquad \Sigma = \spalignmat{3\sqrt{2} 0;0 0;0 0}$$
+    
+    \onslide<2->{Next we construct the right-singular vectors $\{\vec v_i\}$ and form $V$. }
+    \begin{align*}
+        \onslide<3->{A^TA - \lambda_1 I &= \spalignmat{-9 -9;-9 -9} \quad \Rightarrow \quad \vec v_1 = \frac{1}{\sqrt{2}} \spalignmat{1;-1}} \\
+        \onslide<4->{A^TA - \lambda_2 I &= \spalignmat{9 -9;-9 9} \quad \Rightarrow \quad \vec v_2 = \frac{1}{\sqrt{2}} \spalignmat{1;1} } \onslide<5->{\quad \Rightarrow \quad
+        V  = \frac{1}{\sqrt2}\spalignmat{1 1;-1 1}}
+    \end{align*}
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Construct $\vec u_1$}    
+    Next we construct left-singular vectors $\{\vec u_i \}$. The rank of $A$ is $r=1$, so we may use $$\vec u_i = \frac{1}{\sigma_i}A\vec v_i$$ for $i = 1$. \onslide<2->{Vector $\vec u_1$ will be a unit vector in $\mathbb R^3$.}
+    \begin{align*}
+        \onslide<3->{\vec u_1 = \frac{1}{\sigma_1}A\vec v_1 &= \frac{1}{3\sqrt2}
+        \begin{pmatrix}
+            1 & -1 \\ -2 & 2 \\ 2 & -2 
+        \end{pmatrix}
+        \spalignmat{1/\sqrt2;-1/\sqrt2} }\\
+        \onslide<4->{&=\frac{1}{3\cdot2}\spalignmat{2;-4;4} = \frac{1}{3} \spalignmat{1;-2;2}}
+    \end{align*}
+    
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Constructing $U$}  
+
+    How can we construct the remaining left-singular vectors to construct $U$? 
+    \begin{itemize}
+        \item<2-> In this example, $A$ has rank $r=1$, and $U$ will be a $3 \times 3$ orthogonal matrix.
+        \item<3-> By inspection, two vectors orthogonal to $\vec u_1$ are
+        $$\vec x_2 = \spalignmat{2;1;0}, \quad \vec x_3 = \spalignmat{-2;0;1}, \quad \text{recall: } \vec u_1 = \frac{1}{3} \spalignmat{1;-2;2}$$
+        \item<4-> Because $\vec u _1 \in \Col A$, these two vectors are in $(\Col A)\Perp$. 
+        \item<5-> But $U$ is an orthogonal matrix, so how might we create an orthogonal basis for $(\Col A)\Perp$? 
+    \end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Constructing $U$}  
+
+    Gram-Schmidt. 
+    \begin{align*}
+        \bar u_2 &= \vec x_2 = \spalignmat{2;1;0}\\
+        \bar u_3 &= \vec x_3 - \frac{\vec x_3 \cdot \bar u_2 }{\bar u_2 \cdot \bar u_2}\bar u_2 = \spalignmat{-2;0;1} - \frac{-4}{5}\spalignmat{-2;0;1} = \frac 15 \spalignmat{-2;4;-5}
+    \end{align*}
+    Normalizing these vectors yields the remaining left singular vectors. 
+    \begin{align*}
+        \vec u_2 = \frac{1}{\sqrt 5} \spalignmat{2;1;0}, \quad \vec u_3 = \frac{1}{\sqrt{45}}\spalignmat{-2;4;-5}
+    \end{align*}
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Example: Construct $SVD$}  
+
+    Thus, $A = U\Sigma V^T$, where
+    \begin{align*}
+        U &= \spalignmat{1/3 2/\sqrt5 -2/\sqrt{45};-2/3 1/\sqrt5 4/\sqrt{45}; 2/3 0 -5/\sqrt{45}}\\[4pt]
+    \Sigma &= \spalignmat{3\sqrt2 0;0 0;0 0} \\[4pt]
+    V &= \frac{1}{\sqrt2}\spalignmat{1 1;-1 1} 
+    \end{align*} 
+    
+    
+\end{frame}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        % \item the definition of the SVD
+        \item computing the SVD for a matrix
+        \item applying Gram-Schmidt to construct the SVD of a matrix % form an orthonormal basis for $\mathbb R^m$
+
+    \end{itemize}
+    
+    \vspace{6pt}
+    
+    \pause 
+}
+
+
+
+

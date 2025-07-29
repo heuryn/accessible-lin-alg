@@ -1,0 +1,126 @@
+\title{The Inverse of an $n\times n$ Matrix}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle  
+
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+    \item an algorithm for computing the inverse of a square matrix
+    % \item Elementary matrices and their role in calculating the matrix inverse.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+        \item compute the inverse of an $ n \times n $ matrix, and use it to solve linear systems
+        % \item Construct elementary matrices.
+ \end{itemize}
+
+\vspace{0.25cm} 
+
+
+}
+
+
+
+
+
+
+\frame{\frametitle{The Matrix Inverse}
+
+    Recall the following theorem. 
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}
+    
+    $A \in \R^{n\times n}$ has an inverse if and only if for all $ \vec b \in \mathbb R ^{n}$, $ A \vec x= \vec b$ has a unique solution.  And, in this case, $ \vec  x = A ^{-1} \vec b$. 
+    
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+    
+    This theorem gives us a method for solving a linear systems with $n$ equations and $n$ variables. But how do we construct the inverse of an $n\times n$ matrix? 
+
+
+}
+
+
+
+
+
+
+
+
+
+
+\frame{\frametitle{An Algorithm for Computing $A^{-1}$}
+
+Suppose $A \in \R^{n\times n}$. We can use the following algorithm to compute $A^{-1}$. 
+\begin{enumerate}
+    \item Row reduce the augmented matrix $(A\,|\,I_n)$ to RREF.
+    \item If reduction has form  $(I_n\,|\,B)$ then $A$ is invertible and $B=A^{-1}$. Otherwise, $A$ is not invertible.
+\end{enumerate}
+
+\vspace{12pt}
+\Emph{Example} \\
+Compute the inverse of $A = \begin{pmatrix*}[r]
+0 & 1 & 2 \\ 1 & 0 & 3 \\ 0 & 0 & 1
+\end{pmatrix*}$.
+
+}
+
+
+
+\begin{frame}
+\frametitle{Why Does Our Algorithm Produce $A^{-1}$?}
+Suppose $A$ is a $3\times3$ matrix and $A^{-1} = (\vec x_1 \ \vec x_2 \ \vec x_3)$. The first column of $A^{-1}$ is
+\begin{align*}
+    \vec x_1 &= A^{-1} \vec e_1 
+\end{align*}
+This implies: $$A\vec x_1 = \vec e_1, \quad \text{or} \quad (A \, | \, \vec e_1)$$
+Thus:
+\begin{itemize}
+    \item If we row reduce to RREF, we obtain the first column of the inverse, $\vec x_1$. 
+    \item Each column of $A^{-1}$ is found by reducing $A \vec x_i = \vec e_i$. 
+\end{itemize}
+
+\textit{}.
+\end{frame}
+
+\begin{frame}
+\frametitle{Why Does This Work?}
+We can think of our algorithm as simultaneously solving $n$ linear systems:
+\begin{align*}
+A \vec x_1 &= \vec e_1\\
+A \vec x_2 &= \vec e_2 \\
+ & \vdots \\
+A \vec x_n &= \vec e_n
+\end{align*}
+Each column of $A^{-1}$ is $A^{-1} \vec e_i = \vec x_i$. \\[12pt]
+\textit{Another perspective on constructing $A^{-1}$ uses elementary matrices}.
+\end{frame}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+            \item a method for constructing the inverse of an $ n \times n $ matrix, $A^{-1}$, that could be used to solve a linear system
+    \end{itemize}
+    Our algorithm will have limitations but the concept of a matrix inverse is something that is widely used in applications of linear algebra, even if it is not used in practice. 
+}
+
+
+
+
+
+
+
+

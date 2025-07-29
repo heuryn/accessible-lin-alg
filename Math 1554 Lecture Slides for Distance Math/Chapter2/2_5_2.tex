@@ -1,0 +1,134 @@
+\title{Computing the LU Factorization}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle  
+
+
+
+
+
+
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+    \item the LU factorization of a matrix 
+    % \item Using the $LU$ factorization to solve a system
+    \item why the LU factorization works
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    \item compute an LU factorization of a matrix
+    % \item Apply the $LU$ factorization to solve systems of equations.
+    % \item Determine whether a matrix has an $LU$ factorization.
+\end{itemize}
+
+\vspace{0.25cm} 
+
+%\Emph{Motivating Question} \\
+
+}
+
+
+
+
+
+
+\frame{\frametitle{Why We Can Compute the LU Factorization}
+
+Suppose $ A$ can be row reduced to echelon form $ U$ without interchanging rows.
+\begin{equation*}
+E_p \cdots E_1 A = U 
+\end{equation*}
+where the $ E _{j}$ are matrices that perform elementary row operations. Because we did not swap rows, each $E_j$ happens to be lower triangular and invertible. \pause Example:
+\begin{equation*}
+\begin{pmatrix*}[r]
+1 & 0 & 0  \\ 0 & 1 & 0  \\ 2 & 0 & 1 
+\end{pmatrix*} ^{-1} 
+= \begin{pmatrix*}[r]
+1 & 0 & 0  \\ 0 & 1 & 0  \\ -2 & 0 & 1 
+\end{pmatrix*}
+\end{equation*}
+Therefore,  
+\begin{equation*}
+A = \underbrace{E_1 ^{-1} \cdots E _{p} ^{-1} } _{ = L } U = LU.
+\end{equation*}
+}
+
+
+
+
+
+
+\frame{\frametitle{An Algorithm for Computing LU}
+
+    To compute the LU decomposition: 
+
+    \begin{enumerate}
+        \item Reduce $ A$ to an echelon form $ U$ by a sequence of row replacement operations, if possible. 
+        \item Place entries in $ L$ such that the same sequence of row operations reduces $ L$ to $ I$.
+    \end{enumerate}
+
+   
+
+}
+
+
+
+
+
+\frame{\frametitle{Example}
+
+    Compute the $LU$ factorization of $A$. $$A = \spalignmat{4 -3 -1 5;-16 12 2 -17 ; 8 -6 -12 22 }$$
+}
+
+
+
+\frame{\frametitle{Final Notes on Computing LU}
+
+    \begin{itemize}\setlength{\itemsep}{8pt}
+    \item<1-> There are other definitions of the LU factorization that you may encounter in future courses or applications. 
+    \item<2-> There are several other ways of computing this decomposition. 
+    \item<3-> The only row operation we use to construct $L$ and $U$: \textit{replace a row with a multiple of a row above it}.
+    \item<4-> As for the other two row operations: 
+    \begin{itemize}\setlength{\itemsep}{4pt}
+        \vspace{4pt}
+        \item Multiplying a row by a non-zero scalar is not needed. 
+    \item<5-> We cannot swap rows: more advanced linear algebra and numerical analysis courses address this limitation.  
+    \end{itemize}
+   \end{itemize}
+
+
+}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item why we can construct $A=LU$ when $A$ can be reduced to echelon form without row swaps
+        \item constructing the LU decomposition using the following process
+            \begin{enumerate}
+                \item reduce $ A$ to an echelon form $ U$ by a sequence of row replacement operations, if possible
+                \item place entries in $ L$ such that the same sequence of row operations reduces $ L$ to $ I$
+        \end{enumerate}
+    \end{itemize}
+    
+    \vspace{4pt}
+    
+    
+        % \item Another explanation on how to calculate the LU decomposition that students may find helpful is available from MIT OpenCourseWare: www.youtube.com/watch?v=rhNKncraJMk    
+
+
+}
+
+

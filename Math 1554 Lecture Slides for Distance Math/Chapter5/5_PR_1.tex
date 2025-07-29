@@ -1,0 +1,240 @@
+\title{Long-Term Behavior of Markov Chains}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item review of Markov chains
+
+    \item theorems describing the steady state of a Markov chain
+    
+    % \item applying Markov chains to model website usage
+    
+    % \item calculating the PageRank of a web
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+%\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item determine whether a stochastic matrix is regular
+    
+    \item calculate the steady-state of a Markov process
+    
+    \item apply matrix powers and theorems to characterize the long-term behavior of a Markov chain
+
+    % \item construct a transition matrix, a Markov Chain, and a Google Matrix for a given web, and compute the PageRank of the web
+
+\end{itemize}
+
+\vspace{0.25cm} 
+
+% \Emph{Motivating Question}
+
+} 
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Steady State Vectors}
+
+    Recall the car rental problem from earlier in our course.
+    
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.95\textwidth}
+
+    \vspace{4pt} 
+    A car rental company has 3 rental locations, A, B, and C. 
+    
+    \vspace{4pt} 
+    
+    \begin{table}[]
+    \centering
+        \label{my-label}
+        \begin{tabular}{lllll}
+                  &  & \multicolumn{3}{l}{rented from} \\\hline
+                  &  & A & B & C \\\hline
+        \multirow{3}{*}{returned to} & A & .8 & .1  & .2  \\
+                  & B & .2 & .6 & .3     \\
+                  & C & .0 & .3 & .5   \\\hline
+        \end{tabular}
+    \end{table}
+
+    \vspace{12pt} 
+    
+    There are 100 cars at each location today, what happens to the distribution of cars after a long time?
+    
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Problem};
+    \end{tikzpicture}\end{center}
+    
+    % We characterized the long-term behavior of this system using the \Emph{steady-state vector}. 
+    
+\end{frame}
+
+\begin{frame}\frametitle{Long Term Behavior}
+
+    Can use the transition matrix, $P$, to find the distribution of cars after 1 week.
+    $$
+    \vec x_1 = P\vec x_0 , \quad P = \frac{1}{10}\spalignmat{8 1 2;2 6 3;0 3 5}
+    $$
+    The distribution of cars after $n$ weeks is $$\vec x_n = P^n \vec x_0.$$
+    
+    \pause 
+    Because $P$ is regular stochastic, $\vec x_n$ tends to a steady-state, which we can find by solving
+    $$(P-I)\vec q = \vec 0$$
+    
+
+    
+\end{frame}
+
+
+\begin{frame}\frametitle{Recall: Regular Stochastic Matrices}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}\vspace{4pt}
+    
+    A stochastic matrix $P$ is \Emph{regular} if there is some $k$ such that $P^k$ only contains strictly positive entries.
+    
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}
+    
+    \vspace{12pt}
+    
+    Recall that we can determine whether a matrix, $P$, is regular stochastic by computing $P^k$ for $k=2,3,4,\ldots$ . But sometimes we can see from inspection that a matrix will not be regular stochastic. 
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Determining Whether A Stochastic Matrix is Regular}
+
+    By inspection, is the corresponding stochastic matrix regular? Is there a steady-state? 
+
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{scope}[->,>=stealth',shorten >=2pt,auto,node distance=2cm,very thick, main node/.style={circle,fill=black!05,draw}]
+            \node[main node] (1) {A};
+            \node[main node] (2) [right of=1] {B};
+            \node[main node] (3) [below of=1] {D};
+            \node[main node] (4) [below of=2] {C};
+            \path[every node/.style={font=\sffamily\small}]
+            (1) edge node[below] {} (2)
+            (2) edge node [above] {} (4)
+            (3) edge node {} (1)
+            (4) edge node [above] {} (3);
+            \end{scope}
+        \end{tikzpicture}  
+    \end{center}        
+
+\end{frame}
+
+
+
+
+
+\begin{frame}\frametitle{Theorem: Regular Stochastic Matrices}
+
+    The proof of this theorem goes beyond the scope of this course, but we apply this theorem when solving PageRank problems.
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.95\textwidth}
+
+    \vspace{4pt} 
+
+    If $P$ is a regular $m \times m$ stochastic matrix with $m \ge 2$, then:
+    
+    \begin{itemize}
+        \item for any initial probability vector $\vec x_0$, $\displaystyle \lim_{n \rightarrow \infty} P^n \vec x_0 = \vec q$ \pause
+        \item $P$ has a unique eigenvector, $\vec q$, which has eigenvalue $\lambda = 1$ \pause    
+        \item there is a stochastic matrix $\Pi$ such that $\displaystyle \lim_{n \rightarrow \infty} P^n = \Pi$ \pause
+        \item each column of $\Pi$  is the same probability vector $\vec q$ \pause
+        \item the eigenvalues of $P$ satisfy $|\lambda| \le 1$ 
+    \end{itemize}
+    
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Long Term Behavior}
+
+   To investigate the long-term behavior of a system that has a regular stochastic matrix $P$, we could: 
+   
+   \begin{itemize}
+       \item compute the \Emph{steady-state vector}, $\vec q$, by solving $(P-I)\vec q = \vec 0$
+       \item compute $P^n \vec x_0$ for large $n$
+       \item compute $P^n$ for large $n$, each column of the resulting matrix is the steady-state       
+   \end{itemize}
+ 
+    \vspace{12pt}
+    \pause 
+    Computing $P^n$ for large $n$ requires a computer. Students would not see such problems on exams, but they may appear on homework and other parts of the course. Ultimately this course is meant to prepare you for more advanced courses, that could have you perform these kinds of operations. 
+   
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Examples: Steady-State}
+
+    \begin{enumerate}
+
+        \item True or false: a steady-state vector for a stochastic matrix is an eigenvector. 
+        
+        \item Give an example of a $2\times2$ stochastic matrix, $A$, that is in echelon form. A steady-state vector for the Markov chain $\vec x_{k+1} = A \vec x_k$ is $\vec q =  \spalignmat{1;0}$.
+        
+    \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Example: Convergence}
+
+    If $P$ is a regular stochastic matrix with steady state vector $\vec r = \frac{1}{6} \spalignmat{1; 2 ;3}$ and $\vec x_0 = \frac{1}{10} \spalignmat{9;0;1}$, what does the sequence $\vec x_k = P^k \vec x_{0}$ converge to?
+
+
+\end{frame}
+
+\begin{frame}\frametitle{Example: Long Term Behavior}
+
+
+    Consider the Markov chain $$\vec x_k = A\vec x_{k-1} = \spalignmat{0.8 0.2 ;0.2 0.8 }\vec x_{k-1}, \quad k= 1, 2, 3, \ldots, \quad \vec x_0 = \spalignmat{0;1}$$ The eigenvalues of $A$ are 1 and 0.6. Analyze the long-term behavior of the system. In other words, determine what $\vec x_k$ tends to as $k\to\infty$. 
+
+
+\end{frame}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+
+    \item determining whether a stochastic matrix is regular
+    
+    \item methods of calculating the steady-state of a Markov process
+    
+    \item applying matrix powers and theorems to characterize the long-term behavior of a Markov chain
+
+
+    \end{itemize}
+    
+    \vspace{8pt}
+    
+
+    
+}

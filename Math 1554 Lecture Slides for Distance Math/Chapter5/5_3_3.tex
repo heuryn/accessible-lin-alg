@@ -1,0 +1,160 @@
+\title{Diagonalizing a Matrix with a Repeated Eigenvalue}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\vspace{1cm} 
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item determining when a matrix can be diagonalized
+
+    \item diagonalizing matrices with repeated eigenvalues
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item determine whether a matrix can be diagonalized, and if possible diagonalize a square matrix
+    
+    % \item apply diagonalization to compute matrix powers
+
+\end{itemize}
+
+
+}
+
+
+\begin{frame}{Motivating Question}
+
+    \begin{itemize} \setlength\itemsep{1em}
+
+        \item<2-> When a diagonalizable matrix has a repeated eigenvalue, how can we diagonalize the matrix?
+    \end{itemize}
+    
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+\begin{frame}\frametitle{Diagonalizing a Matrix with Repeated Eigenvalues}
+
+    How can we diagonalize a matrix that has a repeated eigenvalue? 
+    
+    \vspace{12pt}
+    \pause 
+    The only eigenvalues of $A$ are $\lambda_1 = 1$ and $\lambda_2 = \lambda_3 = 3$. If possible, construct $P$ and $D$ such that $AP = PD$.
+    \begin{align*}
+        A = \spalignmat{ 7 4 16; 2 5 8; -2 -2 -5 }
+    \end{align*}
+    
+    \pause
+    \vspace{6pt}
+    \Emph{Eigenvalue $\lambda_1=1$} \\
+    Identify corresponding eigenvectors: \pause 
+    $$A - \lambda_1 I = A - I = \begin{pmatrix} 6 & 4 & 16 \\ 2 & 4 & 8 \\ -2 & -2 & -6 \end{pmatrix} \sim \begin{pmatrix} 3 & 2 & 8 \\ 1 & 2 & 4 \\ 1 & 1 & 3 \end{pmatrix} \sim \begin{pmatrix} 1 & 2 & 4 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}
+    \sim \begin{pmatrix} 1 & 0 & 2 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}
+    $$
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Diagonalizing a Matrix with Repeated Eigenvalues}
+
+    \Emph{Eigenvalue $\lambda_1=1$} \\ \pause 
+    Identify corresponding eigenvectors: 
+    $$A - \lambda_1 I 
+    \sim \begin{pmatrix} 1 & 0 & 2 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}
+    $$
+    A vector in the null space of $A - \lambda_1 I$ is $\vec v_1 = \begin{pmatrix} 2\\1\\-1 \end{pmatrix}$. 
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Diagonalizing a Matrix with Repeated Eigenvalues}
+
+    \Emph{Eigenvalue $\lambda_2=3$} \\
+    Identify corresponding eigenvectors: 
+    $$A - \lambda_2 I = A - 3I = 
+    \begin{pmatrix} 4 & 4 & 16 \\ 2 & 2 & 8 \\ -2 & -2 & -8 \end{pmatrix} \sim 
+    \begin{pmatrix} 1 & 1 & 4 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
+    $$
+    \pause The first row corresponds to the equation $$x_1 + x_2 + 4x_3 = 0$$ \pause Eigenvectors corresponding to $\lambda_2=3$ must satisfy this relation. \pause With one equation and three unknowns, there are two free variables: $x_2$ and $x_3$.  
+\end{frame}
+
+\begin{frame}\frametitle{Diagonalizing a Matrix with Repeated Eigenvalues}
+
+    \Emph{Eigenvalue $\lambda_2=3$} \\
+    Eigenvectors corresponding to $\lambda_2=3$ must satisfy 
+    \pause $$x_1 + x_2 + 4x_3 = 0 \quad \Rightarrow \quad x_1 = -x_2 - 4x_3$$ \pause
+    Parametric vector form:
+    $$\vec x = \begin{pmatrix} x_1 \\ x_2 \\ x_3  \end{pmatrix} = \begin{pmatrix} -x_2 - 4 x_3 \\ x_2 \\x_3 \end{pmatrix} = x_2\begin{pmatrix} -1 \\ 1 \\0  \end{pmatrix} + x_3 \begin{pmatrix} -4 \\ 0 \\ 1  \end{pmatrix}$$
+    \pause Two eigenvectors for eigenvalue $\lambda_2$ are $\vec v_2 = \begin{pmatrix} -1 \\ 1 \\0  \end{pmatrix}$ and $\vec v_3 = \begin{pmatrix} -4 \\ 0 \\ 1  \end{pmatrix}$. 
+\end{frame}
+
+\begin{frame}\frametitle{Diagonalizing a Matrix with Repeated Eigenvalues}
+    Recall that we were asked to construct $P$ and $D$ such that $AP = PD$.
+    \begin{align*}
+        A = \spalignmat{ 7 4 16; 2 5 8; -2 -2 -5 }
+    \end{align*}
+    \pause 
+    Our matrices $P$ and $D$ are: 
+    \begin{align*}
+        P &= \begin{pmatrix} \vec v_1 & \vec v_2 & \vec v_3 \end{pmatrix} = \begin{pmatrix} 2 & -1 & -4 \\ 1 & 1 & 0 \\ -2 & 0 & 1 \end{pmatrix} \\
+        D &= \begin{pmatrix} \lambda_1 & 0 & 0 \\ 0 & \lambda_2 & 0 \\ 0 & 0 & \lambda_3 \end{pmatrix} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{pmatrix}
+    \end{align*}
+    
+\end{frame}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+    \item<2-> the diagonalization of an $n\times n$ matrix with repeated eigenvalues (you can use parametric vector form to obtain the necessary eigenvectors)
+    \item<3-> theorems that help us determine whether a matrix is diagonalizable
+
+    \end{itemize}
+    
+    \vspace{8pt}
+    
+    \onslide<3->The following are equivalent:
+    \begin{itemize}
+        \item<4->$n\times n$ matrix $A$ is diagonalizable
+        \item<5->$\Sigma g_i = n$ 
+        \item<6->$g_i = a_i$ for all $i$
+        \item<7->the eigenvectors, for all eigenvalues, together form a basis for $\R^n$. 
+    \end{itemize}
+    
+}
+
+
+
+
+% \begin{frame}
+% \frametitle{Additional Example (if time permits)}
+%     Note that $$\vec x_k = \begin{bmatrix} 0&1\\ 1&1\end{bmatrix}\vec x_{k-1}, \quad \vec x_0 = \begin{bmatrix} 1\\1\end{bmatrix}, \quad k = 1, 2, 3, \ldots $$ generates a well-known sequence of numbers. 
+    
+%     \vspace{24pt} 
+    
+%     Use a diagonalization to find a matrix equation that gives the $n^{th}$ number in this sequence. 
+    
+% \end{frame}

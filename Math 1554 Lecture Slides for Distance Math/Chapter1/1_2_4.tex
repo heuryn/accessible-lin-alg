@@ -1,0 +1,122 @@
+\title{Existence and Uniqueness} 
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+
+\frame{\frametitle{Topics and Learning Objectives}
+\Emph{Topics} \\
+\TopicStatement
+
+
+\begin{itemize}
+    \item consistency, existence, uniqueness
+    % \item row reduction algorithm
+    \item pivots, and basic and free variables 
+    %\item Parametrized solution sets 
+    % \item Echelon forms, existence and uniqueness 
+\end{itemize}
+
+\vspace{0.5cm}
+
+\LO\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    % \item Characterize a linear system in terms of the number of leading entries, free variables, pivots, pivot columns, pivot positions.
+    \item determine whether a linear system is consistent from its echelon form
+    \item apply the row reduction algorithm to compute the coefficients of a polynomial
+\end{itemize}
+
+}
+
+
+
+\frame{\frametitle{Basic and Free Variables}
+Consider the augmented matrix
+\begin{align*} \begin{amatrix}{1} A & \vec b \ \end{amatrix} = &
+\begin{amatrix}{5}
+1 & 3 & 0 & 7 & 0 & 4 
+\\
+0 & 0 & 1 & 4 & 0 & 5 
+\\
+0 & 0 & 0 & 0 & 1 & 6 
+\end{amatrix}
+\end{align*}
+The leading one's are in first, third, and fifth columns.
+\begin{itemize}
+    \item<2-> The pivot columns of $A$ are the first, third, and fifth columns
+    \item<3-> The corresponding variables of the system $A\vec x = \vec b$ are $x_1$, $x_3$, and $x_5$. Variables that correspond to a pivot are \Emph{basic variables}.
+    \item<4-> Variables that are not basic are \Emph{free variables}. They can take any value. 
+    \item<5-> The free variables are $x_2$ and $x_4$. Any choice of the free variables leads to a solution of the system.  
+\end{itemize}
+\vspace{4pt}
+}
+
+
+
+\frame{\frametitle{Notes on Basic and Free Variables}
+
+
+\begin{itemize}
+    \item <1-> Note that a matrix, on its own, does not have basic variables or free variables. Systems have variables. 
+    \item <2-> If $A$ has $n$ columns, then the linear system $$\begin{amatrix}{1} A & \vec b \ \end{amatrix}$$ must have $n$ variables. One variable for each column of the matrix. 
+    \item <3-> There are two types of variables: basic and free. And a variable cannot be both free and basic at the same time. 
+    \begin{align*}
+    n 
+    &= \text{number of columns of } A \\
+    &= (\text{number of basic variables}) + (\text{number of free variables}) 
+    \end{align*}
+\end{itemize}
+
+}
+
+
+
+
+\frame{\frametitle{Existence and Uniqueness}
+
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.90\textwidth}\vspace{4pt}
+
+A linear system is consistent if and only if (exactly when) the last column of the \Emph{augmented} matrix does not have a pivot. This is the same as saying that the RREF of the augmented matrix does \Emph{not} have a row of the form
+$$\spalignmat{0 , 0, 0,  \cdots, 0 | 1}$$
+Moreover, if a linear system is consistent, then it has
+\begin{enumerate}
+    \item a unique solution if and only if there are no free variables, and
+    \item infinitely many solutions that are parameterized by free variables. 
+\end{enumerate}
+\end{minipage}};
+\node[fancytitle, right=10pt] at (box.north west) {Theorem};
+\end{tikzpicture}\end{center}
+
+}
+
+
+
+
+\frame{\frametitle{Example: Existence and Uniqueness}
+
+    If possible, determine the coefficients of the polynomial $y(t) = a_0t+a_1t^2$ that passes through the points that are given in the form $(t,y)$. 
+    \begin{enumerate}[a)]\setlength{\itemsep}{12pt}
+        \item $L(-1,0)$ and $M(1,1)$
+        \item $P(2,0)$, $Q(1,1)$, and $R(0,2)$
+    \end{enumerate}
+
+
+}
+
+
+\frame{\frametitle{Summary: Fundamental Questions}
+
+In this video we explored the following concepts. \vspace{4pt}
+\begin{itemize}\setlength{\itemsep}{8pt}
+    \item augmented matrices and consistent systems
+    \item pivots, and basic and free variables 
+    \item fundamental questions that we will revisit throughout the course regarding consistency, existence, uniqueness
+\end{itemize}
+
+}

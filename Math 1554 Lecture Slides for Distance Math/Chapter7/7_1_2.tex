@@ -1,0 +1,153 @@
+\title{Orthogonal Diagonalization}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+  
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    % \item symmetric matrices
+    \item orthogonal diagonalization
+    % \item the spectral decomposition of a matrix
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+%\LearningObjectiveStatement
+
+\begin{itemize}
+
+    % \item determine whether a matrix is symmetric
+    \item construct an orthogonal diagonalization of a symmetric matrix, $A = PDP^T$
+    % \item construct a spectral decomposition of a matrix. 
+    
+\end{itemize}
+
+\vspace{0.25cm} 
+
+
+} 
+
+
+
+\begin{frame}{Motivating Questions}
+
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item<1-> Many algorithms rely on symmetric matrices. \vspace{8pt}
+        \begin{itemize}\setlength{\itemsep}{8pt}
+            \item <1-> {\normalsize The normal equations use $A^TA$, which is symmetric. }
+            \item <2-> {\normalsize The SVD (a popular data analysis tool) also uses $A^TA$.}
+        \end{itemize}
+        \item<3-> What properties do symmetric matrices have that we can use to develop and understand algorithms and the results they produce? 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame} \frametitle{Symmetric Matrices and their Eigenspaces}
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.90\textwidth}\vspace{2pt}
+    If $ A$ is a symmetric matrix, with eigenvectors $ \vec v_1$ and $ \vec v_2$ corresponding to two distinct eigenvalues, then $\vec v_1$ and $\vec v_2$ are orthogonal.  \\
+    
+    More generally, eigenspaces associated to distinct eigenvalues are orthogonal subspaces.  
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+
+\end{frame}
+
+\begin{frame} \frametitle{Symmetric Matrices and their Eigenspaces}    
+    \Emph{Proof:} We can show that eigenvectors $\vec v_1$ and $\vec v_2$ must be orthogonal, or $\vec v_1 \cdot \vec v_2 = 0$, for $\lambda_1 \ne \lambda_2$ and symmetric $A$.
+    \begin{align*} \onslide<1->{\lambda_1 \vec v_1 \cdot \vec v_2 &= A\vec v_1 \cdot \vec v_2 && \text{using } A\vec v_i = \lambda_i \vec v_i} \\
+    \onslide<2->{&= (A\vec v_1)^T\vec v_2  && \text{using the definition of the dot product}  \\}
+    \onslide<3->{&= \vec v_1\,^TA^T\vec v_2 && \text{property of transpose of product}\\}
+    \onslide<4->{&= \vec v_1\,^TA\vec v_2   && \text{given that } A = A^T\\}
+    \onslide<5->{&= \vec v_1 \cdot A\vec v_2 && \\}
+    \onslide<6->{&= \vec v_1 \cdot \lambda_2 \vec v_2  && \text{using } A\vec v_i = \lambda_i \vec v_i  \\}
+    \onslide<7->{&= \lambda_2 \vec v_1 \cdot  \vec v_2 && }
+    \end{align*}
+    \onslide<8->{But $\lambda_1 \ne \lambda_2$ so $\vec v_1 \cdot \vec v_2 = 0$. }
+\end{frame}
+
+
+
+
+
+
+\begin{frame}\frametitle{Orthogonal Diagonalization Example}
+
+    Diagonalize $A$ using an orthogonal matrix, $P$. The eigenvalues of $A$ are given.
+    
+    $$A = \spalignmat{0 0 1; 0 1 0;1 0 0}, \quad \lambda = -1, 1$$
+    
+    
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Symmetric Matrices and Orthogonal Diagonalization}
+
+    \begin{itemize}
+        \item<1-> Recall that if $ P$ is an orthogonal $ n \times n$ matrix, then $ P ^{-1} = P ^{T}$
+        \item<2-> Symmetric matrices can be diagonalized as $  A = P D P ^{T}$. Gram-Schmidt may be needed when eigenvalues are repeated to construct a full set of orthonormal eigenvectors that span $\mathbb R^n$
+        \item<3-> What about the converse: if $  A = P D P ^{T}$, then is $A$ symmetric? 
+        $$A^T = (PDP^T)^T = P^{TT} D^T P^T = PDP^T = A \Rightarrow A \text{ is symmetric}$$
+        \item<4-> Thus, if we can write $ A = P D P ^{T}$, then $A$ must be both diagonalizable and symmetric. % Amazingly, this is the only way symmetric matrices can be formed. 
+    \end{itemize}
+    
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{The Spectral Theorem}
+
+The set of eigenvalues of a matrix are sometimes referred to as the \Emph{spectrum of $A$}. \pause
+
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth} \vspace{2pt}
+
+    An $ n \times n $ symmetric matrix $A$ has the following properties.
+    
+    \vspace{6pt}
+
+    \begin{itemize} \setlength\itemsep{4pt}
+        \item All eigenvalues of $ A$ are real.
+        \item The eigenspaces are mutually orthogonal. 
+        \item $ A$ can be diagonalized as $  A = P D P ^{T}$, where $D$ is diagonal and $ P$ is orthogonal.
+    \end{itemize}
+
+\end{minipage}};
+\node[fancytitle, right=10pt] at (box.north west) {The Spectral Theorem};
+\end{tikzpicture}\end{center}
+
+\end{frame}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item construct an orthogonal diagonalization of a symmetric matrix, $A = PDP^T$
+        \item orthogonal diagonalization can require Gram-Schmidt when eigenvalues are repeated
+        \item the orthogonal diagonalization can only be applied for symmetric matrices
+        \item the spectral theorem: if $A$ is a symmetric matrix, then 
+        \begin{itemize} \setlength\itemsep{2pt}
+            \item all eigenvalues of $A$ are real
+            \item eigenspaces of $A$ are mutually orthogonal 
+            \item $A$ can be diagonalized as $A = P D P ^{T}$
+        \end{itemize}
+    \end{itemize}
+    
+    \vspace{16pt}
+    \pause 
+    
+}
+
+

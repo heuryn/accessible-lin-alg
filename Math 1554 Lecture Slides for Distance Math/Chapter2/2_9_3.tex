@@ -1,0 +1,134 @@
+\title{Rank and Invertibility}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle 
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+    % \item dimension of a subspace
+    \item the rank of a matrix 
+    \item invertibility and rank
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    \item apply the rank, basis, and matrix invertibility theorems to describe matrices and subspaces
+\end{itemize}
+ 
+}
+
+
+\frame{\frametitle{Rank}
+
+    \vspace{-12pt}
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth} \vspace{2pt}
+    The \Emph{rank} of a matrix is the dimension of its column space.
+     \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Definition}; \end{tikzpicture}\end{center}
+ 
+\pause 
+
+\Emph{Example}: Compute rank(A) and dim(Nul(A)). 
+\begin{equation*}
+A=
+\begin{pmatrix*}[r]
+2 & 5 & -3 & -4 & 8 
+\\
+4 & 7 & -4 & -3 & 9 
+\\
+6 & 9 & -5 & 2 & 4 
+\\
+0 & -9 & 6 & 5 & -6 
+\end{pmatrix*}
+\sim \cdots \sim 
+\begin{pmatrix*}[r]
+2 & 5 & -3 & -4 & 8 
+\\
+0 & -3 & 2 & 5 & -7 
+\\
+0 & 0 & 0 & 4 & -6 
+\\
+0& 0 &  0& 0  & 0  
+\end{pmatrix*}
+\end{equation*}
+}
+
+\frame{\frametitle{Rank, Basis, and Invertibility Theorems}
+
+
+    \vspace{-12pt}
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth} \vspace{2pt}
+    
+    If a matrix $ A$ has $ n$ columns, then $ \operatorname {Rank} A  + \operatorname {dim(Nul} A) = n$.  
+
+     \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Rank Theorem}; \end{tikzpicture}\end{center}
+     
+     
+
+}
+
+\frame{\frametitle{Example Construction}
+
+If possible give an example of a $2\times 3$ matrix $A$, that is in RREF and has the given properties. 
+
+\begin{enumerate}[a)]
+    \item rank($A$) = 3 \vspace{24pt}
+    \item rank($A$) = 2 \vspace{24pt}
+    \item dim(Null$A$) = 2 \vspace{24pt}
+    \item Null$A$ = $\{\vec 0\}$
+\end{enumerate}
+} 
+
+
+
+\frame{\frametitle{Invertibility}
+
+Let $ A$ be a $ n \times n $ matrix. These conditions are equivalent. 
+
+%%  ENUMERATE
+\begin{enumerate}
+\item  $ A$ is invertible. 
+\item  The columns of $ A$ are a basis for $ \mathbb R ^{n}$. 
+\item $ \operatorname {Col} A = \mathbb R ^{n}$. 
+\item  $ \operatorname {rank} A = \operatorname{dim} (\operatorname {Col} A) =n$. 
+\item $ \operatorname {Null} A = \{\vec 0\}$. 
+\end{enumerate}
+
+
+}
+
+\frame{\frametitle{Example Construction}
+
+If possible give an example of a matrix $A$, that is in RREF and has the given properties. 
+
+\begin{enumerate}[a)]
+    \item $A$ is $2\times 2$, invertible, and rank$A=1$. \vspace{24pt}
+    \item $A$ is $4\times4$, invertible, and rank$A$ = dim(Null$A$)). 
+\end{enumerate}
+} 
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item the rank of a matrix
+        \item applying rank, basis, and matrix invertibility theorems to describe matrices and subspaces
+    \end{itemize}
+    
+} 
+
+
+
+\frame{\frametitle{}    
+
+}

@@ -1,0 +1,145 @@
+\title{Algebraic and Geometric Multiplicities}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+
+    % \item the characteristic polynomial of a matrix
+
+    \item the algebraic and geometric multiplicity of eigenvalues
+
+    % \item Similar matrices
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item calculate algebraic and geometric multiplicities
+    \item construct matrices that have eigenvalues with a given algebraic and/or geometric multiplicity
+
+\end{itemize}
+
+\vspace{0.25cm} 
+
+}
+
+
+
+\begin{frame}{Algebraic Multiplicity}
+
+    % ~~ ~~ Highlight Box ~~ ~~
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}\vspace{2pt}
+
+        The \Emph{algebraic multiplicity} of an eigenvalue is its multiplicity as a root of the characteristic polynomial.
+
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}
+    % ~~ ~~ Highlight Box ~~ ~~
+    
+    \Emph{Example} \\ Compute the algebraic multiplicities of the eigenvalues for the matrix
+    \[ \spalignmat{ 1 0 0 0 ; 0 0 0 0 ; 0 0 -1 0 ; 0 0 0 0 } \]
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Geometric Multiplicity}
+
+    % ~~ ~~ Highlight Box ~~ ~~
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}\vspace{2pt}
+
+        The \Emph{geometric multiplicity} of an eigenvalue $\lambda$  is  the dimension of $ \operatorname{Null} (A - \lambda I)$. 
+
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}
+    % ~~ ~~ Highlight Box ~~ ~~
+    \vspace{-6pt}
+    \begin{itemize}
+        \item  Geometric multiplicity is always at least 1.  It can be smaller than algebraic multiplicity. 
+        
+        \item  Here is the basic example:  
+         \[ \spalignmat{ 0 1 ; 0 0 } \]
+         $\lambda =0$ is the only eigenvalue. Its algebraic multiplicity is 2, but the geometric multiplicity is 1.  
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Properties of Algebraic and Geometric Multiplicities}
+
+    Suppose that, for an $n\times n$ matrix $A$,
+    \begin{itemize}
+        \item $a_i$ is the algebraic multiplicity of $\lambda_i$
+        \item $g_i$ is the geometric multiplicity of $\lambda_i$
+    \end{itemize}
+    
+    \pause 
+    
+    \vspace{12pt}
+    The algebraic and geometric multiplicities have the following properties. 
+    \begin{itemize}
+        \item $1 \le a_i \le n$
+        \item $1 \le g_i \le a_i$
+    \end{itemize}
+    
+\end{frame}
+
+
+
+
+\begin{frame}{Example}
+
+    Give an example of a $4\times 4$ matrix with $\lambda =0$ the only eigenvalue, but the geometric multiplicity of $\lambda=0$ is one. 
+
+\end{frame}
+
+\begin{frame}{Example: Algebraic Multiplicity}
+
+    For what values of $k$ does the matrix have one real eigenvalue with algebraic multiplicity 2? 
+    
+    $$\spalignmat{-3 k; 2 -6}$$
+
+\end{frame}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item the algebraic and geometric multiplicity of eigenvalues
+        \item constructing matrices that have eigenvalues with given algebraic or geometric multiplicities
+
+    \end{itemize}
+    \vspace{8pt}
+
+}
+
+
+
+
+
+
+
+
+
+

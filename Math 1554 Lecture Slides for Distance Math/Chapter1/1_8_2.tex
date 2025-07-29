@@ -1,0 +1,134 @@
+\title{Geometric Interpretations of Linear Transforms} 
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+\frame{\frametitle{Topics and Learning Objectives}
+    \Emph{Topics} \\
+    \TopicStatement
+    \begin{itemize}
+        \item geometric interpretations of a linear transform
+    \end{itemize}
+    
+    \vspace{0.5cm}
+
+    \LO\\
+    
+    \LearningObjectiveStatement
+
+    \begin{itemize}
+        \item construct and interpret linear transformations in $\mathbb R^n$ (for example, interpret a linear transform as a projection, or as a shear)
+        % \item Characterize linear transforms using the concepts of domain, codomain, image, and range
+
+    \end{itemize}
+    
+    \vspace{0.25cm} 
+
+% \Emph{Motivating Question} \\
+
+
+}
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Linear Transformations}
+
+A function $T:\R^n \rightarrow \R^m$ is \Emph{linear} if
+
+\begin{itemize}
+    \item $T(\vec u+ \vec v) = T(\vec u) + T(\vec v)$ for all $\vec u, \vec v$ in $\R^n$.
+    \item $T(c \vec v) = cT(\vec v)$ for all $\vec v \in \R^n$, and $c$ in $\R$.
+\end{itemize}
+
+
+So if $T$ is linear, then $$ T(c_1\vec v_1+\cdots+c_k\vec v_k) =  c_1T(\vec v_1)+\cdots+c_kT(\vec v_k)  $$
+
+This is called the \Emph{principle of superposition}. % The idea is that if we know $T(\vec e_1),\dots,T(\vec e_n)$, then we know every $T(\vec v)$. 
+
+ 
+\vspace{0.5cm} 
+
+\Emph{Fact}: Every matrix transformation $T_A$ is linear.
+
+% Next time: Every linear function $\R^n \to \R^m$ is a matrix transformation. 
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Geometric Interpretations of Transforms in $\mathbb R^2$}
+
+Suppose $T$ is the linear transformation $T(\vec x) = A\vec x$. Give a short geometric interpretation of what  $T(\vec x)$ does to vectors in $\R^2$. 
+
+\begin{enumerate}
+    \item[1)] $A=\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ \vspace{1cm}
+
+    \item[2)] $A=\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ \vspace{1cm}
+
+    \item[3)] $A=\begin{pmatrix} k & 0 \\ 0 & k \end{pmatrix}$ for $k \in \R$ \vspace{1cm}
+    
+\end{enumerate}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Geometric Interpretations of Transforms in $\mathbb R^3$}
+
+What does $T_A$ do to vectors in $\R^3$?
+
+\begin{enumerate}
+    \item[a)] $A=\begin{pmatrix} 1&0&0 \\ 0&1&0 \\ 0&0&0 \end{pmatrix}$ \vspace{2cm}
+
+    \item[b)] $A=\begin{pmatrix} 1&0&0\\0&-1&0\\0&0&1 \end{pmatrix}$ \vspace{1cm}
+
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Constructing the Matrix of the Transformation}
+A linear transformation  $ T \;:\;  \mathbb R ^2 \mapsto \mathbb R ^{3} $  satisfies 
+\begin{equation*}
+T \left( \begin{pmatrix}
+ 1 \\ 0
+\end{pmatrix}\right) = \begin{pmatrix}
+5 \\ -7 \\ 2  
+\end{pmatrix},
+\qquad 
+T \left( \begin{pmatrix*}
+  0 \\ 1
+ \end{pmatrix*} \right) = \begin{pmatrix*}[r]
+-3 \\ 8 \\ 0  
+\end{pmatrix*}
+\end{equation*}
+What is the matrix, $A$, so that $ T = Ax$? 
+
+\end{frame}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+            \item constructing linear transformations in $\mathbb R^2$ and $\mathbb R^3$ and geometric interpretations for them
+    \end{itemize}
+    We will need to go into more detail on linear transformations and their relationships to linear systems. 
+}
+
+

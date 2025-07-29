@@ -1,0 +1,168 @@
+\title{Homogeneous Systems} 
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+
+\frame{\frametitle{Topics and Learning Objectives}
+
+    \Emph{Topics} \\
+    \TopicStatement
+    \begin{itemize}
+        \item homogeneous systems
+        \item parametric \Emph{vector} forms of solutions to linear systems
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \LO\\
+    
+    \LearningObjectiveStatement
+
+    \begin{itemize}
+        % \item Express the solution set of a linear system in parametric vector form.
+        % \item Provide a geometric interpretation to the solution set of a linear system.
+        \item characterize homogeneous linear systems using the concepts of free variables, span, pivots, linear combinations, and echelon forms
+    \end{itemize}
+}
+
+
+
+
+\begin{frame}
+\frametitle{Homogeneous Systems}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.90\textwidth}\vspace{4pt}
+
+        Linear systems of the form $A\vec x = \vec 0$ are \Emph{homogeneous}. \\[12pt]
+        Linear systems of the form $A\vec x = \vec b, \ \vec b \ne \vec 0$, are \Emph{inhomogeneous}.
+        
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}    
+    
+
+
+    \vspace{12pt} 
+    Because homogeneous systems always have the \Emph{trivial solution}, $\vec x= \vec 0$, the interesting question is whether they have \Emph{non-trivial} solutions.  \\[12pt]
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Homogeneous Systems}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.60\textwidth} 
+        \vspace{-6pt}
+        \begin{align*} 
+        A\vec x &= \vec 0 \text{ has a nontrivial solution} \\
+        & \iff  \text{there is a free variable} \\
+        & \iff  A \text{ has a column with no pivot.}
+        \end{align*}
+    \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Observation}; \end{tikzpicture}\end{center}
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}\frametitle{Example: a Homogeneous System}
+
+    Identify the free variables, and the solution set, of the system.
+    \begin{align*}
+        x_1 + 3x_2 + x_3 &=0 \\
+        2x_1 -x_2 - 5x_3 &= 0 \\
+        x_1 - 2x_3 &=0
+    \end{align*}
+
+\end{frame}
+
+
+
+
+\frame{\frametitle{Summary}
+
+\SummaryLine \vspace{4pt}
+\begin{itemize}\setlength{\itemsep}{8pt}
+    \item characterizing homogeneous and inhomogeneous systems 
+    \item relationships between free variables, pivots, and solutions
+    \item identifying free variables of homogeneous systems
+\end{itemize}
+
+}
+
+
+
+% \begin{frame}\frametitle{Parametric Forms, Homogeneous Case}
+
+%     In the example on the previous slide we expressed the solution to a system using a vector equation. This is a \Emph{parametric form} of the solution. \\[12pt]
+
+%     In general, suppose the free variables for $A \vec x= \vec 0$ are $x_k,\ldots,x_n$. Then all solutions to $A \vec x= \vec 0$ can be written as
+%     \begin{align*}
+%         \vec x = x_k \vec v_k + x_{k+1} \vec v_{k+1}+\cdots + x_n \vec v_n
+%     \end{align*}
+%     for some $\vec v_k,\ldots,\vec v_n$. This is the \Emph{parametric form} of the solution.
+
+% \end{frame}
+
+
+
+
+
+% \begin{frame}
+% \frametitle{Example 2 (non-homogeneous system)}
+
+%     Write the parametric vector form of the solution, and give a geometric interpretation of the solution.
+%     \begin{align*}
+%         x_1 + 3x_2 + x_3 &=9 \\
+%         2x_1 -x_2 - 5x_3 &= 11 \\
+%         x_1 - 2x_3 &=6
+%     \end{align*}
+
+%     (Note that the left-hand side is the same as Example 1).  
+
+
+% %We need a particular solution to the non-homogeneous equation. You can get this by row-reducing the augmented matrix, or by guessing.  Here is a particular solution: 
+% %\begin{equation*}
+% %\begin{bmatrix*}[r]
+% %1 & 1 & -3 \\ 1 & -1 & 1 \\ -1 & 5 & -7 
+% %\end{bmatrix*}
+% %\begin{bmatrix*}[r]
+% %-2 \\- 1 \\ 1  
+% %\end{bmatrix*} = 
+% %\begin{bmatrix*}[r]
+% %0 \\ 1 \\ -10 
+% %\end{bmatrix*}
+% %\end{equation*}
+% %(Continued on next slide) 
+
+% \end{frame}
+
+
+% %\begin{frame}
+% %Then, you add to this (or any other) particular solution the parametric form of your homogeneous solution: 
+% %\begin{equation*}
+% %\begin{bmatrix*}[r]
+% %1 & 1 & -3 \\ 1 & -1 & 1 \\ -1 & 5 & -7 
+% %\end{bmatrix*}
+% %\begin{bmatrix*}[r]
+% %2 \\ 5 \\ 3
+% %\end{bmatrix*} = \vec 0 
+% %\end{equation*}
+% %And the matrix only has one free variable, call it $ x_3$, so our parameterized solution to the non-homogeneous solution is 
+% %\begin{equation*}
+% %\begin{bmatrix*}[r]
+% %-1 \\- 1 \\ 1  
+% %\end{bmatrix*} + x_3 \begin{bmatrix*}[r]
+% %2 \\ 5 \\ 3
+% %\end{bmatrix*} 
+% %\end{equation*}
+% %\end{frame}

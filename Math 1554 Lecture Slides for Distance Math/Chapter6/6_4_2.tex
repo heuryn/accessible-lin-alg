@@ -1,0 +1,196 @@
+\title{The Gram-Schmidt Process}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+  
+
+
+\begin{frame}\frametitle{Topics and Objectives}
+    \Emph{Topics} \\
+    %\TopicStatement
+    \begin{itemize}
+        \item an introduction to the Gram-Schmidt Process for constructing an orthogonal basis for a subspace
+        % \item  The $QR$ decomposition of matrices and its properties
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \Emph{Learning Objectives}\\
+    
+    %\LearningObjectiveStatement
+    
+    \begin{itemize}
+    \item  apply the Gram-Schmidt Process to construct an orthogonal basis for a subspace spanned by $p$ vectors in $\mathbb R^n$
+    
+    % \item  Compute the $ QR $ factorization of a matrix.
+      
+    \end{itemize}
+    
+    \vspace{0.25cm} 
+ 
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{Example}
+    The vectors below span a subspace $W$ of $\mathbb R^{4}$. Construct an orthogonal basis for $W$. 
+    \begin{equation*}
+        \vec x_1 = \begin{pmatrix}
+        1 \\ 1\\ 1\\ 0 
+        \end{pmatrix}, \quad 
+        \vec x_2 = \begin{pmatrix}
+        0 \\ 1\\ 2 \\ 1 
+        \end{pmatrix}, \quad 
+        \vec x_3 = \begin{pmatrix}
+        0 \\ 1 \\ -1 \\ 0 
+    \end{pmatrix}. 
+    \end{equation*}
+
+
+\end{frame}
+
+\begin{frame}\frametitle{The Gram-Schmidt Process} 
+\onslide<1->{Suppose $ \{\vec x_1 ,\dotsc, \vec x_p\}$ are a basis for a subspace $ W$ of $ \mathbb R ^{n}$.  }
+\begin{align*}
+    \onslide<2->{W_1 &= \Span\{\vec v_1\}  && \vec v_1 = \vec x_1 \\}
+    \onslide<3->{W_2 &= \Span\{\vec v_1, \vec v_2\}  && \vec v_2 = \vec x_2 - \proj_{W_1}\vec x_2 \\}
+    \onslide<4->{W_3 &= \Span\{\vec v_1, \vec v_2,\vec v_3\} && \vec v_3 = \vec x_3 - \proj_{W_2}\vec x_3 \\
+    & \vdots && \vdots \\}
+    \onslide<5->{W_p &= \Span\{\vec v_1 \ldots \vec v_p\} && \vec v_p = \vec x_p - \proj_{W_{p-1}}\vec x_p}
+\end{align*}
+\onslide<6->{Then, $ \{\vec v_1 ,\dotsc, \vec v_p\} $ is an \Emph{orthogonal} basis for $W$. }
+\end{frame}
+
+
+\begin{frame}\frametitle{The Gram-Schmidt Process} 
+The Gram-Schmidt process can also be written this way. 
+\begin{align*}
+\vec v_1 & = \vec x_1 
+\\
+ \vec v_2 & = \vec x_2 - \frac {\vec x_2 \cdot \vec v_1} {\vec v_1 \cdot \vec v_1} \vec v_1 
+\\
+\vec v_3 & = \vec x_3 - \frac {\vec x_3 \cdot \vec v_1} {\vec v_1 \cdot \vec v_1} \vec v_1
+    - \frac {\vec x_3 \cdot \vec v_2} {\vec v_2 \cdot \vec v_2} \vec v_2
+\\
+& \vdots 
+\\
+\vec v_p & = 
+\vec x_p - \frac {\vec x_p \cdot \vec v_1} {\vec v_1 \cdot \vec v_1} \vec v_1
+   - \cdots  - \frac {\vec x_p \cdot \vec v_ {p-1}} {\vec v_{p-1} \cdot \vec v_{p-1}} \vec v_{p-1}
+\end{align*}
+
+\end{frame}
+
+
+
+ \frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+    \item the Gram-Schmidt Process for constructing an orthogonal basis for a subspace
+
+    \end{itemize}
+    
+    \vspace{16pt}
+    \pause 
+    
+    We used this process to construct an orthogonal basis for a subspace spanned by $p$ vectors in $\mathbb R^n$.
+
+    
+}
+
+
+
+
+
+% \begin{frame}{Geometric Interpretation}
+
+%     \onslide<1->{Suppose $\vec x_1, \vec x_2, \vec x_3$ are linearly independent vectors in $\mathbb R^n$. We wish to construct an orthogonal basis for the space that they span.} 
+    
+% \begin{center}
+%     \tdplotsetmaincoords{70}{40}
+%     \begin{tikzpicture}[scale=1.3,
+%         axis/.style={->,black,-stealth}, 
+%         vectorP/.style={-stealth,black, thick},
+%         vectorV/.style={-stealth,DarkBlue,very thick},
+%         vectorX/.style={-stealth,DarkRed,very thick},
+%         dsline/.style={black,dashed},
+%         perpline/.style={DarkBlue, thin},
+%         tdplot_main_coords
+%         ]
+        
+%         \coordinate (O) at (0,0,0);
+%         \coordinate (Y) at (1,0,1);
+%         \coordinate (H) at (1,0,0);        
+%         \coordinate (X1) at (3,1,0);        
+%         \coordinate (X2) at (1,2.6,0);        
+%         \coordinate (X3) at (1.9,1,1.8);        
+%         \coordinate (P) at (1.9,1,0);        
+%         \coordinate (W) at (.5,-1.8,0);        
+        
+%         % % plane
+%         % \filldraw[
+%         % draw=DarkBlue!20,fill=DarkBlue!05,]          
+%         %     (-1,-2,0) 
+%         %     -- (3,-2,0)
+%         %     -- (3,4,0)
+%         %     -- (-1,4,0)
+%         %     -- cycle;
+
+%         \draw[axis] (-2,0,0) -- (3.5,0,0) ;
+%         \draw[axis] (0,-1,0) -- (0,3.5,0) ;
+%         \draw[axis] (0,0,-1) -- (0,0,1.5) ;
+
+%         % GIVEN
+%         \onslide<2-2>{
+%         \draw[vectorX] (O) -- (X1) node[below]{$\vec x_1$};
+%         }
+%         \onslide<2->{        
+%         \draw[vectorX] (O) -- (X2) node[right]{$\vec x_2$};
+%         \draw[vectorX] (O) -- (X3) node[right]{$\vec x_3$};
+%         }
+        
+%         % W1
+%         \onslide<3->{
+%         \draw[dsline,DarkBlue] (-3,0,0) -- (4,0,0) node[below]{$W_1$};
+%         \draw[vectorV] (O) -- (X1) node[below]{$\vec x_1=\vec v_1$};
+%         }
+
+        
+%         % W2 
+%         \onslide<4->{
+%         \draw[dsline,black] (X2) -- (X1);
+%         \draw[vectorV] (O) -- (0,2.6,0) node[above]{$\vec v_2$};
+%         \draw[DarkBlue] (W) node[above]{$W_2$};        
+%         }
+        
+%         % W3
+%         \onslide<6->{
+%         \draw[dsline,black] (P) -- (X3);
+%         \draw[vectorP] (O) -- (P) node[right]{proj$_{W_2}\vec x_3$};    
+%         \draw[vectorV] (O) -- (0,0,1.8) node[above]{$\vec v_3$};        
+%         }
+        
+
+        
+%         % % draw some of the perpendicular symbols
+%         % \draw[perpline] (0.0,0.0,0.2) -- (0.2,0.0,0.2);
+%         % \draw[perpline] (0.2,0.0,0.2) -- (0.2,0.0,0.0);
+        
+%         % \draw[perpline] (0.0,0.0,0.2) -- (0.0,0.2,0.2);
+%         % \draw[perpline] (0.0,0.2,0.2) -- (0.0,0.2,0.0);
+        
+%     \end{tikzpicture}
+    
+%     \vspace{12pt} 
+    
+%     We construct vectors $\color{DarkBlue} \vec v_1, \vec v_2, \vec v_3$, which form our \Emph{orthogonal} basis. 
+    
+%     \end{center}
+% \end{frame}
+

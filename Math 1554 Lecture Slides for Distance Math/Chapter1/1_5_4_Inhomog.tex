@@ -1,0 +1,264 @@
+\title{Parametric Vector Forms for Inhomogeneous Systems} 
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+\begin{frame}
+\frametitle{Motivating Questions}
+
+     
+    \onslide<2->{
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.75\textwidth} \vspace{2pt}
+                \onslide<2->{How can we express the set of solutions to a consistent and \textbf{inhomogeneous} system in a concise form?} \onslide<3->{How does the solution set compare to the homogeneous case?  }
+    \end{minipage}};
+    \end{tikzpicture}\end{center}
+    }
+    \onslide<4->{
+
+    \vspace{6pt}
+    
+    \LO\\
+
+    % \LearningObjectiveStatement
+
+    \begin{itemize}
+        % \item express the solution set of a linear equation in parametric vector form
+        \item Obtain a solution of an \textbf{inhomogeneous} linear system in parametric vector form \onslide<5->{and give a geometric interpretation of the solution set.}
+        % \item Characterize homogeneous linear systems using the concepts of free variables, span, pivots, linear combinations, and echelon forms.
+    \end{itemize}
+
+    }
+\end{frame}
+
+\begin{frame}
+\frametitle{Homogeneous System in $\mathbb{R}^3$}
+Consider the system: 
+\onslide<2->{
+\begin{align*}
+    x_1 + x_2 &= 0 \\
+    x_2 + x_3 &= 0
+\end{align*}}\onslide<3->{Each equation is a plane,}\onslide<4->{ the solution set is the line where they intersect.}
+\onslide<5->{Earlier we found the parametric vector form for the solution set:}\onslide<5->{
+\begin{align*}
+    \vec{x} = x_3 \begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix}
+\end{align*}}
+\onslide<6->{All points in the solution set have the form $(t,-t,t)$, with $t=x_3$.}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Inhomogeneous System}
+Now consider the \textbf{inhomogeneous} system:
+\begin{align*}
+    x_1 + x_2 &= 3k \\
+    x_2 + x_3 &= k
+\end{align*}
+\onslide<2->{
+Then:
+\begin{itemize}
+    \item <3-> The system is homogeneous when $k=0$.
+    \item <4-> How does the solution set vary as we change $k$? 
+    \item <5-> What is the relationship between the solution sets of the \textbf{homogeneous} and \textbf{inhomogeneous} systems? 
+\end{itemize}
+}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Inhomogeneous System}
+Our system:
+\begin{align*}
+    x_1 + x_2 &= 3k \\
+    x_2 + x_3 &= k
+\end{align*}
+\onslide<2->{
+Expressing as an augmented matrix and row reduce:}
+\begin{align*}
+    \onslide<3->{\begin{amatrix}{3} 1 & 1 & 0 & 3k \\\ 0 & 1 & 1 & k \end{amatrix} }
+    \onslide<4->{& \sim \begin{amatrix}{3} 1 & 0 & -1 & 2k \\\ 0 & 1 & 1 & k \end{amatrix} } \onslide<5->{\ \text{using } R_1-R_2 \to R_1}
+\end{align*}
+\onslide<6->{ 
+Solving for the basic variables:}
+\begin{align*}
+    \onslide<7->{x_1 +0x_2-x_3 = 2k } \onslide<8->{\ \Rightarrow \ x_1 &= 2k + x_3} \\
+    \onslide<9->{0x_1 + x_2 + x_3 = k } \onslide<10->{\ \Rightarrow \ x_2 &= k - x_3}
+\end{align*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solving for Basic Variables}
+Expressions for the basic variables:
+\begin{align*}
+    x_1 &= 2k + x_3 \\
+    x_2 &= k - x_3 
+\end{align*}
+\onslide<3->{Note that $x_3$ is free. } \onslide<4->{Expressing in parametric vector form:}
+\begin{align*}
+    \onslide<5->{\vec{x} 
+        = \begin{pmatrix} x_1\\x_2\\x_3 \end{pmatrix} 
+        = }
+        \onslide<6->{\begin{pmatrix} \onslide<7->{2k+x_3}\\\onslide<8->{k-x_3}\\\onslide<9->{0+x_3} \end{pmatrix} }
+        \onslide<10->{= \begin{pmatrix} 2k \\ k \\ 0 \end{pmatrix} + x_3 } \onslide<10->{\begin{pmatrix} \onslide<11->{1} \\ \onslide<12->{-1} \\ \onslide<13->{1} \end{pmatrix}}
+\end{align*}
+\onslide<12->{This is the parametric vector form for the solution set.}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Interpreting the Solution Set}
+\onslide<2->{Our solution set:}
+\begin{align*}
+    \onslide<3->{\vec{x} 
+        = \begin{pmatrix} x_1\\x_2\\x_3 \end{pmatrix} 
+         = }
+         \onslide<4->{\begin{pmatrix} 2k \\ k \\ 0 \end{pmatrix}}
+        \onslide<4->{+ x_3 \begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix}}
+        \onslide<5->{=\vec p + \vec x_h}
+\end{align*}
+\onslide<6->{Note that:}
+\begin{itemize}
+    \item<7->$\vec p$ is a constant vector, and is called a \Emph{particular solution} 
+    \item<8->$\vec x_h$ is the set solutions to the homogeneous problem $A\vec x = \vec 0$
+    \item<9-> The solution set $\vec x = \vec p + \vec x_h$ are a shifted version of the solutions to $A\vec x = \vec 0$. 
+\end{itemize}
+    
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Geometric Interpretation of the Solution Set}
+    We found:
+\begin{align*}
+    \onslide<2->{\vec{x} 
+        = \begin{pmatrix} x_1\\x_2\\x_3 \end{pmatrix} 
+        = }
+        \onslide<2->{ \begin{pmatrix} 2k \\ k \\ 0 \end{pmatrix}} \onslide<3->{+ x_3 }\onslide<4->{\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix}}
+\end{align*}    
+    \onslide<5->{The solution set:}
+    \begin{itemize}
+        \item<6-> is a translated version of the homogeneous solution set, and
+        \item<7-> the solution set does not include the origin. 
+    \end{itemize}
+
+    \vspace{4pt}
+    \onslide<8->{
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.9\textwidth}\vspace{0pt}
+        The solution set is a line in $\mathbb R^3$ that \Emph{does not} pass through the origin. 
+    \end{minipage}};
+    % \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+    }
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{The Solution Set of $A\vec x = \vec b$}
+    \vspace{-24pt}
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.98\textwidth}\vspace{0pt}
+        \onslide<2->{Suppose $A\vec x = \vec b$ is consistent, and $\vec x = \vec p$ is a solution.} \onslide<3->{Then the solution set of $A\vec x = \vec b$ is the set of all vectors of the form } \onslide<4->{$$\vec x = \vec p + \vec x_h$$ where } \onslide<5->{$\vec p$ is any particular solution, and $\vec x_h$ is the set of all solutions of $A\vec x = \vec 0$.}
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+
+    \onslide<6->{Note:}
+    \begin{itemize}
+        \item<7-> The theorem only applies to consistent systems. 
+        \item<8-> $A\vec x = \vec 0$ is always consistent.
+        % \item<9-> If $\vec x = \vec p + \vec x_h$ is a solution, $\onslide<10->{A\vec x = } \onslide<11->{ A(\vec p + \vec x_h) = } \onslide<12->{A\vec p + A\vec x_h =}\onslide<13->{ A\vec p + \vec 0 = } \onslide<14->{\vec b}$ \onslide<14->{as required. }
+    \end{itemize}
+\end{frame}
+
+
+
+
+
+
+
+\frame{\frametitle{Summary}
+
+\SummaryLine \vspace{4pt}
+\begin{itemize}\setlength{\itemsep}{8pt}
+    \item expressing the solution set of an inhomogeneous linear system in parametric vector form
+    \item the geometric relationship between the solution to $A\vec x = \vec b$ and $A\vec x = \vec 0$
+\end{itemize}
+
+}
+
+
+
+% ADDITIONAL EXAMPLES
+
+% \begin{frame}
+% \frametitle{Parametric Vector Form for the Non-homogeneous Case}
+%     Write the solution as a sum of vectors. 
+%     \pause
+%     \begin{align*}
+%         2x_1 + x_2 &= 4 \\
+%         4x_1 + 2x_2 &= 8
+%     \end{align*}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Row Reduce}
+%     Expressing the system as an augmented matrix and row reducing yields:\pause 
+%     \begin{align*}
+%         \begin{pmatrix} 2&1&4\\4&2&8\end{pmatrix} 
+%         &\sim \begin{pmatrix} 2&1&4\\0&0&0\end{pmatrix}, \ R_2 - 2R_1 \to R_2
+%     \end{align*}
+%     \pause 
+%     This gives us one equation: $2x_1 + x_2 = 4$. \pause
+    
+%     Therefore $x_2$ is free, and $x_1 = 2 - \frac{1}{2}x_2$.
+%     Expressing as a vector equation: 
+%     $$\begin{pmatrix} \vec x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\end{pmatrix} = \begin{pmatrix} 2-x_2/2 \\x_2 \end{pmatrix}$$
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Parametric Vector Form}
+%     \onslide<2->{We found that $x_2$ is free and $x_1 = 2 - \frac{1}{2}x_2$} 
+%     \onslide<3->{Our goal is to now express the solution set as a sum of vectors.} 
+%     \onslide<4->{Note that solutions to the system will be vectors in $\mathbb R^2$. So if $\vec x$ is a solution, then}
+%     $$\onslide<5->{ \vec x = \begin{pmatrix} x_1\\x_2\end{pmatrix}}$$
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Parametric Vector Form for the Non-homogeneous Case}
+
+%     Write the solution as a sum of vectors. In other words, express the solution in parametric vector form. Give a geometric interpretation of the solution.
+%     \begin{align*}
+%         x_1 + 3x_2 + x_3 &=4 \\
+%         2x_1 -x_2 - 5x_3 &= 1 \\
+%         x_1 - 2x_3 &=1
+%     \end{align*}
+
+%     \textit{Note that the left-hand side is the same as a previous example}.  
+
+% \end{frame}
+
+
+% \begin{frame}
+% \frametitle{Row Reduce}
+
+%     Expressing the system as an augmented matrix and row reducing yields:
+%     \begin{align*}
+%         \begin{pmatrix} 1&3&1&4\\2&-1&-5&1\\1&0&-2&1\end{pmatrix} 
+%         &\sim \begin{pmatrix} 1&3&1&4\\0&-7&-7&-7\\1&0&-2&1\end{pmatrix}, \ R_2 - 2R_1 \to R_2 \\
+%         &\sim \begin{pmatrix} 1&3&1&4\\0&1&1&1\\0&-3&-3&-3\end{pmatrix} \\
+%         &\sim \begin{pmatrix} 1&0&-2&1\\0&1&1&1\\0&0&0&0\end{pmatrix} 
+%     \end{align*}
+%     Therefore $x_3$ and $x_4$ are free, $x_1 = 2x_3-x_4$, and $x_2 = -x_3-x_4$.
+
+% \end{frame}
+
+
+% \begin{frame}
+% \frametitle{Parametric Vector Form}
+
+%     \onslide<2->{We found that $x_3$ and $x_4$ are free, $x_1 = 2x_3-x_4$, and $x_2 = -x_3-x_4$} \onslide<3->{Our goal is to now express the solution set as a sum of vectors. } \onslide<4->{Note that solutions to the system will be vectors in $\mathbb R^4$. So if $\vec x$ is a solution, then}
+%     $$\onslide<5->{\vec x = \begin{pmatrix} x_1\\x_2\\x_3\\x_4\end{pmatrix}}$$
+
+% \end{frame}

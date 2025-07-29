@@ -1,0 +1,130 @@
+\title{The Matrix-Vector Product} 
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+
+
+
+\frame{\frametitle{Topics and Learning Objectives}
+
+    \Emph{Topics} \\
+    \TopicStatement
+    
+    \begin{itemize}
+        \item matrix notation for systems of equations
+        \item the matrix product $ A \vec x$
+    \end{itemize}
+
+    \vspace{0.5cm}
+    
+    \LO\\
+    
+    \LearningObjectiveStatement
+    
+    \begin{itemize}
+        \item compute matrix-vector products
+        \item express linear systems as vector equations and matrix equations
+        % \item characterize linear systems and sets of vectors using the concepts of span, linear combinations, and pivots
+    \end{itemize}
+
+
+}
+
+
+
+\frame{\frametitle{Multiple Representations} 
+
+
+    \textit{``Mathematics is the art of giving the same name to different things." } \\ - H. Poincar\'{e} 
+    
+    
+    \vspace{24pt}
+
+    In this section we introduce another way of expressing a linear system that we will use throughout this course.
+
+} 
+
+
+
+
+
+\frame{\frametitle{Notation for Dimensions of Vectors and Matrices}
+
+    \vspace{-2pt}
+    \begin{center}
+        \begin{tabular}{ m{2cm} m{11cm} }
+        \Emph{symbol} & \Emph{meaning}  \\
+        \hline 
+        \vspace{2pt} $\in$ & 
+        \vspace{2pt} belongs to
+        \\
+        \vspace{2pt} $\mathbb R^n$  & 
+        \vspace{2pt} the set of vectors with $n$ real-valued elements
+        \\        
+        \vspace{2pt} $\mathbb R^{m\times n}$  & 
+        \vspace{2pt} the set of real-valued matrices with $m$ rows and $n$ columns
+        \\                
+        \end{tabular}
+    \end{center}
+    
+    \vspace{6pt}
+    \Emph{Example} \\
+    The notation $\vec x \in \mathbb R^5$ means that $\vec x$ is a vector with five real-valued elements. 
+}
+
+
+\frame{\frametitle{Matrix-Vector Product as a Linear Combination}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}\vspace{4pt}
+
+    If $ A \in \mathbb R^{m \times n}$ has columns $ \vec a_1 ,\dotsc, \vec a_n$ and $\vec x \in \mathbb R ^{n}$, then the \Emph{matrix vector product} $A \vec x$ is a linear combination of the columns of $A$.
+    \begin{equation*}
+    A \vec x 
+    = 
+    \begin{pmatrix*}
+    \vert & \vert & \cdots & \vert  
+    \\
+    \vec a_1 & \vec a_2 & \cdots & \vec a_n
+    \\
+    \vert & \vert & \cdots & \vert  
+    \end{pmatrix*} 
+    \begin{pmatrix*}
+    x_1 \\ x_2 \\ \vdots \\ x_n
+    \end{pmatrix*} 
+    = x_1 \vec a_1 + x_2 \vec a_2 + \cdots + x_n \vec a_n
+    \end{equation*}
+    Note that $ A \vec x$ is in the span of the columns of $ A$. 
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}    
+}
+
+\frame{\frametitle{Linear Combination Examples}
+
+    Suppose $A = \spalignmat{1 0 ;0 -3}$ and $\vec x = \spalignmat{2;3}$
+    \begin{enumerate}
+        \item The following product can be written as a linear combination of vectors:
+        \vspace{12pt}
+        $$A \vec x = \phantom { ******************************************************}$$
+        \vspace{12pt}
+        
+        \item Is $\vec b = \spalignmat{2;9}$ in the span of the columns of $A$? 
+    \end{enumerate}
+
+
+}
+
+\frame{\frametitle{Summary}
+
+We explored the following concepts in this video. \vspace{4pt}
+\begin{itemize}\setlength{\itemsep}{8pt}
+        \item computing matrix-vector products
+        \item expressing linear systems as vector equations and matrix equations
+        % \item characterize linear systems and sets of vectors using the concepts of span, linear combinations, and pivots
+\end{itemize}
+
+}

@@ -1,0 +1,138 @@
+\title{Elementary Matrices}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle  
+
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+    \item the inverse of a matrix, its algebraic properties, and its relation to solving systems of linear equations
+    \item elementary matrices and their role in calculating the matrix inverse
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+        \item apply the formal definition of an inverse, and its algebraic properties, to solve and analyze linear systems
+        % \item Compute the inverse of an $ n \times n $ matrix, and use it to solve linear systems.
+        \item construct elementary matrices and characterize row operations with them
+ \end{itemize}
+
+\vspace{0.25cm} 
+
+
+}
+
+
+
+
+
+
+
+
+
+\frame{\frametitle{Properties of the Matrix Inverse}
+
+$ A$ and $B$ are invertible $ n \times n $ matrices. 
+
+\begin{itemize}
+\item $ (A ^{-1} ) ^{-1} = A $ 
+\item $ (AB) ^{-1} = B ^{-1} A ^{-1} $  (Non-commutative!) 
+\item $ (A ^{T} ) ^{-1} = (A ^{-1} ) ^{T}$ 
+\end{itemize}
+
+\vspace{12pt} 
+
+\Emph{Example} \\
+True or false: $(ABC)^{-1} = C^{-1}B^{-1}A^{-1}$.
+
+}
+
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Elementary Matrices}
+
+An elementary matrix, $E$, is one that differs by $I_n$ by one row operation. 
+
+Recall our elementary row operations:  
+\begin{itemize} 
+    \item swap rows
+    \item multiply a row by a non-zero scalar
+    \item add a multiple of one row to another
+\end{itemize}
+We can represent each operation by a matrix multiplication with an \Emph{elementary matrix}.
+\end{frame}
+
+\begin{frame}
+\frametitle{Example}
+Suppose $$E \begin{pmatrix} 1&1&1\\-2&1&0\\0&0&1\end{pmatrix}= \begin{pmatrix} 1&1&1\\0&3&2\\0&0&1\end{pmatrix}$$ By inspection, what is $E$? How does it compare to $I_3$?
+\end{frame}
+
+\begin{frame}
+\frametitle{Theorem}
+
+Returning to understanding why our algorithm works, we apply a sequence of row operations to $A$ to obtain $I_n$:
+\begin{align*}
+    (E_k \cdots E_3E_2E_1 ) A &= I_n
+\end{align*}
+Thus, $E_k \cdots E_3E_2E_1 $ is the inverse matrix we seek. 
+
+\vspace{12pt}
+
+Our algorithm for calculating the inverse of a matrix is the result of the following theorem. 
+
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}\vspace{2pt}
+
+Matrix $A$ is invertible if and only if it is row equivalent to the identity. In this case, the any sequence of elementary row operations that transforms $ A$ into $ I$, applied to $ I$, generates $ A ^{-1} $.  
+
+\end{minipage}};
+\node[fancytitle, right=10pt] at (box.north west) {Theorem};
+\end{tikzpicture}\end{center}
+
+
+
+\vspace{12pt} 
+
+
+
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Using The Inverse to Solve a Linear System}
+
+    \begin{itemize}
+        \item We could use $A^{-1}$ to solve a linear system,  $$A \vec x = \vec b$$ We would calculate $A^{-1}$ and then: $\vec x = A^{-1}\vec b$.
+    
+        \item As our textbook points out, $A^{-1}$ is seldom used: computing it can take a very long time, and is prone to numerical error.
+        \item So why did we learn how to compute $A^{-1}$? Later on in this course, we use elementary matrices and properties of $A^{-1}$ to derive results.
+        \item A recurring theme of this course: just because we \Emph{can} do something a certain way, does not meant that we \Emph{should}.
+    \end{itemize}
+\end{frame}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+            \item elementary matrices and their relationship to row operations
+            \item properties of the matrix inverse
+    \end{itemize}
+    \vspace{4pt}
+    Elementary matrices are used a few times throughout this course to describe the processes behind algorithms. 
+}

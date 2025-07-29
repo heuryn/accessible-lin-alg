@@ -1,0 +1,212 @@
+\title{Solving Linear Systems with the LU Factorization}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle  
+
+
+
+
+
+
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+    \item triangular matrices
+    \item the LU factorization of a matrix 
+    \item using the LU factorization to solve a system
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    \item identify and construct triangular matrices
+    \item apply the LU factorization to solve systems of equations
+\end{itemize}
+
+\vspace{0.25cm} 
+
+%\Emph{Motivating Question} \\
+
+}
+
+\frame{\frametitle{Mathematical Ingenuity}
+
+
+    {\small \textit{``Mathematical reasoning may be regarded rather schematically as the exercise of a combination of two facilities, which we may call intuition and ingenuity." } \\- Alan Turing \\}
+    
+    \vspace{12pt}
+    
+    \pause 
+    
+    The use of the LU Decomposition to solve linear systems was one of the areas of mathematics that Turing helped develop. The decomposition is widely used to solve linear systems of equations. 
+
+}
+
+
+
+
+
+\frame{\frametitle{Motivation}
+
+    \begin{itemize} 
+        \item<1-> Recall that we \Emph{could} solve $A\vec x = \vec b$ by using $$\vec x = A^{-1} \vec b$$
+    
+        \item<2->  This requires computation of the inverse of an $n\times n$ matrix, which is especially difficult for large $n$. 
+        
+        \item<3-> Instead we could solve $A\vec x = \vec b$ with Gaussian Elimination, but this is not efficient for large $n$
+    
+        \item<4-> There are more efficient and accurate methods for solving linear systems that rely on matrix factorizations.
+        
+    \end{itemize}
+}
+
+
+
+
+\frame{\frametitle{Matrix Factorizations}
+
+\begin{itemize}
+
+    \item<1-> A \Emph{matrix factorization}, or \Emph{matrix decomposition} is a factorization of a matrix into a product of matrices.
+
+    \item<2-> Factorizations can be useful for solving $A \vec x = \vec b$, or understanding the properties of a matrix.
+
+    \item<3-> We explore a few matrix factorizations throughout this course.
+    
+    \item<4-> In this section, we factor a matrix into \Emph{lower} and into \Emph{upper} triangular matrices.
+    
+\end{itemize}
+
+
+}
+
+
+
+\frame{\frametitle{Triangular Matrices}
+
+    Rectangular matrix $ A$ is \Emph{upper triangular} if $ a _{i,j} = 0$ for $ i > j$. Examples:
+    
+    $$
+    \spalignmat{1 5 0;0 2 4}, \quad 
+    \spalignmat{
+    1 0 0 1;
+    0 2 1 0;
+    0 0 0 0;
+    0 0 0 1}
+    ,
+    \quad
+    \spalignmat{2 1;0 1;0 0;0 0}
+    $$
+ 
+    \pause 
+    
+    Rectangular matrix $ A$ is \Emph{lower triangular} if $ a _{i,j} = 0$ for $ i < j$. Examples:
+    
+    $$
+    \spalignmat{1 0 0;3 2 0}, \quad 
+    \spalignmat{
+    3 0 0 0;
+    1 1 0 0;
+    0 0 0 0;
+    0 2 0 1}
+    ,
+    \quad
+    \spalignmat{1 0;1 4;0 1;2 0}
+    $$
+ 
+
+    \pause 
+    
+    Can you name a matrix that is both upper and lower triangular? 
+}
+
+
+
+
+
+
+\frame{\frametitle{The LU Factorization}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.92\textwidth} 
+        \vspace{2pt}
+
+        If $ A$ is an $ m \times n$ matrix that can be row reduced to echelon form without row exchanges, then $ A = L U $. $ L $ is a lower triangular $ m \times m$ matrix with $ 1$'s on the diagonal, $ U$ is an \Emph{echelon} form of $ A$.
+
+    \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Theorem}; \end{tikzpicture}\end{center}
+
+    \pause 
+    
+    \Emph{Example}: If $A \in \mathbb R^{3\times 2}$, the LU factorization has the form:
+        $$A = L U = \spalignmat{1 0 0 ;\ast, 1 0 ; \ast,\ast, 1 } \spalignmat{\ast , \ast; 0 , \ast; 0 0}$$
+
+
+}
+
+\frame{\frametitle{Using the LU Decomposition to Solve a Linear System}
+
+    \Emph{Goal}: given rectangular matrix $A$ and vector $\vec b$, we wish to solve $A \vec x = \vec b$ for $\vec x$. \\ \vspace{12pt}
+    
+    \pause 
+    
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.92\textwidth} 
+        \vspace{2pt}
+
+        To solve $A \vec x = \vec b$ for $\vec x$:
+
+    \begin{enumerate}
+        \item Construct the LU decomposition of $A$ to obtain $L$ and $U$. 
+        \item Set $U\vec x = \vec y$. Forward solve for $ \vec y$ in $ L \vec y = \vec b$. 
+        \item Backwards solve for $\vec x$ in $ U \vec x = \vec y$. 
+    \end{enumerate}
+
+    \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Algorithm}; \end{tikzpicture}\end{center}
+
+
+    
+
+}
+
+\frame{\frametitle{Example of Solving a Linear System Given $A=LU$}
+
+    \Emph{Example}: Solve the linear system $A\vec x = \vec b$, given the LU decomposition of $A$.
+    \begin{equation*}
+        A = LU = \spalignmat{1 0 0 0;1 1 0  0;0 2 1 0 ;0 0 1 1}\spalignmat{1 0 0;0 2 1;0 0 2; 0 0 0}, \quad \vec b = \spalignmat{2;3;2;0}
+    \end{equation*}
+
+}
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item triangular matrices
+        \item using the LU factorization to solve linear systems
+        % \item To compute the LU decomposition: 
+        %     \begin{enumerate}
+        %         \item Reduce $ A$ to an echelon form $ U$ by a sequence of row replacement operations, if possible.
+        %         \item Place entries in $ L$ such that the same sequence of row operations reduces $ L$ to $ I$.
+        % \end{enumerate}
+        % \item The textbook offers a different explanation of how to construct the LU decomposition that students may find helpful. 
+        % \item Another explanation on how to calculate the LU decomposition that students may find helpful is available from MIT OpenCourseWare: www.youtube.com/watch?v=rhNKncraJMk    
+    \end{itemize}
+    
+    \vspace{18pt}
+    To solve $A \vec x = LU \vec x = \vec b$, we follow this process:
+    \begin{enumerate}
+        \item construct the LU factorization
+        \item forward solve for $ \vec y$ in $ L \vec y = \vec b$
+        \item backwards solve for $\vec x$ in $ U \vec x = \vec y$
+    \end{enumerate}
+
+}
+
+
+

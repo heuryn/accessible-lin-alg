@@ -1,0 +1,132 @@
+\title{Determinants and Row Operations}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+
+    \item the relationships between row reductions, the invertibility of a matrix, and determinants
+    
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item apply properties of determinants (related to row reductions, transpose, and matrix products) to compute determinants
+    \item use determinants to determine whether a square matrix is invertible
+
+\end{itemize}
+
+\vspace{0.25cm} 
+
+}
+
+
+\frame{\frametitle{Understanding Relationships Between Ideas}
+
+\textit{``A problem isn't finished just because you've found the right answer."} \\ - Y\={o}ko Ogawa   \\ \vspace{12pt} \pause 
+ We have a method for computing determinants, but without some of the strategies we explore in this section, the algorithm can be very inefficient.   
+
+}
+
+
+\begin{frame}\frametitle{How Can we Compute Determinants More Efficiently?} 
+
+\begin{itemize}
+    \item<1-> We saw how determinants are difficult or impossible to compute with a cofactor expansion for large $N$.
+    \item<2-> Row operations give us a more efficient way to compute determinants.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Row Operations} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% THEOREM THEOREM THEOREM 
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth} \vspace{4pt}
+Let $ A$ be a square matrix. 
+
+%%  ENUMERATE
+\begin{enumerate}
+\item<1-> If a multiple of a row of $ A$ is added to another row to produce $ B$, then 
+$ \operatorname {det} B = \operatorname {det} A $. 
+
+\item<2-> If two rows are interchanged to produce $ B$, then $  \operatorname {det} B = -\operatorname {det} A $. 
+
+\item<3-> If one row of $ A$ is multiplied by a scalar $ k$ to produce $ B$, then 
+$  \operatorname {det} B = k\operatorname {det} A $. 
+\end{enumerate}
+%% ENUMERATE
+
+ \end{minipage}}; \node[fancytitle, right=10pt] at (box.north west) {Theorem: Row Operations and the Determinant}; \end{tikzpicture}\end{center}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% THEOREM THEOREM THEOREM
+
+
+
+ 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Using Row Operations to Compute a $3\times3$ Determinant}  
+Compute $ \det A = \begin{vmatrix*}[r]
+1 & -4 & 2 \\ -2 & 8 & -9 \\ -1 & 7 & 0
+\end{vmatrix*}$.
+
+\vspace {2cm} 
+
+
+
+\end{frame}
+
+\begin{frame}\frametitle{Invertibility}
+    Important practical implication:  if $ A$ is reduced to echelon form,
+ by $\textcolor{DarkRed}{r}$ interchanges of rows and columns, then 
+ \begin{equation*}
+\lvert  A\rvert = 
+\begin{cases}
+(-1) ^{\textcolor{DarkRed}{r}} \times \textup{(product of pivots)},  & \textup{when $ A$ is invertible} 
+\\
+0, & \textup{when $ A$ is singular} 
+\end{cases}
+\end{equation*}
+
+
+\end{frame}
+
+
+
+% \begin{frame}\frametitle{Using Row Operations to Compute a $4\times4$ Determinant} 
+
+%     Compute the determinant 
+%     \begin{equation*}
+%     \begin{vmatrix*}[r]
+%         0 & 1 & 2 & -1 \\ 2 & 5 & -7 & 3 \\ 0 & 3 & 6 &  2 \\ -2 & -5 & 4 & 2 
+%     \end{vmatrix*}
+%     \end{equation*}
+    
+% \end{frame}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item relationships between row reductions, the invertibility of a matrix, and determinants
+    \end{itemize}
+    
+
+}
+
+

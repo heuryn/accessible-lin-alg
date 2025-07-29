@@ -1,0 +1,111 @@
+\title{The Determinant of a Matrix}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+
+    \item the definition and computation of a determinant
+    % \item the determinant of triangular matrices
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item compute determinants of $n\times n$ matrices using a cofactor expansion
+    
+    % \item apply theorems to compute determinants of matrices that have particular structures
+
+\end{itemize}
+
+\vspace{0.25cm} 
+
+}
+
+
+\frame{\frametitle{A Definition of the Determinant}
+
+Suppose $A$ is $n\times n$ and has elements $a_{ij}$. 
+
+\pause 
+
+\begin{enumerate}
+\item<2-> If $n=1$, $A = [a _{11}]$, and has determinant $\operatorname {det} A = a _{11}$. 
+
+\item<3-> Inductive case: for $n>1$, 
+\begin{equation*}
+\operatorname {det} A = 
+a _{11} \operatorname {det} A _{11} 
+- a _{12} \operatorname {det} A _{12} 
++ \cdots 
++ (-1) ^{1+n} a _{1n} \operatorname {det} A _{1n}
+\end{equation*}
+where $ A _{ij}$ is the matrix obtained by eliminating row $i$ and column $j$ of $A$. 
+\end{enumerate}
+
+\vspace{12pt}
+\onslide<4->{
+
+\Emph{Example}
+$$
+    A = \spalignmat{
+    \RedCircle{2pt},\RedCircle{2pt},\RedCircle{2pt},\BlueCircle{2pt},\BlueCircle{2pt} ;
+    \RedCircle{2pt},\RedCircle{2pt},\RedCircle{2pt},\BlueCircle{2pt},\BlueCircle{2pt} ;
+    \GreenCircle{2pt},\GreenCircle{2pt},\GreenCircle{2pt},\OrangeCircle{2pt},\OrangeCircle{2pt} ;
+    \GreenCircle{2pt},\GreenCircle{2pt},\GreenCircle{2pt},\OrangeCircle{2pt},\OrangeCircle{2pt} ;
+    \GreenCircle{2pt},\GreenCircle{2pt},\GreenCircle{2pt},\OrangeCircle{2pt},\OrangeCircle{2pt} ;
+    }
+    \quad \Rightarrow \quad
+    A_{2,3} = \spalignmat{
+    \RedCircle{2pt},\RedCircle{2pt},\BlueCircle{2pt},\BlueCircle{2pt} ;
+    \GreenCircle{2pt},\GreenCircle{2pt},\OrangeCircle{2pt},\OrangeCircle{2pt} ;
+    \GreenCircle{2pt},\GreenCircle{2pt},\OrangeCircle{2pt},\OrangeCircle{2pt} ;
+    \GreenCircle{2pt},\GreenCircle{2pt},\OrangeCircle{2pt},\OrangeCircle{2pt} ;
+    }    
+$$
+}
+
+}
+
+\frame{\frametitle{Example: The Determinant of a $2\times2$ Matrix}
+
+Compute $ \operatorname {det}A$, where $A = \spalignmat{a b;c d}$. 
+
+
+}
+
+\frame{\frametitle{Example: The Determinant of a $3\times 3$ Matrix}
+Compute
+$
+\operatorname {det} \spalignmat{3 -5 0;2 4 -1; 0 2 0}  
+= 
+\begin{vmatrix*}[r]
+3 & -5 & 0 \\ 2 & 4 & -1  \\ 0 & 2 & 0 
+\end{vmatrix*} 
+$.
+}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+            \item computing determinants of $n\times n$ matrices using a cofactor expansion
+    \end{itemize}
+    We will need to look at ways of computing determinants more efficiently. 
+}
+
+

@@ -1,0 +1,145 @@
+\title{Eigenvalue Theorems}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\frame{\frametitle{Topics and Objectives}
+    \Emph{Topics} \\
+    \TopicStatement
+    \begin{itemize}
+
+        % \item eigenspaces
+        \item eigenvalue theorems
+
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \Emph{Objectives}\\
+
+    \LearningObjectiveStatement
+
+    \begin{itemize}
+
+        
+        % \item construct an eigenspace for a matrix
+        
+        \item apply theorems related to eigenvalues to characterize matrices and compute eigenvalues
+
+    \end{itemize}
+}
+
+
+
+\begin{frame}{Motivating Questions}
+
+    Suppose $A$ is a real $n\times n$ matrix. 
+    
+    \begin{itemize}
+        \item<2-> How can we determine the eigenvalues of $A$? 
+        \item<3-> If $A$ has some special structure (e.g. - singular, stochastic, triangular), what can we say about the eigenvalues of $A$? 
+    \end{itemize}
+    
+    \onslide<4->{Theorems that deal with eigenvalues of a matrix can help us calculate eigenvalues. }
+    
+\end{frame}
+
+
+
+
+\begin{frame}{Theorems}
+
+    The following theorems can help us identify eigenvalues and eigenvectors of a matrix. 
+    
+    \vspace{12pt}
+    
+    \begin{itemize}
+        \item<2-> The diagonal elements of a triangular matrix are its eigenvalues. \vspace{0.25cm}
+        \item<3-> $A$ not invertible $\Leftrightarrow 0$ is an eigenvalue of $A$. \vspace{0.5cm}
+        \item<4-> Stochastic matrices have an eigenvalue equal to 1.\vspace{0.5cm}
+        \item<5-> If $\vec v_1, \vec v_2, \ldots , \vec v_k$ are eigenvectors that correspond to distinct eigenvalues, then $\vec v_1, \vec v_2, \ldots , \vec v_k$ are linearly independent.
+    \end{itemize}
+    
+    \onslide<6->{Proofs of these theorems are relatively short.}\onslide<7->{There are many other eigenvalue theorems that we could explore!}
+    
+\end{frame}
+
+
+
+
+\begin{frame}{Determining Eigenvalues by Inspection} 
+
+    By inspection, give two eigenvalues for each of the following matrices.
+    \begin{enumerate}
+        \item $A=\frac 12 \spalignmat{1 1;1 1}$
+        \item $B=\spalignmat{2 3;0 5}$
+    \end{enumerate}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{\Emph{Warning!}} 
+
+	\vspace{-12pt}
+    % ~~ ~~ Highlight Box ~~ ~~
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.94\textwidth}\vspace{4pt}
+
+        We cannot determine the eigenvalues of a matrix from its reduced form. 
+
+    \end{minipage}};
+    \end{tikzpicture}\end{center}
+    % ~~ ~~ Highlight Box ~~ ~~
+    
+    In other words: row reductions can change the eigenvalues of a matrix. 
+    
+\end{frame}
+
+
+
+
+\begin{frame}{Row Operations on $A$ Can Change its Eigenvalues} 
+
+    Suppose $A = \spalignmat{1 1;1 1}$. The eigenvalues and corresponding eigenvectors are 
+    
+    $$\lambda_1 = 2, \ \vec v_1 = \spalignmat{1;1}, \qquad \lambda_2 = 0, \ \vec v_2 = \spalignmat{1;-1} $$
+    
+    We can verify this:
+    \pause 
+            \begin{align*}
+            & A \vec v_1
+            = \spalignmat{1 1;1 1} 
+            \spalignmat{1;1} =  \spalignmat{2;2} = 2 \vec v_1\\
+            & A \vec v_2
+            = \spalignmat{1 1;1 1} 
+            \spalignmat{1;-1} =  \spalignmat{0;0} = 0\vec v_2
+            \end{align*}
+
+    \pause
+    
+    But the RREF of $A$ is $\spalignmat{1 1;0 0}$, whose eigenvalues are $1$ and $0$. 
+
+\end{frame}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item applying eigenvalue theorems to characterize matrices and compute eigenvalues
+        
+    \end{itemize}
+    \vspace{8pt}
+
+}
+
+
+
+
+
+
+

@@ -1,0 +1,222 @@
+\title{The Orthogonal Decomposition Theorem}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+  
+
+
+
+\begin{frame}\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+    \item orthogonal decomposition theorem
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+%\LearningObjectiveStatement
+
+\begin{itemize}
+    \item apply concepts of orthogonality and projections to express a vector as a linear combination of orthogonal vectors,
+        and construct vector approximations using projections
+    % \begin{itemize}
+    %     % \item compute orthogonal projections and distances,
+    %     \item 
+    %     % \item characterize bases for subspaces of $\mathbb R^n$, and
+    %     % \item construct orthonormal bases.
+    % \end{itemize}
+    \end{itemize}
+
+    \vspace{0.25cm} 
+\end{frame}
+
+\begin{frame}{Motivating Questions}
+    Vector $\vec  y$ is not in $\Col A$. 
+    \begin{equation*}
+        A = \begin{pmatrix}
+            1 & 0  \\ 1 & 1 \\  0 & 1 
+        \end{pmatrix}, \qquad  
+        \vec y = \begin{pmatrix} 1 \\ 1 \\ 1 
+    \end{pmatrix}
+    \end{equation*}
+    There is no solution to $A\vec x = \vec y$. 
+    
+    \pause 
+    
+    \vspace{12pt}
+    
+    Two questions: 
+    
+    \begin{itemize}
+        \item can we find a vector $ \widehat y $ that is in $\Col A$, that is closest to $ \vec y$? 
+        \item can we write $\vec y = \widehat y + z$, where
+        \begin{itemize}
+            \item {\normalsize $\widehat y \in \Col A$}
+            \item {\normalsize $z \in (\Col A)\Perp$}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Geometric Explanation for Orthogonal Decomposition}  
+
+    Suppose: 
+    \begin{itemize}
+        \item vectors $\vec v_1$ and $\vec v_2$ in $\mathbb R^3$ form an orthonormal basis a subspace, $W$
+        \item<1-> $W = \text{Span}\{\vec v_1, \vec v_2\}$
+        \item<2-> vector $\vec y$ is not in $W$
+    \end{itemize}
+
+    \begin{center}
+    \tdplotsetmaincoords{70}{30}
+    \begin{tikzpicture}[scale=1.9,
+        axis/.style={->,black,-stealth,very thick}, 
+        vectorR/.style={-stealth,DarkBlue,very thick},
+        vectorB/.style={-stealth,DarkRed,very thick},
+        vectorZ/.style={-stealth,black,very thick},
+        dsline/.style={gray,dashed},
+        tdplot_main_coords
+        ]
+        
+        \coordinate (O) at (0,0,0);
+        \coordinate (P) at (.9,.3,1);
+        \coordinate (Q) at (.9,.3,0);        
+
+        % plane for W
+        \filldraw[draw=DarkBlue!40,fill=DarkBlue!08,]          
+            (O) -- (3,0,0) -- (3,3,0) -- (0,3,0)
+            -- cycle;
+        
+        \draw[] (2,2,0) node[right]{$W$};
+            
+        %draw axes
+        \draw[axis] (O) -- (1,0,0) node[below]{$\vec v_1$};
+        \draw[axis] (O) -- (0,1,0) node[right]{$\vec v_2$};
+        %\draw[axis] (O) -- (0,0,1) node[left]{$\vec e_3$};
+            
+        % draw vectors
+        \onslide<2->{\draw[vectorR] (O) -- (P) node[right]{$\vec y$};}
+        \onslide<3->{\draw[vectorB] (O) -- (Q) node[right]{$\widehat y \in W$};} % $\text{Span}\{\vec e_1,\vec e_2\} = W$};}
+        
+        % dashed line
+        \onslide<3-3>{\draw[dsline] (P) -- (Q) ;}
+        
+        % z
+        \onslide<4->{
+            \draw[vectorZ] (Q) -- (P) ;
+            \draw[] (.2,1.5,0) node[right]{$z$};
+        }        
+        
+        
+    \end{tikzpicture}
+    
+    \pause 
+    \end{center}
+    \onslide<4->{Our goals: 1) identify the vector in $W$ that is closest to $\vec y$, which we call $\widehat y$, and 2) identify $z$ so that $\vec y = \widehat y + z$. }
+
+
+\end{frame}
+
+
+\begin{frame}{Example: Orthogonal Decomposition}  
+    Suppose $ \vec u_1 ,\dotsc, \vec u_5$ is an orthonormal basis for $ \mathbb R ^{5}$.  \pause Let $ W = \operatorname {Span} \{ \vec u_1 , \vec u_2 \}$.  
+    
+    \pause 
+    \vspace{6pt}
+    
+    For any vector $ \vec y\in \mathbb R ^{5}$, construct the vectors  $ \widehat y$ and $ z$ so that 
+    $ \vec y =  \widehat y  +  z$, where $ \widehat y  \in W$ and $  z \in W ^{\perp}$.
+\end{frame}
+ 
+ 
+ 
+
+
+\begin{frame}{Orthogonal Decomposition Theorem}
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}
+        \vspace{4pt}
+        Let $ W$ be a subspace of $ \mathbb R ^{n}$.   Then, each vector $ \vec y \in \mathbb R ^{n}$ has the \Emph{unique} decomposition 
+        \begin{equation*}
+            \vec y =   \widehat y  +  z, \quad  \widehat y  \in W, \quad   z \in W ^{\perp}. 
+        \end{equation*}
+    
+        And, if $  \vec u_1 ,\dotsc, \vec u_p$ is any orthogonal basis for $ W$, 
+        \begin{equation*}
+            \widehat y =  \frac {\vec y \cdot \vec u_1} {\vec u_1 \cdot \vec u_1} \vec u_1 + \cdots + 
+            \frac {\vec y \cdot \vec u_p} {\vec u_p \cdot \vec u_p} \vec u_p. 
+        \end{equation*}
+        We say that $ \widehat y  $ is the \Emph{orthogonal projection of $ \vec y$ onto $ W$.} 
+        
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+
+    We will explain some of this theorem on the next slide. 
+    
+\end{frame}
+
+
+
+\begin{frame}\frametitle{More on the Orthogonal Decomposition Theorem}
+
+    Why is $z \in W^\Perp$? Our theorem tells us that
+    \begin{align*}
+        \widehat y &= \frac {\vec y \cdot \vec u_1} {\vec u_1 \cdot \vec u_1} \vec u_1 + \cdots + 
+            \frac {\vec y \cdot \vec u_p} {\vec u_p \cdot \vec u_p} \vec u_p =\sum_{i = 1}^p \frac{\vec y \cdot \vec u_i}{\vec u_i \cdot \vec u_i} \vec u_i
+    \end{align*}
+    \onslide<2->{Then, $ z = \vec y - \widehat y $ is in $ W ^{\perp}$ because for any $j$, we have $\vec u_j \cdot z = 0$:}
+    \begin{align*}\onslide<3->{\vec u_j \cdot z = \vec u_j  \cdot (\vec y - \widehat y ) = \vec u_j  \cdot \vec y -  \vec u_j \cdot \widehat y  }
+    \onslide<4->{
+    &= \vec u_j  \cdot \vec y -  \vec u_j \cdot \sum_{i = 1}^p \frac{\vec y \cdot \vec u_i}{\vec u_i \cdot \vec u_i} \vec u_i }\\
+    \onslide<5->{&= \vec u_j  \cdot \vec y -  \vec u_j \cdot  \frac{\vec y \cdot \vec u_j}{\vec u_j \cdot \vec u_j} \vec u_j} \\
+    \onslide<6->{&= \vec u_j  \cdot \vec y - \left( \frac{\vec y \cdot \vec u_j}{\vec u_j \cdot \vec u_j} \right) \vec u_j \cdot \vec u_j = 0}
+    \end{align*}
+
+    
+\end{frame}
+
+
+
+
+\begin{frame}{Example: Constructing an Orthogonal Decomposition}  
+    \vspace{-8pt}
+    $$ 
+    \vec y = \spalignmat{4;0;3}, \quad 
+    \vec u_1 = \spalignmat{2;2;0}, \quad 
+    \vec u_2 = \spalignmat{0;0;1}
+    $$ 
+    \vspace{2pt}
+    
+    Construct the decomposition $ \vec y = \widehat y + z $, where $ \widehat y $ is the orthogonal projection of $ \vec y$ onto $ W = \operatorname {Span} \{\vec u_1 ,\vec u_2\}$, and $z \in W^\perp$.
+
+\end{frame}
+
+
+ \frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+    \item orthogonal decomposition theorem
+    
+    \end{itemize}
+    
+    \vspace{16pt}
+    \pause 
+    
+    We used this theorem to do two things: 
+    \begin{itemize}
+        \item decompose a vector into a sum of two vectors: $\widehat y$ and $z$
+        \item identify the closest vector in a subspace to some other vector that need not be in that subspace
+    \end{itemize}
+    
+}
+
+
+
+
+

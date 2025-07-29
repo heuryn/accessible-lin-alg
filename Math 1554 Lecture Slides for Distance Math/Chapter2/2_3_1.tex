@@ -1,0 +1,205 @@
+\title{The Invertible Matrix Theorem}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+
+
+
+
+
+% STYLE SETTINGS FOR BLOCK DIAGRAMS
+\tikzstyle{startstop} =[trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=1cm, minimum height=1cm, text centered, fill=DarkBlue!30]
+%\tikzstyle{process} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=1cm, minimum height=1cm, text centered, fill=orange!30]
+\tikzstyle{arrow} = [thick,<-,>=stealth]
+
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize} 
+\item the invertible matrix theorem, which is a review/synthesis of many of the concepts we have introduced
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    \item characterize the invertibility of a matrix using the Invertible Matrix Theorem
+    \item construct and give examples of matrices that are/are not invertible
+\end{itemize}
+
+\vspace{0.25cm} 
+
+
+
+}
+
+
+\frame{\frametitle{Equivalent Expressions}
+
+    {\small \textit{``A synonym is a word you use when you can't spell the other one." } \\ - Baltasar Graci\'an\\} 
+    
+    \vspace{12pt}
+
+    The theorem we introduce in this section of the course gives us many ways of saying the same thing. Depending on the context, some will be more convenient than others.
+    
+}
+
+
+\frame{\frametitle{The Invertible Matrix Theorem}
+
+\vspace{-12pt}
+Let $ A$ be an $ n \times n $ matrix. These statements are all equivalent. 
+
+%%  ENUMERATE
+\begin{enumerate}[a)]
+    \item $ A$ is invertible. 
+    \item $ A$ is row equivalent to $ I _n$. 
+    \item $ A$ has $ n$ pivotal columns (all columns are pivotal).
+    \item $ A \vec x = \vec 0$ has only the trivial solution.  
+    \item The columns of $ A$ are linearly independent. 
+    % \item  The linear transformation $  \vec x \mapsto A \vec x$ is one-to-one. 
+    \item The equation $ A \vec x =  \vec b$ has a solution for all $ \vec b \in \mathbb R ^{n}$. 
+    \item The columns of $ A$ span $ \mathbb R ^{n}$. 
+    % \item  The linear transformation $  \vec x \mapsto A \vec x$ is onto. 
+    \item There is a  $ n \times n $ matrix $ C$ so that $ CA = I _n$ ($ A$ has a left inverse.) 
+    \item There is a  $ n \times n $ matrix $ D$ so that $ AD= I _n$  ($ A$ has a right inverse.) 
+    \item $ A ^{T}$ is invertible. 
+\end{enumerate}
+%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% THEOREM THEOREM THEOREM
+
+
+}
+
+\frame{\frametitle{Invertibility and Composition}
+
+    The diagram below gives us another perspective on the role of $A^{-1}$. 
+    
+    \vspace{12pt}
+
+    \begin{center}\begin{tikzpicture}[node distance=2cm]
+
+        \node (x) [startstop] {$\vec x$};
+        \node (ax) [startstop, right of=x, xshift=2cm, yshift=-2cm] {$A\vec x$};
+        \draw [arrow] (ax) |- node[anchor=west] {\small multiplication by $A$} (x);
+        \draw [arrow] (x) |- node[anchor=east] {\small multiplication by $A^{-1}$} (ax);
+
+
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{12pt} 
+    
+    The matrix inverse $A^{-1}$ transforms $Ax$ back to $\vec x$. This is because: 
+
+    $$A^{-1} (A \vec x) = (A^{-1} A) \vec x = \hspace{2cm}$$
+
+}
+
+
+
+
+
+
+\frame{\frametitle{The Invertible Matrix Theorem: Final Notes}
+
+    \begin{itemize} 
+        \item Items (h) and (i) of the invertible matrix theorem (IMT) lead us directly to the following theorem. 
+
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.75\textwidth}
+
+        \item If $A$ and $B $ are $ n \times n $ matrices and $ AB=I$, then $ A$ and $ B$ are invertible, and $ B = A ^{-1} $ and $ A = B ^{-1} $.  
+
+\end{minipage}};
+\node[fancytitle, right=10pt] at (box.north west) {Theorem};
+\end{tikzpicture}\end{center}
+
+        \item The IMT is a set of equivalent statements. They divide the set of all square matrices into two separate classes: invertible, and non-invertible. 
+
+        \item As we progress through this course, we will be able to add additional equivalent statements to the IMT (that deal with determinants, eigenvalues, etc). 
+
+    \end{itemize} 
+    
+}
+
+
+
+
+\frame{\frametitle{Example 1: Identifying Whether a Matrix is Invertible}
+Is this matrix invertible? 
+\begin{equation*}
+\begin{pmatrix*}[r]
+1 & 0 & -2 \\ 3 & 1 & -2 \\ 0 & -1 & -1 
+\end{pmatrix*}
+\end{equation*}
+
+}
+
+
+\frame{\frametitle{Example 2: Constructing an Expression for the Inverse}
+
+    Suppose $A$ is an invertible square matrix and $$A^2 + 4A = I$$ Give an expression for $A^{-1}$. 
+
+}
+
+
+
+\frame{\frametitle{Example 3: Matrix Completion}
+
+    If possible, fill in the missing elements of the matrices below with numbers so that each of the matrices are singular. If it is not possible to do so, state why. 
+    
+    \begin{align*}
+        \spalignmat{1 0 1; 1, , 1;0 0 1}, \qquad
+        \spalignmat{1, , 1; 0, 1 , 1;0 0 1}, \qquad
+        \spalignmat{1 0 0; 0,1, 1;0 , , 1}
+    \end{align*}
+
+}
+
+
+
+
+
+\frame{\frametitle{Matrix Completion Problems}
+
+    \begin{itemize}
+        \item The previous example is an example of a matrix completion problem (MCP).
+        \item MCPs are great questions for recitations, midterms, exams.
+        \item the \Emph{Netflix Problem} is another example of an MCP. 
+    \end{itemize}
+        
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}
+
+        Given a \Emph{ratings matrix} in which each entry $(i,j)$ represents the rating of movie $j$ by customer $i$ if customer $i$ has watched movie $j$, and is otherwise missing, predict the remaining matrix entries in order to make recommendations to customers on what to watch next.
+
+    \end{minipage}}; \end{tikzpicture}\end{center}        
+         
+    \vspace{2.1cm}
+    
+    \center{\small{{\color{Grey}{\small\textit{Students are not expected to be familiar with this material. It's presented to motivate matrix completion.}}}}}
+
+
+}
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item characterizing the invertibility of a matrix using the Invertible Matrix Theorem
+        \item construct and give examples of matrices that are/are not invertible
+    \end{itemize}
+    \vspace{4pt}
+    As we go through the course we will add more equivalent statements to this theorem.
+}
+

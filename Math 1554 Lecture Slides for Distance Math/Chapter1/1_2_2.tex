@@ -1,0 +1,106 @@
+\title{The Row Reduction Algorithm} 
+\subtitle{\SubTitleName}
+\institute[]{{\Course}}
+\author{\Instructor}
+\maketitle   
+
+
+
+
+\frame{\frametitle{Topics and Learning Objectives}
+\Emph{Topics} \\
+\TopicStatement
+
+
+\begin{itemize}
+\item row reduction algorithm
+\item pivots and pivot columns %, and basic and free variables 
+%\item Parametrized solution sets 
+% \item Echelon forms, existence and uniqueness 
+\end{itemize}
+
+\vspace{0.5cm}
+
+\LO\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    \item characterize a linear system in terms of the number of leading entries, pivots, pivot columns, pivot positions
+    \item apply the row reduction algorithm to reduce a linear system to echelon form, or to RREF
+\end{itemize}
+
+}
+
+
+
+
+\frame{\frametitle{Definition: Pivot Position, Pivot Column}
+
+    A \Emph{pivot position} in a matrix $ A$ is a location in $ A$ that corresponds to a leading 1 in the row reduced echelon form of $ A$.  \\[12pt]
+    \pause 
+    A \Emph{pivot column} is a column of $ A$ that contains a pivot position. \\[12pt]
+    \pause 
+    \Emph{Example}: Express the matrix in RREF and identify the pivot columns.
+    
+    \begin{equation*}
+    \left(
+    \begin{array}{rrrr} 
+        0 & -3 & -6 & 9
+        \\
+        -1 & -2 & -1 & 3 
+        \\
+        -2 & -3 & 0 & 3 
+    \end{array}\right)
+    \end{equation*}
+}
+
+
+
+
+
+
+\frame{\frametitle{Row Reduction Algorithm} 
+
+    The algorithm we used in the previous example produces a matrix in RREF. Its steps can be stated as follows.
+    \pause
+    {\color{Teal}
+        \setlength{\extrarowheight}{0.2cm}
+        \begin{center}
+        \hspace{-.9cm}\begin{tabular}{ p{1.4cm} p{11cm} }
+            Step 1: & Swap the first row with a lower one so the leftmost nonzero entry is in the first row \\ 
+            Step 2: & Scale the 1st row so that its leading entry is equal to 1 \\
+            Step 3: & Use row replacement so all entries above and below this leading entry (if any) are equal to zero \\
+            % Step 2 & Swap the 2nd row with a lower one so that the leftmost nonzero entry below 1st row is in the 2nd row
+    
+        \end{tabular}
+        \end{center}
+        \setlength{\extrarowheight}{0.0cm}
+        \pause 
+        Then repeat these steps for row 2, then for row 3, and so on, for the remaining rows of the matrix. 
+    }
+
+}
+
+
+\frame{\frametitle{Notes on the Row Reduction Algorithm} 
+
+    \begin{itemize}
+        \item <1-> There are many algorithms for reducing a matrix to echelon form, or to RREF.
+        \item <2-> If we only need to count pivots, we do not need RREF. Echelon form is sufficient. 
+    \end{itemize}
+
+}
+
+
+\frame{\frametitle{Summary: Fundamental Questions}
+
+In this video we explored the following concepts. \vspace{4pt}
+\begin{itemize}\setlength{\itemsep}{8pt}
+    \item pivot, pivot columns, pivot positions
+    \item the row reduction algorithm
+\end{itemize}
+
+}
+
+

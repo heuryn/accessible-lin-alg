@@ -1,0 +1,100 @@
+\title{Eigenspaces}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\frame{\frametitle{Topics and Objectives}
+    \Emph{Topics} \\
+    \TopicStatement
+    \begin{itemize}
+
+        \item eigenspaces
+        % \item Eigenvalue theorems
+
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \Emph{Objectives}\\
+
+    \LearningObjectiveStatement
+
+    \begin{itemize}
+
+        \item construct and sketch the eigenvectors for a matrix given its eigenvalues
+        
+        \item construct and sketch an eigenspace for a matrix
+        
+        % \item Apply theorems related to eigenvalues (for example, to characterize the invertibility of a matrix).
+
+    \end{itemize}
+}
+
+
+
+
+
+
+\begin{frame}{Eigenspaces}
+
+    % ~~ ~~ Highlight Box ~~ ~~
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth}\vspace{2pt}
+
+        Suppose $A \in \R^{n \times n}$. The eigenvectors for a given $\lambda$ span a subspace of $\R^n$ called the $\lambda$-\Emph{eigenspace} of $A$.
+
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}
+    % ~~ ~~ Highlight Box ~~ ~~
+
+    \vspace{2pt} 
+
+    \Emph{Note:} the $\lambda$-eigenspace for matrix $A$ is $\textrm{Nul} (A-\lambda I)$, because: \pause 
+    \begin{align*}
+        A \vec v & = \lambda \vec v \\
+        A \vec v - \lambda I \vec v & = \vec 0 \\
+        (A - \lambda I) \vec v &= \vec 0
+    \end{align*}
+    \pause If $\vec v \ne 0$, we must have that $A - \lambda I$ is singular. \pause Thus, eigenvectors span the null space of $A - \lambda I$. 
+\end{frame}
+
+
+
+\begin{frame}{Eigenspaces in $\mathbb R^2$}
+
+    Construct a basis for the eigenspaces for the matrix whose eigenvalues are given. Sketch the eigenvectors and eigenspaces. $$A = \spalignmat{ 5 -6; 3 -4}, \quad \lambda = -1, 2$$
+
+\end{frame}
+
+
+
+\begin{frame}{Eigenspaces in $\mathbb R^3$}
+
+    Construct a basis for the eigenspaces for the matrix whose eigenvalues are given. $$A= \spalignmat{ 3 0 0;0 2 1;0 1 2}, \quad \lambda = 1, 3$$
+
+\end{frame}
+
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item constructing the eigenvectors for a matrix given its eigenvalues
+        
+        \item constructing an eigenspace for a matrix
+        
+    \end{itemize}
+    \vspace{8pt}
+
+}
+
+
+
+
+
+
+

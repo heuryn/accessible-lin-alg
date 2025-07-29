@@ -1,0 +1,244 @@
+\title{How to Determine Whether a Matrix is Diagonalizable}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\vspace{1cm} 
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item determining when a matrix can be diagonalized
+
+    % \item diagonalizing matrices with repeated eigenvalues
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item determine whether a matrix can be diagonalized % and if possible diagonalize a square matrix
+    
+    % \item apply diagonalization to compute matrix powers
+
+\end{itemize}
+
+
+}
+
+
+\begin{frame}{Motivating Questions}
+
+    \begin{itemize} \setlength\itemsep{1em}
+        \item<1-> How can we determine whether a given $n\times n$ matrix can be diagonalized?
+        \item<2-> Can we determine whether a square matrix can be diagonalized if we know:
+        
+        \begin{itemize}\setlength\itemsep{.5em}
+            \item<3-> {\normalsize the algebraic or geometric multiplicities of the eigenvalues? (we can)}
+            \item<4-> {\normalsize whether the matrix is invertible? (we cannot)}
+        \end{itemize}
+        
+        \item<5-> If a matrix has a repeated eigenvalue, how can we diagonalize the matrix?
+    \end{itemize}
+    
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Distinct Eigenvalues and Diagonalizability}
+    
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.9\textwidth}\vspace{4pt}
+
+    If $A$ is $n\times n$ and has $n$ distinct eigenvalues, then $A$ is diagonalizable. 
+
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+
+    \vspace{6pt} 
+    
+    \pause
+    
+    Why does this theorem hold? 
+    
+    \pause
+    \begin{itemize}
+        \item  For an $n\times n$ matrix to be diagonalizable it must have $n$ linearly independent eigenvectors. 
+        \item \pause Eigenvectors corresponding to distinct eigenvalues are independent. 
+    \end{itemize}
+    
+    \pause 
+    
+    Is it necessary for an $n \times n$ matrix to have $n$ distinct eigenvalues for it to be diagonalizable? 
+    
+    \pause
+    \begin{itemize}
+        \item[] \textit{No. The identity matrix is diagonalizable.}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}\frametitle{Diagonalization Example 1}
+    
+    Give an example of a non-zero square matrix that is in RREF, is diagonalizable, and is singular. 
+
+    \vspace{4pt}
+    \Emph{Solution}\\ 
+    Any matrix that has distinct eigenvalues can be diagonalized. \pause The matrix below can be diagonlized. 
+    $$A = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$$
+    \pause This matrix can be diagonalized: 
+    $$A = PDP^{-1}, \quad P = P^{-1} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad D = \begin{pmatrix} 1 & 0 \\0 & 0 \end{pmatrix}$$
+    \pause \textit{Conclusion: if we know that a matrix is not invertible, we cannot conclude that the matrix is not diagonalizable.}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Diagonalizability}
+    If an $n\times n$ matrix has $n$ distinct eigenvalues then the matrix will be diagonalizable. 
+    
+    \vspace{12pt}
+    
+    How can we tell whether a matrix with repeated eigenvalues is diagonalizable? 
+    
+    \pause
+    \begin{itemize}
+        \item<2-> To diagonalize an $n\times n$ real matrix $A$, we need to construct three matrices: $D$, $P$, $P^{-1}$
+        \item<3-> $D$ is constructed from the $n$ eigenvalues of $A$. We can always construct $D$. 
+        \item<4-> $P$ must be $n\times n$ and invertible. In other words, the eigenvectors of $A$ must form a basis for $\mathbb R^n$.
+        \item<5-> Not every $A$ will have $n$ linearly independent eigenvectors. 
+        \item<6-> We cannot always construct $P$ so that we can diagonalize $A$.
+        
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Theorem: Diagonalizability}
+
+    \onslide<1->{The question of whether we can diagonalize a matrix comes down to whether or not we can construct an $n\times n$ invertible $P$. Suppose:}
+
+    \begin{itemize}
+        \item<2-> $A$ is any $n\times n$ real matrix
+        \item<3-> $A$ has $k$ distinct eigenvalues $\lambda_1, \ldots , \lambda_k$, $k \le n$
+        \item<4-> $a_i$ = \Emph{algebraic} multiplicity of $\lambda_i$
+        \item<5-> $g_i$ = dimension of $\lambda_i$ eigenspace, or the \Emph{geometric} multiplicity
+    \end{itemize}
+    \onslide<6->{Then the following statements are equivalent. }
+    \begin{itemize}
+        % \item $g_i \le a_i$ for all $i$
+        \item<7-> $A$ is diagonalizable.  
+        \item<8-> The sum of all the geometric multiplicities is $n$, so that $\Sigma g_i = n$.
+        \item<9-> $g_i = a_i$ for all $i$.
+        \item<10-> The eigenvectors of $A$ form a basis for $\R^n$. 
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Diagonalization Example 2}
+
+    True or false: if $A$ is not invertible, then $A$ is not diagonalizable
+    
+    \vspace{12pt}
+    \Emph{Solution}\\
+    False. \pause If $A = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$, then $A$ is not invertible and can be diagonalized: \pause
+    $$A = PDP^{-1} = \begin{pmatrix} 1 & 0 \\0 & 1 \end{pmatrix}
+    \begin{pmatrix} 0 & 0 \\0 & 0 \end{pmatrix}
+    \begin{pmatrix} 1 & 0 \\0 & 1 \end{pmatrix}$$
+    
+    
+    \pause 
+    
+    \Emph{Note} \\
+    
+    \begin{itemize}
+        \item Some matrices that are not invertible can be diagonalized.
+        \item Some matrices that have a repeated eigenvalue can be diagonalized.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Diagonalization Example 3}
+
+    For what values of $k$ is $A=\spalignmat{1 k;0 1}$ diagonalizable? 
+    
+    \pause 
+    \vspace{4pt}
+    \Emph{Solution}\\ 
+    Case 1: $k = 0$. \pause Then $A = I_2 = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ and can be diagonalized: \pause
+    $$A = PDP^{-1} = \begin{pmatrix} 1 & 0 \\0 & 1 \end{pmatrix}
+    \begin{pmatrix} 1 & 0 \\0 & 1 \end{pmatrix}
+    \begin{pmatrix} 1 & 0 \\0 & 1 \end{pmatrix}$$
+\end{frame}
+
+
+\begin{frame}\frametitle{Diagonalization Example 3}
+
+    \pause 
+    Case 2: $k \ne  0$. \pause Then $A = \begin{pmatrix} 1 & k \\ 0 & 1 \end{pmatrix}$, \pause and $\lambda = 1$. \pause Obtain eigenvectors: $$\spalignaugmat{A-I, 0} = \spalignaugmat{0 k 0;0 0 0}, \quad \Rightarrow \quad \vec v = \begin{pmatrix} 1\\0 \end{pmatrix}$$
+    $A$ can only be diagonalized when $k=0$. 
+    
+    \vspace{12pt} 
+    \pause 
+    \Emph{Note} \\
+    \begin{itemize}
+        \item Matrix $A$ is \Emph{invertible} for all values of $k$ . \pause 
+        \item Matrix $A$ is \Emph{diagonalizable} for only some values of $k$. \pause 
+        \item The invertibility of a matrix does not tell us anything about whether the matrix is diagonalizable.
+    \end{itemize}
+    
+\end{frame}
+
+
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+    \item<2-> Theorems that help us determine whether a matrix is diagonalizable.
+    
+    \item<3-> The invertibility of a matrix does not tell us anything about whether the matrix is diagonalizable.
+
+    \end{itemize}
+    
+    \vspace{8pt}
+    
+    \onslide<3->The following are equivalent:
+    \begin{itemize}
+        \item<4->$n\times n$ matrix $A$ is diagonalizable
+        \item<5->$\Sigma g_i = n$ 
+        \item<6->$g_i = a_i$ for all $i$
+        \item<7->the eigenvectors, for all eigenvalues, together form a basis for $\R^n$. 
+    \end{itemize}
+    
+}
+
+
+
+
+% \begin{frame}
+% \frametitle{Additional Example (if time permits)}
+%     Note that $$\vec x_k = \begin{bmatrix} 0&1\\ 1&1\end{bmatrix}\vec x_{k-1}, \quad \vec x_0 = \begin{bmatrix} 1\\1\end{bmatrix}, \quad k = 1, 2, 3, \ldots $$ generates a well-known sequence of numbers. 
+    
+%     \vspace{24pt} 
+    
+%     Use a diagonalization to find a matrix equation that gives the $n^{th}$ number in this sequence. 
+    
+% \end{frame}

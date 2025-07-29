@@ -1,0 +1,143 @@
+\title{Complex Roots of the Characteristic Polynomial}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item complex eigenvalues and eigenvectors
+    
+    % \item complex numbers: addition, multiplication, complex conjugate
+
+    % \item Diagonalizing matrices with complex eigenvalues
+    
+    % \item Eigenvalue theorems
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+%\LearningObjectiveStatement
+
+\begin{itemize}
+
+    % \item add and subtract complex numbers
+    % \item conjugate complex numbers
+    % \item apply properties of complex numbers to determine whether mathematical statements that involve them are true or false
+    
+    % \item Diagonalize $2\times2$ matrices that have complex eigenvalues.
+    % \item Use eigenvalues to determine identify the rotation and dilation of a linear transform. 
+    
+    \item identify eigenvalues and eigenvectors of matrices with complex eigenvalues
+
+\end{itemize}
+
+% \vspace{0.25cm} 
+
+% \Emph{Motivating Question}
+
+% %Recall the rotation matrix (for $\pi/4$):
+% %\[  A = \frac{1}{\sqrt{2}}  \spalignmat{ 1  -1 ; 1 1 }\]
+%     What are the eigenvalues of a rotation matrix? 
+
+} 
+
+
+\begin{frame}{Complex Numbers and Polynomials}
+
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.9\textwidth}\vspace{4pt}
+
+        Every polynomial of degree $n$ has exactly $n$ complex roots, counting multiplicity. 
+    
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem: Fundamental Theorem of Algebra};
+    \end{tikzpicture}\end{center}
+    
+    \vspace{12pt}
+    The proof of this theorem is beyond the scope of the course. 
+    \vspace{12pt}
+    
+    \pause
+    
+    For example,
+    \begin{itemize}
+        \item $(x-2)^2$ is a 2$^{nd}$ order polynomial, it has two roots 
+        \item $(x-2)^2(x-1)$ is a $3^{rd}$ order polynomial, it has three roots
+    \end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}{Complex Numbers and Polynomials}
+
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.9\textwidth}
+
+        If $\lambda \in \mathbb C$ is a root of a real polynomial $p (x)$, then the conjugate $\overline{\lambda}$ is also a root of $p(x)$.  
+         
+
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+    
+    \vspace{12pt}
+    Because of this theorem: if $\lambda$ is an eigenvalue of real matrix $A$ with eigenvector $\vec v$, then $\overline{\lambda}$ is an eigenvalue of $A$ with eigenvector $\vec{\overline{v}}$.
+    
+ 
+      
+
+\medskip
+
+
+
+\end{frame}
+
+
+
+\begin{frame}{Examples} 
+
+    \vspace{-12pt}
+    \begin{enumerate}
+    
+        \item If $A$ is a $2\times2$ matrix and one of its eigenvectors is $\vec v = \spalignmat{1;i}$, give another  eigenvector of $A$ that is not a multiple of $\vec v$. 
+        \vspace{24pt}
+        \item Four of the eigenvalues of a $7\times7$ matrix are $-2, 4+i, -4 - i$, and $i$. What are the other eigenvalues? 
+
+    \end{enumerate}
+    
+\end{frame}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+    \item polynomials with complex roots
+    \item complex eigenvalues and eigenvectors
+    
+    \end{itemize}
+    
+    \vspace{8pt}
+    
+
+    
+}
+
+
+
+
+
+
+
+
+
+

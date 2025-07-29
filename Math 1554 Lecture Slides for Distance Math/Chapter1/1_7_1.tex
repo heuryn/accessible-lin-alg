@@ -1,0 +1,141 @@
+\title{A Definition of Linear Independence} 
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+
+\frame{\frametitle{Topics and Learning Objectives}
+
+    \Emph{Topics} \\
+    \TopicStatement
+    \begin{itemize}
+        \item linear independence
+        \item geometric interpretation of linearly independent vectors
+    \end{itemize}
+    
+    \vspace{0.5cm}
+
+    \LO\\
+    
+    \LearningObjectiveStatement
+
+    \begin{itemize}
+        \item characterize a set of vectors and linear systems using the concept of linear independence
+        % \item Construct dependence relations between linearly dependent vectors.
+    \end{itemize}
+
+}
+
+
+\begin{frame}
+\frametitle{A Motivating Question}
+
+What is the smallest number of vectors needed in a parametric solution to a linear system?
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Linear Independence}
+
+A set of vectors $\{\vec v_1,\ldots,\vec v_k\}$ in $\R^n$ are \Emph{linearly independent} if 
+\begin{align*}
+    c_1 \vec v_1+c_2 \vec v_2+\cdots+c_k \vec v_k= \vec 0
+\end{align*}
+has only the \Emph{trivial} solution. It is \Emph{linearly dependent} otherwise.
+
+\vspace{0.5cm} 
+
+In other words, $\{\vec v_1,\ldots,\vec v_k\}$ are linearly dependent if there are real numbers $c_1,c_2,\ldots ,c_k$ \Emph{not all zero} so that
+\begin{align*}
+ c_1 \vec v_1+c_2 \vec v_2+\cdots+c_k \vec v_k= \vec 0
+\end{align*}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+\begin{frame}\frametitle{How to Establish Linear Independence}
+Consider the vectors: $$\vec v_1, \vec v_2, \ldots  \vec v_k$$
+To determine whether the vectors are linearly independent, we can set the linear combination to the zero vector: 
+\begin{equation*}
+    c_1 \vec v_1+c_2 \vec v_2+\cdots+c_k \vec v_k = 
+    \begin{pmatrix} 
+      \vec v_1 & \vec v_2 & \cdots & \vec v_k
+    \end{pmatrix}
+    \begin{pmatrix}
+    c_1 \\ c_2 \\ \vdots \\ c_n
+    \end{pmatrix} 
+    = V \vec c  \stackrel {\color{DarkRed}??}= \vec 0
+\end{equation*}
+
+\bigskip 
+
+Linear independence: there is \Emph{NO} non-zero solution $\vec c$  
+
+\bigskip 
+
+Linear dependence: there is a non-zero solution $\vec c$.  
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Example: Determine Whether Set is Independent}
+
+For what values of $h$, if any, is the set of vectors linearly independent?
+\begin{align*}
+    \begin{pmatrix} 1\\1\\ h \end{pmatrix}, 
+    \begin{pmatrix} 1 \\ h \\1\end{pmatrix}, 
+    \begin{pmatrix} h\\1\\1\end{pmatrix}
+\end{align*}
+
+\end{frame}
+
+\frame{}
+
+\frame{\frametitle{Summary}
+
+\SummaryLine \vspace{4pt}
+\begin{itemize}\setlength{\itemsep}{8pt}
+        \item characterizing a set of vectors using the concept of linear independence
+\end{itemize}
+
+}
+
+
+
+
+
+% \begin{frame}
+% \frametitle{Example: Two Vectors and Linear Dependence}
+
+%     Suppose $\vec v_1, \vec v_2 \in \R^n$. When is the set $\{\vec v_1, \vec v_2\}$ linearly dependent? Provide a geometric interpretation.
+
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Two Linear Independence Theorems}
+
+%     \begin{enumerate}
+%         \item \Emph{More Vectors Than Elements:} Suppose $\vec v_1,\ldots ,\vec v_k$ are vectors in $\R^n$. If $k>n$, then $\{\vec v_1,\ldots ,\vec v_k\}$ is linearly dependent.
+%         \vfill
+%         \item \Emph{Set Contains Zero Vector:} If any one or more of $\vec v_1,\ldots , \vec v_k$ is $\vec 0$, then $\{ \vec v_1, \ldots, \vec v_k\}$ is linearly dependent.
+%     \end{enumerate}
+
+    
+
+
+% \end{frame}

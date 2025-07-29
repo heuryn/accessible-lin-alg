@@ -1,0 +1,468 @@
+\title{Parametric Vector Forms in Higher Dimensions} 
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\begin{frame}
+\frametitle{Motivation}
+% Consider the system:
+% \begin{align*}
+%     x_1 + x_2 &= 0 \\
+%     x_2 + x_3 &= 0
+% \end{align*}
+% \pause
+% Equations represent two planes that intersect along a line. 
+
+% \vspace{12pt} 
+
+% \pause 
+
+Suppose we have two different planes, \pause in $\mathbb R^3$, \pause that are not parallel. 
+\pause
+\begin{align*}
+    x+y &= 0\\
+    y+z &=0 
+\end{align*}
+\pause 
+The planes intersect along a line. How can we obtain a representation of the line? 
+
+\vspace{12pt}
+
+\pause 
+We can represent our system with the usual $x_1, x_2, x_3$ variables: 
+\begin{align*}
+\begin{array}{ccc}
+    x + y = 0  & \quad \Rightarrow \quad \quad  & x_1 + x_2 = 0\\
+    y + z = 0 & \quad \Rightarrow \quad \quad & x_2 + x_3 = 0
+\end{array}
+\end{align*}
+
+Where do we go from here? 
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Motivational Question and Objectives}
+
+         
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.75\textwidth} \vspace{2pt}
+                \onslide<1->{How can we express the set of solutions to a consistent system \textbf{with many variables} in a concise form?} \onslide<2->{How do we obtain this representation?  }
+    \end{minipage}};
+    \end{tikzpicture}\end{center}
+
+    \onslide<3->{
+        We are extending our discussion of parametric vector forms to homogeneous systems with many variables. 
+        \vfill 
+    }
+
+    \onslide<4->{
+    \LO\\
+
+    \LearningObjectiveStatement
+
+    \begin{itemize}
+        \item<4-> express the solution set of a linear \textbf{system} in parametric vector form
+        \item<5-> provide a geometric interpretation to the solution set % of a linear system
+        % \item Characterize homogeneous linear systems using the concepts of free variables, span, pivots, linear combinations, and echelon forms.
+    \end{itemize}
+
+    }
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Example: Homogeneous System in $\mathbb{R}^3$}
+Our system with the usual $x_1, x_2, x_3$ variables: 
+\begin{align*}
+    x_1 + x_2 &= 0\\
+    x_2 + x_3 &= 0
+\end{align*}
+
+\pause
+
+Reduce to RREF:
+\begin{align*}
+    \onslide<2->{
+    \begin{amatrix}{3}
+        1 & 1& 0 & 0 \\ 0&1&1&0
+    \end{amatrix}
+    &\sim }\onslide<3->{\begin{amatrix}{3}
+        1 & 0& -1 & 0 \\ 0&1&1&0
+    \end{amatrix} } \onslide<4->{\quad R_1-R_2 \to R_1}
+\end{align*}
+\onslide<4->{
+Express basic variables in terms of free variables:}
+\begin{align*}
+    \onslide<5->{x_1 -x_3 = 0 \ \Rightarrow \ x_1 &= x_3 \\}
+    \onslide<6->{x_2 +x_3 = 0 \ \Rightarrow \ x_2 &= -x_3}
+\end{align*}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Generate Parametric Vector Form}
+We have:
+\begin{align*}
+    x_1 &= x_3 \\
+    x_2 &= -x_3
+\end{align*}
+\onslide<2->{Expressing in parametric vector form:}
+\begin{align*}
+    \onslide<3->{\vec{x} = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} }\onslide<4->{= \begin{pmatrix} x_3 \\ - x_3 \\ x_3 \end{pmatrix} } \onslide<5->{= x_3 \begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix}}
+\end{align*}
+\onslide<6->{
+Note that:}
+\begin{itemize}
+    \item<7-> when $x_3=1$ we obtain a point in the solution set: $(1,-1,1)$
+    \item<8-> as we vary $x_3$ we obtain a set of points that generate a line
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Geometric Interpretation of the Solution Set}
+\begin{itemize}
+    \item<1-> The system is consistent, so the solution set is not empty. 
+    \item<2-> The solution set is a set of points in $\mathbb R^3$. 
+    \item<3-> There was exactly one free variable, $x_3$. 
+    \item<4-> The solution set forms a line in $\mathbb{R}^3$.
+    \item<5-> The system is homogeneous, so $\vec x = \vec 0$ is a solution. 
+\end{itemize}
+
+\vspace{12pt}
+
+    \onslide<6->{
+
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth}\vspace{0pt}
+The solution set is a line in $\mathbb R^3$ that passes through the origin. 
+\end{minipage}};
+% \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+\end{tikzpicture}\end{center}
+
+}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Generalizing to Higher Dimensions}
+
+\pause 
+What happens when we have more variables in our system? 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Example: Homogeneous System in $\mathbb{R}^5$}
+Suppose we have a system with five variables:
+\begin{align*}
+\onslide<2->{
+    \begin{amatrix}{1}
+    A & b
+\end{amatrix}}
+& \onslide<2->{=} 
+\onslide<3->{
+\begin{amatrix}{5}
+    1&0&-1&-6&7&0\\
+    0&0&1&1&-4&0
+\end{amatrix}
+\\ }
+\onslide<4->{
+& \sim 
+\begin{amatrix}{5}
+    1&0&0&-5&3&0\\
+    0&0&1&1&-4&0
+\end{amatrix}
+}
+\end{align*}
+
+\onslide<5->{Variables $x_2, x_4, x_5$ are free.} \onslide<6->{Variables $x_1, x_3$ are basic.}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Example: Homogeneous System in $\mathbb{R}^5$}
+Our reduced system:
+\begin{align*}
+    \begin{amatrix}{1}
+    A & b
+\end{amatrix}
+& \sim 
+\begin{amatrix}{5}
+    1&0&0&-5&3&0\\
+    0&0&1&1&-4&0
+\end{amatrix}
+\end{align*}
+
+\onslide<2->{Express \textbf{basic} variables in terms of \textbf{free} variables: } 
+\begin{itemize}
+    \item<3-> First row: \begin{align*}
+        \onslide<4->{x_1+0x_2 + 0x_3-5x_4+3x_5 =0}\onslide<5->{\quad \Rightarrow \quad x_1 = 5x_4-3x_5}
+    \end{align*}
+    \item<6-> Second row: \begin{align*}
+        \onslide<7->{0x_1+0x_2 + x_3 + x_4 -4x_5 =0}\onslide<8->{\quad \Rightarrow \quad x_3 = - x_4 + 4x_5}
+    \end{align*}    
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Example: Homogeneous System in $\mathbb{R}^5$}
+Expressions for the five variables: 
+\begin{align*}
+        x_1 &= 5x_4-3x_5\\
+        x_3 &= -x_4 + 4x_5 \\
+        x_2, & \ x_4, \ x_5 \text{ are free}       
+\end{align*}    
+
+\onslide<2->{Solution set:} 
+
+\begin{align*}
+    \onslide<3->{\vec x = \begin{pmatrix}
+        x_1\\x_2\\x_3\\x_4\\x_5
+    \end{pmatrix} = } \onslide<4->{ \begin{pmatrix}
+        \onslide<5->{5x_4-3x_5} \\ \onslide<6->{x_2} \\\onslide<7->{-x_4 + 4x_5} \\ \onslide<8->{x_4} \\ \onslide<8->{x_5}
+    \end{pmatrix} }
+    \onslide<9->{= x_2 } \onslide<10->{\begin{pmatrix} 0\\1\\0\\0\\0 \end{pmatrix} + } \onslide<11->{x_4} \onslide<12->{\begin{pmatrix}
+        5\\0\\-1\\1\\0
+    \end{pmatrix}+}\onslide<13->{x_5}\onslide<14->{\begin{pmatrix}
+        -3\\0\\4\\0\\1
+    \end{pmatrix}}
+\end{align*}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Example: Homogeneous System in $\mathbb{R}^5$}
+
+The parametric vector form for the solutions to 
+\begin{align*}
+    \begin{amatrix}{1}
+    A & b
+\end{amatrix}
+& = 
+\begin{amatrix}{5}
+    1&0&-1&-6&7&0\\
+    0&0&1&1&-4&0
+\end{amatrix}
+\end{align*}
+
+\onslide<2->{was found to be} 
+
+\onslide<3->{
+\begin{align*}
+    \onslide<4->{\vec x = \begin{pmatrix}
+        x_1\\x_2\\x_3\\x_4\\x_5
+    \end{pmatrix} = }
+    \onslide<5->{ x_2 \begin{pmatrix} 0\\1\\0\\0\\0 \end{pmatrix} + } \onslide<6->{x_4\begin{pmatrix}
+        5\\0\\-1\\1\\0
+    \end{pmatrix}+}\onslide<7->{x_5\begin{pmatrix}
+        -3\\0\\4\\0\\1
+    \end{pmatrix}}
+\end{align*}
+}
+
+\end{frame}
+\begin{frame}
+\frametitle{Geometric Interpretation of the Solution Set}
+\begin{itemize}
+    \item<1-> The system is consistent, so the solution set is not empty. 
+    \item<2-> The solution set is a set of points in $\mathbb R^5$. 
+    \item<3-> There were exactly 3 free variables. 
+    \item<4-> The solution set is a linear combination of 3 vectors.
+    \item<5-> The system is homogeneous, so $\vec x = \vec 0$ is a solution. 
+\end{itemize}
+
+\vspace{12pt}
+
+    \onslide<6->{
+
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth}\vspace{0pt}
+The solution set is a set of points in $\mathbb R^5$ that includes the origin. 
+\end{minipage}};
+% \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+\end{tikzpicture}\end{center}
+
+}
+
+\end{frame}
+
+
+% \begin{frame}
+% \frametitle{Example 3: Inhomogeneous System (Setup)}
+% Consider the system:
+% \begin{align*}
+%     x_1 + x_2 &= 3 \\
+%     x_2 + x_3 &= 1
+% \end{align*}
+% \pause
+% Expressing as an augmented matrix and row reducing:
+% \begin{align*}
+%     \begin{pmatrix} 1 & 1 & 0 & \bigm| 3 \\\ 0 & 1 & 1 & \bigm| 1 \end{pmatrix} 
+%     &\sim \begin{pmatrix} 1 & 1 & 0 & \bigm| 3 \\\ 0 & 1 & 1 & \bigm| 1 \end{pmatrix}
+% \end{align*}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Example 3: Solving for Basic Variables}
+% Solving for the basic variables:
+% \begin{align*}
+%     x_1 &= 3 - x_2 \\
+%     x_3 &= 1 - x_2
+% \end{align*}
+% \pause
+% Expressing in parametric vector form:
+% \begin{align*}
+%     \vec{x} = \begin{pmatrix} 3 \\ 0 \\ 1 \end{pmatrix} + x_2 \begin{pmatrix} -1 \\ 1 \\ -1 \end{pmatrix}
+% \end{align*}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Example 3: Interpretation of the Solution}
+% \textbf{Analysis:} Unlike the previous homogeneous cases, the solution set is not a subspace. Instead, it is a translated version of the homogeneous solution set, shifted by the vector $\begin{pmatrix} 3 \\ 0 \\ 1 \end{pmatrix}$. This means the solution set forms a line that does not pass through the origin.
+% \end{frame}
+
+
+% \begin{frame}
+% \frametitle{Recall: Homogeneous Systems}
+
+%     \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.90\textwidth}\vspace{4pt}
+
+%         Linear systems of the form $A\vec x = \vec 0$ are \Emph{homogeneous}. \\[12pt]
+%         Linear systems of the form $A\vec x = \vec b, \ \vec b \ne \vec 0$, are \Emph{inhomogeneous}.
+        
+%     \end{minipage}};
+%     \node[fancytitle, right=10pt] at (box.north west) {Definition};
+%     \end{tikzpicture}\end{center}    
+
+%     \vspace{12pt}
+    
+%     These systems are related to each other in a way that is easier to see with \Emph{parametric vector form}. 
+
+% \end{frame}
+
+
+% \begin{frame}
+% \frametitle{Parametric Vector Form for the Non-homogeneous Case}
+%     Write the solution as a sum of vectors. 
+%     \pause
+%     \begin{align*}
+%         2x_1 + x_2 &= 4 \\
+%         4x_1 + 2x_2 &= 8
+%     \end{align*}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Row Reduce}
+%     Expressing the system as an augmented matrix and row reducing yields:\pause 
+%     \begin{align*}
+%         \begin{pmatrix} 2&1&4\\4&2&8\end{pmatrix} 
+%         &\sim \begin{pmatrix} 2&1&4\\0&0&0\end{pmatrix}, \ R_2 - 2R_1 \to R_2
+%     \end{align*}
+%     \pause 
+%     This gives us one equation: $2x_1 + x_2 = 4$. \pause
+    
+%     Therefore $x_2$ is free, and $x_1 = 2 - \frac{1}{2}x_2$.
+%     Expressing as a vector equation: 
+%     $$\begin{pmatrix} \vec x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\end{pmatrix} = \begin{pmatrix} 2-x_2/2 \\x_2 \end{pmatrix}$$
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Parametric Vector Form}
+%     \onslide<2->{We found that $x_2$ is free and $x_1 = 2 - \frac{1}{2}x_2$} 
+%     \onslide<3->{Our goal is to now express the solution set as a sum of vectors.} 
+%     \onslide<4->{Note that solutions to the system will be vectors in $\mathbb R^2$. So if $\vec x$ is a solution, then}
+%     $$\onslide<5->{ \vec x = \begin{pmatrix} x_1\\x_2\end{pmatrix}}$$
+% \end{frame}
+
+
+% \begin{frame}
+% \frametitle{Parametric Vector Form for the Non-homogeneous Case}
+
+%     Write the solution as a sum of vectors. In other words, express the solution in parametric vector form. Give a geometric interpretation of the solution.
+%     \begin{align*}
+%         x_1 + 3x_2 + x_3 &=4 \\
+%         2x_1 -x_2 - 5x_3 &= 1 \\
+%         x_1 - 2x_3 &=1
+%     \end{align*}
+
+%     \textit{Note that the left-hand side is the same as a previous example}.  
+
+% \end{frame}
+
+
+% \begin{frame}
+% \frametitle{Row Reduce}
+
+%     Expressing the system as an augmented matrix and row reducing yields:
+%     \begin{align*}
+%         \begin{pmatrix} 1&3&1&4\\2&-1&-5&1\\1&0&-2&1\end{pmatrix} 
+%         &\sim \begin{pmatrix} 1&3&1&4\\0&-7&-7&-7\\1&0&-2&1\end{pmatrix}, \ R_2 - 2R_1 \to R_2 \\
+%         &\sim \begin{pmatrix} 1&3&1&4\\0&1&1&1\\0&-3&-3&-3\end{pmatrix} \\
+%         &\sim \begin{pmatrix} 1&0&-2&1\\0&1&1&1\\0&0&0&0\end{pmatrix} 
+%     \end{align*}
+%     Therefore $x_3$ and $x_4$ are free, $x_1 = 2x_3-x_4$, and $x_2 = -x_3-x_4$.
+
+% \end{frame}
+
+
+% \begin{frame}
+% \frametitle{Parametric Vector Form}
+
+%     \onslide<2->{We found that $x_3$ and $x_4$ are free, $x_1 = 2x_3-x_4$, and $x_2 = -x_3-x_4$} \onslide<3->{Our goal is to now express the solution set as a sum of vectors. } \onslide<4->{Note that solutions to the system will be vectors in $\mathbb R^4$. So if $\vec x$ is a solution, then}
+%     $$\onslide<5->{\vec x = \begin{pmatrix} x_1\\x_2\\x_3\\x_4\end{pmatrix}}$$
+
+% \end{frame}
+
+
+
+
+
+\begin{frame}\frametitle{Parametric Forms, General Homogeneous Case}
+
+    \pause In general, suppose the free variables for $A \vec x= \vec 0$ are $x_k,\ldots,x_n$. \pause Then all solutions to $A \vec x= \vec 0$ can be written as
+    \pause
+    \begin{align*}
+        \vec x = x_k \vec v_k + x_{k+1} \vec v_{k+1}+\cdots + x_n \vec v_n
+    \end{align*}
+    \pause 
+    for some $\vec v_k,\ldots,\vec v_n$. \pause This is the \Emph{parametric form} of the solution.
+
+\end{frame}
+
+\frame{\frametitle{Summary}
+
+The solution set of a homogeneous linear system \pause in any number of variables
+
+\begin{itemize}\setlength{\itemsep}{8pt}
+    \item<2-> can be represented in parametric vector form, where
+    \item<3-> the number of vectors in the form will be equal to the number of free variables, and
+    \item<4-> geometrically, the solution set is a set of points that includes the origin. 
+\end{itemize}
+\onslide<5->{Next we explore the inhomogeneous case.}
+}
+
+
+
+
+%\begin{frame}
+%Then, you add to this (or any other) particular solution the parametric form of your homogeneous solution: 
+%\begin{equation*}
+%\begin{bmatrix*}[r]
+%1 & 1 & -3 \\ 1 & -1 & 1 \\ -1 & 5 & -7 
+%\end{bmatrix*}
+%\begin{bmatrix*}[r]
+%2 \\ 5 \\ 3
+%\end{bmatrix*} = \vec 0 
+%\end{equation*}
+%And the matrix only has one free variable, call it $ x_3$, so our parameterized solution to the non-homogeneous solution is 
+%\begin{equation*}
+%\begin{bmatrix*}[r]
+%-1 \\- 1 \\ 1  
+%\end{bmatrix*} + x_3 \begin{bmatrix*}[r]
+%2 \\ 5 \\ 3
+%\end{bmatrix*} 
+%\end{equation*}
+%\end{frame}

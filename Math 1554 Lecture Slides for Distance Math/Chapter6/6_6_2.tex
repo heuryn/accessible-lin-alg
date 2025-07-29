@@ -1,0 +1,155 @@
+\title{Mean-Deviation Form}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+\begin{frame}\frametitle{Topics and Objectives}
+    \Emph{Topics} \\
+    %\TopicStatement
+    \begin{itemize}
+    
+        \item mean-deviation form
+        
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \Emph{Learning Objectives}\\
+    
+    \begin{itemize}
+    
+        \item apply mean-deviation form to a linear model of the form $y = c_0 + c_1 x$
+      
+    \end{itemize}
+    
+    \vspace{0.25cm} 
+ 
+\end{frame}
+ 
+ 
+ 
+
+\begin{frame}
+\frametitle{Mean-Deviation Form}
+
+    \begin{itemize}
+        \item <1-> Linear models are commonly used in science and engineering model relationships between two or more quantities $\Rightarrow$ identifying ways to make that process more efficient is valuable.
+        \item <2-> A common practice when using a model of the form $y = c_0 + c_1x$ is to compute the average, $\bar x$, of the $x-$values, and introduce a new variable $x_{\ast} = x - \bar x$. 
+        \item <3-> The new data are in \Emph{mean-deviation form}.  
+    \end{itemize}
+    \onslide<4->{In the next few slides we will see how this approach can be useful. }
+    
+\end{frame}
+
+\begin{frame}
+\frametitle{Example: Linear Model of the Form $y = c_0 + c_1x$}
+
+    Suppose we are given the data below. 
+    \begin{center}
+    \begin{tabular}{c|cccc} 
+    $ x_i$ & 2 & 5 & 7 & 8 
+    \\ \hline 
+    $ y_i$ & 1 & 1 & 4 & 3 
+    \end{tabular}
+    \end{center}
+    
+    If we were to fit a linear model to this data of the form $ y= c_0 + c_1 x$, we could construct the system
+        \pause
+
+    \begin{equation*}
+    \begin{pmatrix}
+    1 & 2 \\ 1 & 5 \\ 1 & 7 \\ 1 & 8 
+    \end{pmatrix} \begin{pmatrix}
+    c _0 \\ c _1 
+    \end{pmatrix} = \begin{pmatrix}
+    1 \\ 1 \\ 4 \\ 3 
+    \end{pmatrix}
+    \end{equation*}
+    This is a least-squares problem of the form $A \vec x = \vec y$. 
+    
+\end{frame}
+
+\begin{frame}{Solution using Normal Equations}
+    If we use the normal equations directly, we have 
+    \begin{align*}
+    A ^{T} A = \begin{pmatrix} 4 & 22 \\ 22 & 142 \end{pmatrix} , \qquad 
+    A ^{T} \vec y = \begin{pmatrix} 9 \\ 59 \end{pmatrix}
+    \end{align*}
+    
+    The least-squares solution is given by solving
+    \begin{equation*}
+    \begin{pmatrix}4 &22 \\  22 & 142 \end{pmatrix} \begin{pmatrix} c_0 \\ c_1 \end{pmatrix} = \begin{pmatrix} 9 \\ 59 \end{pmatrix}
+    \end{equation*}
+    \pause 
+    After solving this linear system, we obtain $c_0 = -5/21$ and $c_1 = 19/42$. 
+    \begin{equation*}
+        y = c _0 + c _1 x = \frac{-5}{21} + \frac{19}{42} x 
+    \end{equation*}
+    \pause 
+    If we were to use mean-deviation form, how would our approach be different? 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Example: Linear Model of the Form $y = c_0 + c_1x$}
+
+    \begin{center}
+    \begin{tabular}{c|cccc} 
+    $ x_i$ & 2 & 5 & 7 & 8 
+    \\ \hline 
+    $ y_i$ & 1 & 1 & 4 & 3 
+    \end{tabular}
+    \end{center}
+    The average value of $x_i$ is $\bar x = 5.5$. Subtracting $\bar x$ from the $x-$values, our new linear model becomes 
+    $$ y = c_0 + c_1 x_*$$
+    and our linear system becomes \pause
+    \begin{equation*}
+    \begin{pmatrix}
+    1 & -3.5 \\ 1 & -0.5 \\ 1 & 1.5 \\ 1 & 2.5
+    \end{pmatrix} \begin{pmatrix}
+    c _0 \\ c _1 
+    \end{pmatrix} = A \vec x = \begin{pmatrix}
+    1 \\ 1 \\ 4 \\ 3 
+    \end{pmatrix}
+    =\vec b
+    \end{equation*}
+    \pause 
+    What property does the columns of $A$ now have?
+    
+\end{frame}
+
+
+\begin{frame}{The Normal Equations with Mean-Deviation Form}
+    If we use the normal equations again, we now have 
+    \begin{align*}
+    A ^{T} A = \begin{pmatrix} 4 & 0 \\ 0 & 21 \end{pmatrix} , \qquad 
+    A ^{T} \vec y = \begin{pmatrix} 9 \\ 9.5 \end{pmatrix}
+    \end{align*}
+    \pause By using mean-deviation form, $A$ has orthogonal columns, so $A^TA$ is\pause diagonal. \pause Upon solving the normal equations, we obtain (by inspection) $c_0 = 9/4$ and $c_1 = 19/42$. 
+    \begin{equation*}
+        y = c _0 + c _1 x_* = \frac{9}{4} + \frac{19}{42} (x - \bar x) =  \frac{-5}{21} +  \frac{19}{42} x
+    \end{equation*}
+    \pause 
+    
+\end{frame}
+
+
+
+
+
+ \frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item constructing a linear model of the form $y = c_0 + c_1 x$ by using a change of variable, $x_* = x - \bar x$ (mean-deviation form). 
+
+    \end{itemize}
+    
+    \vspace{16pt}
+    \pause 
+    
+    
+}

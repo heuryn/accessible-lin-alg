@@ -1,0 +1,121 @@
+\title{Matrix Multiplication}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle
+
+\tikzstyle{startstop} =[trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=1cm, minimum height=1cm, text centered, fill=Teal!100]
+
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=1cm, minimum height=1cm, text centered, fill=DarkRed]
+
+\tikzstyle{process} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=1cm, minimum height=1cm, text centered, fill=Gold!100]
+
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\frame{\frametitle{Motivation}
+
+    Suppose we need a linear transform of the form $T(\vec x) = A\vec x$, \onslide<2->{but $A$ is a combination of many transforms. For example: }
+    \begin{align*}
+        \onslide<3->{A = }\onslide<4->{\underbrace{\begin{pmatrix}
+            0&-1 \\ 1&0
+        \end{pmatrix}}_{rotation}}\onslide<5->{
+        \underbrace{\begin{pmatrix}
+            2&0 \\ 0&2
+        \end{pmatrix}}_{dilation}}\onslide<6->{
+        \underbrace{\begin{pmatrix}
+            0&1 \\ 1&0
+        \end{pmatrix}}_{reflection}
+        \cdots}
+    \end{align*}
+    \pause 
+    \onslide<7->{How can we calculate the product of two (or more) matrices? How does multiplying matrices compare to multiplying numbers? }\onslide<8->{What is matrix multiplication? }
+
+    \vspace{12pt}
+    
+    \onslide<9->{
+    \Emph{Objectives}\\
+    \LearningObjectiveStatement \ multiply two matrices together. }    
+}
+
+
+% % First slide - Definition (keeping the original)
+% \frame{\frametitle{Matrix Multiplication}
+% \vspace{-12pt}
+% \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.95\textwidth}
+%     Let $ A $ be an $ m \times n $ matrix, and $ B$ be an $ n \times p$ matrix. \onslide<2->{ The product  $ A B  $ is an $ m \times p$ matrix,} \onslide<3->{equal to} \onslide<3->{$$ A B = A 
+%     \begin{pmatrix}
+%     \vec b_1 & \cdots & \vec b_p
+%     \end{pmatrix} = \onslide<4->{
+%     \begin{pmatrix}
+%     A \vec b_1 & \cdots & A \vec b_p
+%     \end{pmatrix}}
+%     $$ }
+%     \end{minipage}};
+%     \node[fancytitle, right=10pt] at (box.north west) {Definition};
+%     \end{tikzpicture}\end{center}
+% }
+
+\frame{\frametitle{Definition: Matrix Multiplication}
+
+\vspace{-12pt}
+\begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.95\textwidth}
+
+    Let $ A $ be an $ m \times n $ matrix, and $ B$ be an $ n \times p$ matrix. \onslide<2->{ The columns of $B$ are $\vec b_1, \vec b_2 , \cdots ,\vec b_p$. }\onslide<3->{The product  $ A B  $ is an $ m \times p$ matrix,} \onslide<4->{equal to} \onslide<5->{$$ A B = A 
+    \begin{pmatrix}
+    \vec b_1 & \cdots & \vec b_p
+    \end{pmatrix} = 
+    \begin{pmatrix}A \vec b_1 & \cdots & A \vec b_p\end{pmatrix}$$} \vspace{-16pt}
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}
+
+    \begin{itemize}
+        \item<5-> You can think of matrix multiplication $AB$ as \onslide<6->{transforming the columns of $B$ according to a transform defined by $A$. }
+        \item<7-> You may encounter other definitions in other textbooks and websites. Our definition is used later on for other theorems and procedures.  
+        \item<8-> The above definition calculates the product column-by-column.         
+    \end{itemize}
+    % \onslide<5->{
+    % \Emph{Example} \\
+    
+    % Compute the product. 
+    
+    % \begin{equation*}
+    % C = AB = 
+    % \spalignmat{2 0;1 1}\spalignmat{2 0 0;3 4 0}
+    % \end{equation*}
+    % }
+
+}
+
+\frame{\frametitle{Example Using the Definition}
+    We want to compute
+    \begin{equation*}
+    C = AB = 
+    \spalignmat{2 0;1 1}\spalignmat{2 0 0;3 4 0}
+    \end{equation*}
+    \onslide<2->{The result is a $2\times 3$ matrix, $C = \begin{pmatrix} \vec c_1 & \vec c_2 & \vec c_3\end{pmatrix}$.}
+    \onslide<3->{So }
+    \begin{align*}
+        \onslide<3->{\vec c_1 &= A\begin{pmatrix} 2\\3\end{pmatrix} } \onslide<6->{= 2\begin{pmatrix} 2\\1\end{pmatrix}+3\begin{pmatrix} 0\\1\end{pmatrix}=}\onslide<7->{\begin{pmatrix} 4\\2\end{pmatrix} + \begin{pmatrix} 0\\3\end{pmatrix}}\onslide<8->{=\begin{pmatrix} 4\\5\end{pmatrix}}\\
+        \onslide<4->{\vec c_2 &= A\begin{pmatrix} 0\\4\end{pmatrix} }\onslide<9->{= 0\begin{pmatrix} 2\\1\end{pmatrix}+4\begin{pmatrix} 0\\1\end{pmatrix}=\begin{pmatrix} 0\\0\end{pmatrix} + \begin{pmatrix} 0\\4\end{pmatrix}=\begin{pmatrix} 0\\4\end{pmatrix}}\\
+        \onslide<5->{\vec c_3 &= A\begin{pmatrix} 0\\0\end{pmatrix} }\onslide<10->{= 0\begin{pmatrix} 2\\1\end{pmatrix}+0\begin{pmatrix} 0\\1\end{pmatrix}=\begin{pmatrix} 0\\0\end{pmatrix} + \begin{pmatrix} 0\\0\end{pmatrix}=\begin{pmatrix} 0\\0\end{pmatrix}}
+    \end{align*}
+}
+
+\frame{\frametitle{Example Solution)}
+
+    Final result: \pause
+    $$C = AB = \begin{pmatrix} \vec c_1 & \vec c_2 & \vec c_3\end{pmatrix} = \begin{pmatrix} 4 & 0 & 0 \\ 5 & 4 & 0 \end{pmatrix}$$
+    
+}
+
+\frame{\frametitle{Summary: Matrix Multiplication Definition}
+\begin{itemize}
+    \item<2-> The definition of matrix multiplication calculates the product column-by-column. 
+    \item<3-> The definition also gives us insight into what matrix multiplication is: a transformation of the columns of one of the matrices. 
+    \item<4-> You might be wondering: what other ways can we use to multiply matrices? 
+    \item<5-> It turns out that not only are there many ways to multiply matrices together! And there is ongoing research on the best way to multiply matrices together! 
+    \item<6-> We will introduce the row-column method for multiplying matrices, which calculates the product entry-by-entry. 
+\end{itemize}
+}
+

@@ -1,0 +1,88 @@
+\title{The Basis of a Subspace}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle  
+
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+\TopicStatement
+\begin{itemize}
+    % \item subspaces, Column space, and Null spaces 
+    \item a basis for a subspace
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+    % \item determine whether a set is a subspace
+    % \item determine whether a vector is in a particular subspace, or find a vector in that subspace
+    \item construct a basis for a subspace (for example, a basis for Col(A))
+\end{itemize}
+
+}
+
+
+ 
+\frame{\frametitle{Basis}
+
+    % ~~ ~~ Highlight Box ~~ ~~
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.80\textwidth}\vspace{2pt}
+
+    A \Emph{basis} for a subspace $ H$ is a set of linearly independent vectors in $H$ that span $ H$. 
+
+    \end{minipage}};\node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}
+    
+    \pause
+
+    \Emph{Example} \\
+    The set $ H = \{  \vec x \in \mathbb R^4 \; \large| \; x_1 - 3x_2 - 5x_3 + 7x_4=0\}$ is a subspace. 
+    \begin{enumerate}[a)]
+        \item $H$ is a null space for what matrix $A$?
+        \item Construct a basis for $H$. 
+    \end{enumerate}
+
+
+}
+
+\frame{\frametitle{Example}
+
+    Construct a basis for Null$A$ and a basis for Col$A$.
+    \begin{equation*} A=
+    \begin{pmatrix*}[r]
+    -3 & 6 & -1  & 0 
+    \\
+    1 & -2 & 2  & 0 
+    \\
+    2 & -4 & 5  & 0 
+    \end{pmatrix*}
+    \sim 
+    \begin{pmatrix*}[r]
+    1 & -2 & 0  & 0 
+    \\
+    0 & 0& 1  & 0 
+    \\
+    0 & 0 & 0  & 0 
+    \end{pmatrix*}
+    \end{equation*}
+}
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+        \item constructing a basis for a subspace
+        \item constructing a basis for the column and/or null space of a matrix
+    \end{itemize}
+    
+
+}

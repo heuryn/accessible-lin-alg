@@ -1,0 +1,163 @@
+\title{The Best Approximation Theorem}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+  
+\begin{frame}\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+    \item the Best Approximation Theorem
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+%\LearningObjectiveStatement
+
+\begin{itemize}
+    \item apply concepts of orthogonality and projections to express a vector as a linear combination of orthogonal vectors,
+        and construct vector approximations using projections
+        \item calculate the distance between a vector in $\mathbb R^n$ and a subspace of $\mathbb R^n$
+    % \begin{itemize}
+    %     % \item compute orthogonal projections and distances,
+    %     \item 
+    %     % \item characterize bases for subspaces of $\mathbb R^n$, and
+    %     % \item construct orthonormal bases.
+    % \end{itemize}
+    \end{itemize}
+
+    \vspace{0.25cm} 
+\end{frame}
+
+
+\begin{frame}{Best Approximation Theorem}
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.85\textwidth}\vspace{4pt}
+    Let $ W$ be a subspace of $ \mathbb R ^{n}$,  $ \vec y \in \mathbb R ^{n}$, and $ \widehat y $ is the orthogonal projection of $ \vec y$ onto $ W$.  \onslide<2->{ Then for \Emph{any} $ \vec v \neq \hat y$, $\vec v  \in W$, we have
+    \begin{equation*}
+    \lVert \vec y - \widehat y \rVert< \lVert \vec y - \vec v \rVert
+    \end{equation*}
+    }
+    \onslide<3->{That is, $ \widehat y $ is the unique vector in $ W$ that is closest to $ \vec y$.  }
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+    
+    \onslide<4->{
+    We will give some explanation of this theorem on the next slide. }
+\end{frame}
+
+%% FRAME
+\begin{frame}\frametitle{Explanation for Why $\lVert \vec y - \widehat y \rVert< \lVert \vec y - \vec v \rVert$}
+
+    Is the orthogonal projection of $\vec y$ onto $W$ the closest point in $W$ to $\vec y$?
+    
+    \tdplotsetmaincoords{70}{20}
+    \begin{tikzpicture}[scale=2.2,
+        axis/.style={->,black,-stealth}, 
+        vectorY/.style={-stealth,DarkBlue,very thick},
+        vectorH/.style={-stealth,black,very thick},
+        vectorV/.style={-stealth,DarkRed,very thick},
+        dsline/.style={black,dashed},
+        tdplot_main_coords
+        ]
+        
+        \coordinate (O) at (0,0,0);
+        \coordinate (Y) at (1,0,1);
+        \coordinate (H) at (1,0,0);        
+        \coordinate (V) at (1.2,0.8,0);        
+        \coordinate (W) at (-.6,-.8,0);        
+        
+        % plane
+        \filldraw[
+        draw=DarkBlue!30,fill=DarkBlue!05,]          
+            (-1,-1,0) 
+            -- (2,-1,0)
+            -- (2,1,0)
+            -- (-1,1,0)
+            -- cycle;
+            
+        % draw vectors
+        \draw[vectorY] (O) -- (Y) node[above]{$\vec y$};
+        \draw[vectorH] (O) -- (H) node[below]{$\widehat y \in W$};
+        \draw[vectorV] (O) -- (V) node[below]{$\vec v \in W$};
+        
+        % dashed lines
+        \draw[dsline] (Y) -- (H) ;
+        \draw[dsline,DarkRed] (Y) -- (V) ;
+        
+        % subspace label
+        \draw (W) node[above]{$W$};
+    \end{tikzpicture}
+    
+    $$\onslide<2->{\vec y - \vec v = \vec y - \vec v + (\widehat y - \widehat y) } \onslide<3->{= \underbrace{\ (\vec y - \widehat y) \ }_{\in \, W^{\perp}} +  \underbrace{ \ (\widehat y - \vec v) \ }_{\in \, W}}$$
+    \onslide<4->{Pythagorean Theorem: $||\vec y - \vec v||^2  = ||\vec y - \widehat y||^2 + ||\widehat y - \vec v ||^2 > ||\vec y - \widehat y ||^2 $} 
+
+\end{frame}
+
+
+\begin{frame}{Example} 
+
+    True or false. 
+    \begin{itemize}
+        \item If $\vec v$ is a vector in $\mathbb R^n$ and $W$ is a subspace, then $\text{proj}_W \! \left(\text{proj}_W \vec v  \right) = \text{proj}_W \vec v$.
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+\begin{frame}{Example} 
+    \vspace{-12pt} 
+    $$ 
+    \vec y = \spalignmat{4;0;3}, \quad 
+    \vec u_1 = \spalignmat{2;2;0}, \quad 
+    \vec u_2 = \spalignmat{0;0;1}, \quad \widehat y = \spalignmat{2;2;3}
+    $$ 
+    
+    What is the distance between $ \vec y$ and subspace $ W = \operatorname {Span} \{\vec u_1 ,\vec u_2\}$? Assume $\widehat y$ is the projection of $\vec y$ onto $W$. 
+ 
+
+\end{frame}
+
+
+% \begin{frame}{Additional Example (if time permits)} 
+    
+%     \TorFs
+%     \begin{enumerate}[a)]
+%         \item If $\vec x$ is orthogonal to $\vec v$ and $\vec w$, then $\vec x$ is also orthogonal to $\vec v - \vec w$.
+%         \item If proj$_W \vec y = \vec y$, then $\vec y \in W$. 
+%     \end{enumerate}
+    
+
+% \end{frame}
+
+
+ \frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+    \item orthogonal decomposition theorem
+    \item best approximation theorem
+    
+    \end{itemize}
+    
+    \vspace{16pt}
+    \pause 
+    
+    We used this theorem to do two things: 
+    \begin{itemize}
+        \item decompose a vector into a sum of two vectors: $\widehat y$ and $z$
+        \item identify the closest vector in a subspace to some other vector that need not be in that subspace
+    \end{itemize}
+    
+}

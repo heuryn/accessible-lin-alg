@@ -1,0 +1,185 @@
+\title{Linear Independence Theorems} 
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+
+\frame{\frametitle{Topics and Learning Objectives}
+
+    \Emph{Topics} \\
+    \TopicStatement
+    \begin{itemize}
+        \item linear independence
+        \item geometric interpretation of linearly independent vectors
+    \end{itemize}
+    
+    \vspace{0.5cm}
+
+    \LO\\
+    
+    \LearningObjectiveStatement
+
+    \begin{itemize}
+        \item characterize a set of vectors and linear systems using the concept of linear independence
+        \item construct dependence relations between linearly dependent vectors
+    \end{itemize}
+
+}
+
+
+\begin{frame}
+\frametitle{A Motivating Question}
+
+What is the smallest number of vectors needed in a parametric solution to a linear system?
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Recall: Linear Independence}
+
+A set of vectors $\{\vec v_1,\ldots,\vec v_k\}$ in $\R^n$ are \Emph{linearly independent} if 
+\begin{align*}
+    c_1 \vec v_1+c_2 \vec v_2+\cdots+c_k \vec v_k= \vec 0
+\end{align*}
+has only the \Emph{trivial} solution. It is \Emph{linearly dependent} otherwise.
+
+\vspace{0.5cm} 
+
+In other words, $\{\vec v_1,\ldots,\vec v_k\}$ are linearly dependent if there are real numbers $c_1,c_2,\ldots ,c_k$ \Emph{not all zero} so that
+\begin{align*}
+ c_1 \vec v_1+c_2 \vec v_2+\cdots+c_k \vec v_k= \vec 0
+\end{align*}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Example: Two Dependent Vectors}
+
+    Suppose $\vec v_1, \vec v_2 \in \R^n$. When is the set $\{\vec v_1, \vec v_2\}$ linearly dependent? Provide a geometric interpretation.
+    
+    \pause 
+    
+    \vspace{12pt}
+    
+    \Emph{Solution} \\
+    From our definition of linear dependence, if $\vec v_1, \vec v_2$ are dependent, \onslide<3->{then there exists a $c_1$ and a $c_2$, not \textbf{both} zero, so that $$c_1\vec v_1 + c_2\vec v_2 = \vec 0$$} 
+    
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Example: Two Dependent Vectors}
+    We consider two cases:
+    \begin{itemize}
+        \item<2->[1)] If $\vec v_1$ and/or $\vec v_2$ is the zero vector, then the vectors are dependent. If for example $\vec v_1 = \vec 0$, then $c_1\vec v_1 + c_2\vec v_2 = \vec 0$ is satisfied for $c_2 = 0$ and any $c_1$. 
+        \item<3-> [2)] If $\vec v_1\ne \vec 0$ and $\vec v_2 \ne \vec 0$, then $\vec v_2 = -\frac{c_1}{c_2}\vec v_1$, so $\vec v_1$ and $\vec v_2$ are multiples of each other. The vectors are parallel (one vector is in the span of the other). 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Example: Two Dependent Vectors (continued)}
+
+    Thus, two vectors in $\mathbb R^n$ are dependent when either or both of the following occur. 
+    \begin{itemize}
+        \item <2-> One or both vectors are the zero vector. 
+        \item <3-> One vector is a multiple of the other. 
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Linear Independence Theorems}
+
+    \begin{enumerate}
+        \item[1)] \Emph{More Vectors Than Elements:} Suppose $\vec v_1,\ldots ,\vec v_k$ are vectors in $\R^n$. If $k>n$, then $\{\vec v_1,\ldots ,\vec v_k\}$ is linearly dependent.
+        
+        \vspace{12pt}
+        \pause 
+        
+        \Emph{Wny?} Every column of the matrix \[A = (\vec v_1,\ldots ,\vec v_k ) \] would have to be pivotal for the vectors to be independent. \pause But $A$ has \textbf{more columns than rows}, so every column cannot be pivotal. The vectors must be linearly dependent. 
+    \end{enumerate}
+        
+\end{frame}
+
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Linear Independence Theorems}
+
+    \begin{enumerate}
+        \item[2)] \Emph{Set Contains Zero Vector:} If any one or more of $\vec v_1,\ldots , \vec v_k$ is $\vec 0$, then $\{ \vec v_1, \ldots, \vec v_k\}$ is linearly dependent.
+        
+        \vspace{12pt}
+        \pause 
+        
+        \Emph{Wny?} Every column of the matrix \[A = (\vec v_1,\ldots ,\vec v_k ) \] would have to be pivotal for the vectors to be independent. \pause But $A$ \textbf{has a zero column}, so every column cannot be pivotal. The vectors must be linearly dependent.         
+    \end{enumerate}
+
+\end{frame}
+
+
+% \begin{frame}
+% \frametitle{Linear Independence Theorems}
+
+%     \begin{enumerate}
+%         \item[3)] \Emph{Row Operations:} The linear dependence relations between the columns o $\vec v_1,\ldots , \vec v_k$ is $\vec 0$, then $\{ \vec v_1, \ldots, \vec v_k\}$ is linearly dependent.
+        
+%         \vspace{12pt}
+%         \pause 
+        
+%         \Emph{Wny?} Every column of the matrix \[A = (\vec v_1,\ldots ,\vec v_k ) \] would have to be pivotal for the vectors to be independent. \pause But $A$ \textbf{has a zero column}, so every column cannot be pivotal. The vectors must be linearly dependent.         
+%     \end{enumerate}
+
+% \end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Application of our Linear Independence Theorems}
+
+    By inspection, which matrices have linearly independent columns? 
+    \begin{enumerate}
+        \item $A = \spalignmat{1 0;2 0}$ \onslide<2->{\quad \textit{zero column $\Rightarrow$ dependent}}
+        \item $B = \spalignmat{1 0 1;0 1 1}$ \onslide<3->{\quad \textit{more columns than rows $\Rightarrow$ dependent}}
+        \item $C = \spalignmat{1 0 1;2 1 3;3 1 4}$ \onslide<4->{\quad \textit{last column is the sum of the first two $\Rightarrow$ dependent}}
+        \item $D = \spalignmat{1 0 1;0 1 1;0 0 1}$ \onslide<5->{\quad \textit{every column is pivotal $\Rightarrow$ linearly independent}}
+    \end{enumerate}
+
+\end{frame}
+
+
+
+\frame{\frametitle{Summary}
+
+\SummaryLine \vspace{4pt}
+\begin{itemize}\setlength{\itemsep}{8pt}
+        \item characterizing a set of vectors and linear systems using the concept of linear independence
+        \item constructing dependence relations between linearly dependent vectors
+\end{itemize}
+
+}

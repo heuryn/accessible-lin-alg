@@ -1,0 +1,94 @@
+\title{The SVD and the Condition Number of a Matrix}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item the Singular Value Decomposition (SVD) of a matrix and the condition number of a matrix
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+%\LearningObjectiveStatement
+
+\begin{itemize}
+
+    % \item compute the SVD for a rectangular matrix
+    \item apply the SVD to estimate the rank and condition number of a matrix
+    %     \item construct a basis for the four fundamental spaces of a matrix, and
+    %     \item construct a spectral decomposition of a matrix.
+    % \end{itemize}
+\end{itemize}
+
+} 
+
+\begin{frame} \frametitle{Applications of the SVD}
+
+    The SVD has been applied to many modern applications in CS, engineering, and mathematics. % (our textbook mentions the first four).
+    
+    \begin{small}
+    \begin{itemize}
+        \item estimating the rank and condition number of a matrix
+        \item constructing bases for the four fundamental spaces
+        \item computing the pseudoinverse of a matrix
+        \item linear least squares problems
+        % \item Non-linear least-squares  https://en.wikipedia.org/wiki/Non-linear\_least\_squares        
+        \item machine learning and data mining % \\ https://en.wikipedia.org/wiki/K-SVD
+        \item facial recognition % \\ https://en.wikipedia.org/wiki/Eigenface
+        \item principle component analysis % \\ https://en.wikipedia.org/wiki/Principal\_component\_analysis
+        \item image compression
+    \end{itemize}
+    \end{small}
+    
+    % \textit{Students are expected to be familiar with the 1$^{st}$ two items in the list}. 
+ 
+\end{frame}
+
+\begin{frame} \frametitle{The Condition Number of a Matrix}
+
+    If $A$ is an invertible $n\times n$ matrix, the ratio $$\frac{\sigma_1}{\sigma_n}$$ is the \Emph{condition number} of $A$.
+
+    \vspace{12pt} 
+    \Emph{Example}: Suppose $A = \spalignmat{2 -1;2 1}$. We found that $\sigma_1 = \sqrt8, \sigma_2 = \sqrt2$. \pause Therefore, the condition number of $A$ is
+    
+    $$\frac{\sigma_1}{\sigma_n} = \frac{\sqrt8}{\sqrt2}=2$$
+    
+\end{frame}
+
+\begin{frame} \frametitle{Notes on the Condition Number}
+
+
+        \begin{itemize}
+        \item<2-> In some applications of linear algebra, entries of $A$ and contain errors. The condition number of a matrix describes the sensitivity that any approach to determining solutions to $A\vec x = \vec b$ might have to errors in $A$.
+        \item<3-> The larger the condition number, the more sensitive the system is to errors. 
+        \item<4-> We could define the condition number for a rectangular matrix, but that would go beyond the scope of this course.
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item applying the SVD to compute the condition number of a matrix
+
+    \end{itemize}
+    
+    \vspace{6pt}
+}
+
+
+

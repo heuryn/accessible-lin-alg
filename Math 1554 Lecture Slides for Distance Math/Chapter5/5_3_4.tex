@@ -1,0 +1,106 @@
+\title{Computing Matrix Powers with Diagonalization}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\vspace{1cm} 
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    % \item diagonal, similar, and diagonalizable matrices
+
+    \item matrix powers and diagonalization
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    % \item determine whether a matrix can be diagonalized, and if possible diagonalize a square matrix
+    
+    \item apply diagonalization to compute matrix powers
+
+\end{itemize}
+
+
+}
+
+
+
+\begin{frame}{Motivation: Matrix Powers}
+    Suppose $A$ is an $n\times n$ matrix. Recall that:
+    \begin{itemize}
+        \item in some applications we need to compute $A^k$ for large $k$
+        \item computing $A^k$ directly could require many computations, especially if $n$ is large and many of the elements in $A$ are non-zero
+   \end{itemize}
+   \pause 
+   
+    Using the concept of similar matrices, we can obtain a more efficient approach. 
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Example: Matrix Powers}
+    Suppose $A$ is a $2\times2$ matrix whose eigenvalues and associated eigenvectors are as below. Compute $A^{100}$. 
+    $$\lambda_1 = -\frac 12, \quad \vec v_1 = \spalignmat{2;1},\qquad \lambda_2 = \frac12, \quad \vec v_2 = \spalignmat{1;-2}$$
+    \onslide<2->{Because the eigenvalues of $A$ are distinct, we can diagonalize $A$. }
+    \begin{align*}
+       \onslide<2->{A &= PDP^{-1} \\}
+       \onslide<3->{A^2 &= PDP^{-1}PDP^{-1} = PD^2P^{-1} \\}
+       \onslide<4->{A^3 &= PDP^{-1}PDP^{-1}PDP^{-1} = PD^3P^{-1} \\}
+       \onslide<5->{\vdots &= \vdots \\ A^k &= PD^kP^{-1} }
+    \end{align*}
+    \onslide<6->{Thus, to compute $A^{100}$, we can instead compute $PD^{100}P^{-1}$.}
+    
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Example: Matrix Powers}
+
+    Our given eigenvalues and eigenvectors were
+    $$\lambda_1 = -\frac 12, \quad \vec v_1 = \spalignmat{2;1},\qquad \lambda_2 = \frac12, \quad \vec v_2 = \spalignmat{1;-2}$$
+    Using these values, $A^{100}$ becomes
+    \begin{align*}
+        \onslide<2->{A^{100} = PD^{100}P^{-1} &= \spalignmat{2 1;1 -2} \ \spalignmat{-\frac12 0;0 \frac12}^{100}\ \left(\frac15 \spalignmat{2 1;1 -2} \right)} \\
+        \onslide<3->{&=\frac15 \spalignmat{2 1;1 -2} \ \spalignmat{2^{-100} 0;0 2^{-100}}\ \spalignmat{2 1;1 -2} \\}
+        \onslide<4->{&=\frac{2^{-100}}{5} \spalignmat{2 1;1 -2} \spalignmat{1 0;0 1}  \spalignmat{2 1;1 -2}}
+        \onslide<5->{=2^{-100} \spalignmat{1 0;0 1} }
+    \end{align*}
+\end{frame}   
+
+
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item computing matrix powers using the diagonalization of an $n\times n$ matrix 
+
+    \end{itemize}
+    
+    \vspace{8pt}
+    
+
+    
+}
+
+

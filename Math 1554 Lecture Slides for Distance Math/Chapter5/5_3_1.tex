@@ -1,0 +1,205 @@
+\title{Diagonalization}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+\vspace{1cm} 
+
+\frame{\frametitle{Topics and Objectives}
+\Emph{Topics} \\
+%\TopicStatement
+\begin{itemize}
+
+    \item diagonal, similar, and diagonalizable matrices
+
+    \item diagonalizing matrices
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\Emph{Learning Objectives}\\
+
+\LearningObjectiveStatement
+
+\begin{itemize}
+
+    \item determine whether a matrix can be diagonalized, and if possible diagonalize a square matrix
+    
+    \item apply diagonalization to compute matrix powers
+
+\end{itemize}
+
+
+}
+
+
+
+\begin{frame}\frametitle{Powers of Matrices}
+
+\Emph{Motivation}: it can be useful to take large powers of matrices, for example $A^k$, for large $k$. \\[12pt] \pause \Emph{But}: multiplying two $n\times n$ matrices requires roughly $n^3$ computations. Is there a more efficient way to compute $A^k$? 
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diagonal Matrices}
+
+    \vspace{-12pt}
+    % ~~ ~~ Highlight Box ~~ ~~
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.95\textwidth}\vspace{2pt}
+
+        A matrix is \Emph{diagonal} if the only non-zero elements, if any, are on the main diagonal. 
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}
+    % ~~ ~~ Highlight Box ~~ ~~
+    
+    \pause 
+    \vspace{12pt}
+    
+    The following are all diagonal matrices. 
+    
+    $$
+    I_n, \quad 
+    \begin{pmatrix} 0&0\\0&0\end{pmatrix}, \quad
+    \begin{pmatrix} 2&0\\0&0\end{pmatrix}, \quad
+    \begin{pmatrix} 2&0&0&0\\0&0&0&0\\0&0&1&0\\0&0&0&3\end{pmatrix}
+    $$ 
+
+    We will only be working with diagonal square matrices in this course.
+\end{frame}
+
+\begin{frame}
+\frametitle{Powers of Diagonal Matrices}
+
+    If $A$ is diagonal, then $A^k$ is easy to compute. For example, 
+    \begin{align*} 
+        A & = \spalignmat{3 0 ; 0 5 } \\\\
+        \onslide<2->{A^2 & = \spalignmat{3 0 ; 0 5 }\spalignmat{3 0 ; 0 5 } = \spalignmat{3^2 0 ; 0 5^2 }\\\\}
+        \onslide<3->{A^k &= \spalignmat{3^k 0 ; 0 5^k }}
+    \end{align*} 
+    
+    \vspace{.5cm} 
+    \onslide<4->{But what if $A$ is not diagonal? }
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Diagonalization}
+
+    % ~~ ~~ Highlight Box ~~ ~~
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.90\textwidth}\vspace{2pt}
+
+        Suppose $A \in \R^{n \times n}$. We say that $A$ is \Emph{diagonalizable} if it is similar to a diagonal matrix, $D$. That is, we can write $A = PDP^{-1}$.
+
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}\end{center}
+    % ~~ ~~ Highlight Box ~~ ~~
+    
+    \pause
+    
+    Also note that $A = PDP^{-1}$ if and only if
+    \begin{align*}
+        A &= \left(\vec v_1 \ \vec v_2 \cdots \vec v_n\right)
+        \begin{pmatrix} \lambda_1 & & & \\ & \lambda_2 & & \\ & & \ddots & \\ & & & \lambda_n \end{pmatrix}  
+        \left(\vec v_1 \ \vec v_2 \cdots \vec v_n\right)^{-1} 
+%    &= CDC^{-1}
+    \end{align*}
+    $\vec v_1,\dots,\vec v_n$ are linearly independent eigenvectors, and $\lambda_1,\dots,\lambda_n$ are the corresponding eigenvalues (\Emph{in order}).    
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Diagonalization: Proof}
+
+    We construct $P = (\vec v_1 \ \vec v_2 \ \ldots  \vec v_n)$. Then
+    \begin{align*}
+        \onslide<2->{AP &= A(\vec v_1 \ \vec v_2 \ \ldots  \vec v_n) \\}
+        \onslide<3->{&= (A\vec v_1 \ A\vec v_2 \ \ldots  A\vec v_n) \\}
+        \onslide<4->{&= (\lambda_1\vec v_1 \ \lambda_2\vec v_2 \ \ldots  \lambda_n\vec v_n) \\}
+        \onslide<5->{AP&= (\vec v_1 \ \vec v_2 \ \ldots  \vec v_n)\spalignmat{\lambda_1, , , ,;,\lambda_2,,,;,,,;,,,\lambda_n} \\
+        &= PD}
+    \end{align*}
+    \onslide<6->{Or, $A=PDP^{-1}$. }
+\end{frame}
+
+
+
+\begin{frame}{Diagonalization}
+
+    \vspace{-18pt} 
+    \begin{center}\begin{tikzpicture} \node [mybox](box){\begin{minipage}{0.95\textwidth}\vspace{2pt}
+
+    If $ A$ is diagonalizable $\Leftrightarrow A$ has $n$ linearly independent eigenvectors.
+
+    \end{minipage}};
+    \node[fancytitle, right=10pt] at (box.north west) {Theorem};
+    \end{tikzpicture}\end{center}
+    
+    Note: the symbol $\Leftrightarrow$ means \Emph{if and only if}. \\[12pt]
+
+
+
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Example 1}
+
+    Diagonalize if possible. 
+    \begin{align*}
+        \spalignmat{ 2 6 ; 0 -1 }
+    \end{align*}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Example 2}
+
+    Diagonalize if possible. 
+    \begin{align*}
+        \spalignmat{ 1 1 ; 0 1}
+    \end{align*}
+
+\end{frame}
+
+
+
+
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+
+        \item the diagonalization of an $n\times n$ matrix
+
+    \end{itemize}
+    
+    \vspace{8pt}
+    
+    We also need to look at cases where eigenvalues can be repeated, and conditions that are needed for a matrix to be diagonalized. 
+    
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,129 @@
+5title{Matrix Transpose and Powers}
+\subtitle{\SubTitleName}
+\institute[]{\Course}
+\author{\Instructor}
+\maketitle   
+
+
+\tikzstyle{startstop} =[trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=1cm, minimum height=1cm, text centered, fill=Teal!30]
+
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=1cm, minimum height=1cm, text centered, fill=DarkRed!30]
+
+\tikzstyle{process} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=1cm, minimum height=1cm, text centered, fill=Gold!60]
+
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\frame{\frametitle{Topics and Objectives}
+    \Emph{Topics} \\
+    \TopicStatement
+    \begin{itemize}
+    
+        \item the transpose of a matrix 
+        
+        \item matrix powers
+    
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \Emph{Objectives}\\
+    
+    \LearningObjectiveStatement
+    
+    \begin{itemize}
+    
+            \item apply the matrix transpose and matrix powers to solve and analyze matrix equations
+    
+    \end{itemize}
+
+}
+
+
+
+
+
+
+
+
+\frame{\frametitle{The Transpose of a Matrix} 
+
+$ A ^{T}$ is the matrix whose columns are the rows of $A$.  \\[12pt]
+
+\Emph{Example} 
+\begin{equation*}
+\begin{pmatrix}
+1 & 2 & 3 & 4  \\ 0 & 1 & 0 & 2 
+\end{pmatrix} ^{T} = 
+\end{equation*}
+
+\Emph{Properties of the Matrix Transpose}
+
+\begin{enumerate}\setlength\itemsep{1em}
+\item  $ (A ^{T}) ^{T} =$ % A $ 
+\item  $ (A+B) ^{T} = $ % A ^{T} + B ^{T}$ 
+\item  $ (rA) ^{T} = $ %r A ^{T}$ 
+\item   $ (AB) ^{T} = $ % B ^{T} A ^{T}$
+\end{enumerate}
+%% ENUMERATE
+
+}
+
+
+\frame{\frametitle{Matrix Powers} 
+
+    For $n\times n$ matrix and positive integer $k$, $A^k$ is the product of $k$ copies of $A$. 
+    
+    $$A^k = A A \ldots A$$
+
+    \Emph{Example}: Compute $C^2$.
+
+    \begin{equation*}
+        C = \spalignmat{1 2;0 1}
+    \end{equation*}    
+    
+}
+
+
+
+\begin{frame}
+\frametitle{Example}
+
+Define 
+\begin{equation*}
+A = 
+\begin{pmatrix}
+1 & 0 \\ 0 & 0 
+\end{pmatrix} 
+, \quad 
+B = 
+\begin{pmatrix}
+1 & 0  & 0 \\ 0 & 0 & 8   
+\end{pmatrix} 
+, \quad 
+C = 
+\begin{pmatrix}
+1 & 0 & 0 \\ 0 & 2 & 0  \\ 0 & 0 & 2 
+\end{pmatrix} 
+\end{equation*}
+
+Which of these operations are defined, and what are the dimensions of the result? 
+
+\begin{enumerate} \setlength\itemsep{1.5em}
+
+    \item $A + 3 C^2$ 
+    \item $A(AB)^T$ 
+    \item $A + A B C B^T$ 
+
+\end{enumerate}
+
+\end{frame}
+
+\frame{\frametitle{Summary}
+
+    \SummaryLine \vspace{4pt}
+    \begin{itemize}\setlength{\itemsep}{8pt}
+            \item use of the matrix transpose, matrix powers, to solve and analyze matrix equations
+    \end{itemize}
+    For example, we can determine whether a particular expression involving matrices is defined and what the dimensions of the product will be. 
+}
+

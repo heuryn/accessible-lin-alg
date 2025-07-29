@@ -1,0 +1,22 @@
+    \begin{center}
+    \tdplotsetmaincoords{70}{135}
+    \begin{tikzpicture}[scale=0.95,
+        axis/.style={->,black,-stealth}, 
+        solline/.style={DarkRed,thick},
+        tdplot_main_coords
+        ]
+
+        \coordinate (O) at (0,0,0);
+        \coordinate (X) at (1,0,0);
+        \coordinate (Y) at (0,1,0);        
+        \coordinate (Z) at (0,0,1);        
+        \coordinate (W) at (.5,-1.8,0);        
+        
+        % planes
+        \filldraw[draw=Teal!90,fill=Teal!15] (0,0,0) -- (1,0,0) -- (1,0,1) -- (0,0,1) -- cycle;
+        \filldraw[draw=Teal!90,fill=Teal!15] (0,.5,0) -- (1,.5,0) -- (1,.5,1) -- (0,.5,1) -- cycle;
+        \filldraw[draw=Teal!90,fill=Teal!15] (0,1,0) -- (1,1,0) -- (1,1,1) -- (0,1,1) -- cycle;
+        
+        
+    \end{tikzpicture}
+    \end{center}
