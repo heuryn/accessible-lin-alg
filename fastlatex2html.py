@@ -71,9 +71,7 @@ def convert(tex, filename):
     return html
 
 
-# Optional: limit to 1 file for debug
-# FILES = list(Path(INPUT_DIR).glob("*.tex"))
-FILES = [Path("/home/hice1/hyu462/scratch/accessible-lin-alg/Math 1554 Lecture Slides for Distance Math/Chapter1/1_1_1.tex")]
+FILES = list(Path(INPUT_DIR).glob("*.tex"))
 print(f"Found {len(FILES)} .tex files")
 
 for i, file in enumerate(FILES):

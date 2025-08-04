@@ -38,7 +38,7 @@ def convert(tex, filename):
     input_len = inputs['input_ids'].shape[-1]
     print(f"[{filename}] Input tokens: {input_len}")
 
-    max_out_tokens = 1024
+    max_out_tokens = 4096
     print(f"[{filename}] Generating with max_new_tokens={max_out_tokens}...")
 
     start = time.time()
